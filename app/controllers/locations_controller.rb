@@ -34,13 +34,15 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    @location = Location.find(params[:id])
   end
 
   def update
+    @location = Location.find(params[:id])
     if @location.update(location_params)
       redirect_to @location, notice: 'Location was successfully updated.'
     else
-      render :edit
+      render :edit, notice: 'Location was not updated. Please review your fields.'
     end
   end
 
@@ -56,6 +58,6 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name, :address, :category, :subcategory, :photo, :user_id)
+    params.require(:location).permit(:name, :address, :category, :subcategory, :photo)
   end
 end
