@@ -1,0 +1,69 @@
+<h1>Create a Review</h1>
+
+<div class="location-info">
+  <h3>Location Information:</h3>
+  <p><strong>Name:</strong> <%= @location.name %></p>
+  <p><strong>Address:</strong> <%= @location.address %></p>
+  <p><strong>Category:</strong> <%= @location.category %></p>
+  <p><strong>Subtype:</strong> <%= @location.public_space? ? @location.subcategory : @location.subcategory %></p>
+</div>
+
+ <div id="progress-bar">
+    <div id="progress-bar-fill" style="width: 0;"></div>
+</div>
+
+<%= simple_form_for([@location, @review], html: { data: { controller: "review-form" } }) do |form| %>
+  <%= form.error_notification %>
+
+  <div id="review-form-general">
+    <h2>General</h2>
+    <%= form.input :title %>
+    <%= form.input :comment, as: :text %>
+    <%= form.input :photo, as: :file %>
+    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+  </div>
+
+  <div id="review-form-expenses" class="d-none">
+    <h2>Expenses</h2>
+    <%= form.input :meal_cost %>
+    <%= form.input :coffee_cost %>
+    <%= form.input :rent_cost %>
+    <%= form.input :beer_cost %>
+    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
+  </div>
+
+  <div id="review-form-ratings" class="d-none">
+    <h2>Ratings</h2>
+    <%= form.input :noise_level, collection: 1..5 %>
+    <%= form.input :safety, collection: 1..5 %>
+    <%= form.input :internet_speed, collection: 1..5 %>
+    <%= form.input :family_zone, collection: 1..5 %>
+    <%= form.input :nightlife, collection: 1..5 %>
+    <%= form.input :pet_friendly, collection: 1..5 %>
+    <%= form.input :restaurants_qty, collection: 1..5 %>
+    <%= form.input :shopping, collection: 1..5 %>
+    <%= form.input :dealer, as: :boolean %>
+    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
+  </div>
+
+  <div id="review-form-mobility" class="d-none">
+    <h2>Mobility</h2>
+    <%= form.input :metro, as: :boolean %>
+    <%= form.input :bike, as: :boolean %>
+    <%= form.input :bus, as: :boolean %>
+    <%= form.input :uber, as: :boolean %>
+    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
+  </div>
+
+  <div id="review-form-submit" class="d-none">
+    <h2>Success</h2>
+    <p>Your review has been submitted successfully.</p>
+    <%= form.button :submit, class: 'btn btn-primary' %>
+    <%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
+  </div>
+
+
+<% end %>
