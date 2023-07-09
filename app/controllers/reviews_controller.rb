@@ -1,2 +1,51 @@
 class ReviewsController < ApplicationController
+  before_action :set_location, only: %i[new create edit update destroy]
+
+  # Path: app/views/reviews/_form.html.erb
+  def new
+    @review = Review.new
+  end
+
+  def create
+    # @review = current_user.reviews.build(review_params.merge(location: @location))
+    @review = Review.new(review_params)
+    @review.location = @location
+    @review.user = current_user
+    if @review.save
+      redirect_to @location, notice: 'Review created successfully.'
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @review = current_user.reviews.find(params[:id])
+  end
+
+  def update
+    @review = current_user.reviews.find(params[:id])
+
+    if @review.update(review_params)
+      redirect_to @review.location
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review = current_user.reviews.find(params[:id])
+    location = @review.location
+    @review.destroy
+    redirect_to location, notice: 'Review deleted successfully.'
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:title, :comment, :noise_level, :safety, :internet_speed, :family_zone, :nightlife, :pet_friendly, :restaurants_qty, :shopping, :metro, :bike, :bus, :uber, :dealer, :photo)
+  end
+
+  def set_location
+    @location = Location.find(params[:location_id])
+  end
 end

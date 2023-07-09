@@ -1,0 +1,33 @@
+<h1>Review Details</h1>
+
+<p><strong>Title:</strong> <%= @review.title %></p>
+<p><strong>Comment:</strong> <%= @review.comment %></p>
+<p><strong>Photo:</strong> <%= image_tag @review.photo %></p>
+
+<h2>Expenses</h2>
+<p><strong>Meal Cost:</strong> <%= @review.meal_cost %></p>
+<p><strong>Coffee Cost:</strong> <%= @review.coffee_cost %></p>
+<p><strong>Rent Cost:</strong> <%= @review.rent_cost %></p>
+<p><strong>Beer Cost:</strong> <%= @review.beer_cost %></p>
+
+<h2>Ratings</h2>
+<p><strong>Noise Level:</strong> <%= @review.noise_level %></p>
+<p><strong>Safety:</strong> <%= @review.safety %></p>
+<p><strong>Internet Speed:</strong> <%= @review.internet_speed %></p>
+<p><strong>Family Zone:</strong> <%= @review.family_zone %></p>
+<p><strong>Nightlife:</strong> <%= @review.nightlife %></p>
+<p><strong>Pet Friendly:</strong> <%= @review.pet_friendly %></p>
+<p><strong>Restaurants Quantity:</strong> <%= @review.restaurants_qty %></p>
+<p><strong>Shopping:</strong> <%= @review.shopping %></p>
+<p><strong>Dealer:</strong> <%= @review.dealer %></p>
+
+<h2>Mobility</h2>
+<p><strong>Metro:</strong> <%= @review.metro ? 'Yes' : 'No' %></p>
+<p><strong>Bike:</strong> <%= @review.bike ? 'Yes' : 'No' %></p>
+<p><strong>Bus:</strong> <%= @review.bus ? 'Yes' : 'No' %></p>
+<p><strong>Uber:</strong> <%= @review.uber ? 'Yes' : 'No' %></p>
+<p><strong>Dealer:</strong> <%= @review.dealer ? 'Yes' : 'No' %></p>
+
+<%= link_to 'Edit Review', edit_location_review_path(@location, @review), class: 'btn btn-primary' %>
+<%= link_to 'Delete Review', location_review_path(@location, @review), method: :delete, data: { confirm: 'Are you sure you want to delete this review?' }, class: 'btn btn-danger' %>
+<%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
