@@ -9,7 +9,6 @@ class CreateLocations < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :neighborhood
       t.references :user, null: false, foreign_key: true
-
       t.timestamps
     end
   end

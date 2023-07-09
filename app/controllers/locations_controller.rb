@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :set_user, only: [:new, :create, :edit, :update]
 
   def index
     @locations = Location.all
@@ -6,6 +7,8 @@ class LocationsController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
@@ -21,9 +24,12 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
+      # do reverse geoding
+      # extract city and neighborhood from reverse geocing
+      # assign values and update
       redirect_to @location, notice: 'Location was successfully created.'
     else
-      render :new
+      render :new, notice: 'Location was not created. Please review your fields.'
     end
   end
 
@@ -38,18 +44,18 @@ class LocationsController < ApplicationController
     end
   end
 
-  def destroy
-    @location.destroy
-    redirect_to locations_url, notice: 'Location was successfully destroyed.'
-  end
+  # def destroy
+  #   @location.destroy
+  #   redirect_to locations_url, notice: 'Location was successfully destroyed.'
+  # end
 
   private
 
-  def set_location
-    @location = Location.find(params[:id])
+  def set_user
+    @user = current_user
   end
 
   def location_params
-    params.require(:location).permit(:name, :address, :city, :neighborhood, :location_type)
+    params.require(:location).permit(:name, :address, :category, :subcategory, :photo, :user_id)
   end
 end
