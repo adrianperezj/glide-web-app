@@ -3,8 +3,18 @@
 <%= link_to "New Location", new_location_path %>
 
 
-<div style="width: 100%; height: 600px;"
+<div style="mx-3 my-3 width: 90%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+<div class="card mx-3 my-3">
+  <% @locations.each do |location| %>
+   <h4><strong><%= location.name %></strong></h4>
+    <p><%= location.address %></p>
+    <p><%= location.category %></p>
+    <p><%= location.subcategory %></p>
+    <p><%= link_to "View location", location_path(location) %></p>
+  <% end %>
 </div>

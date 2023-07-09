@@ -1,2 +1,18 @@
-<h1>Mira qué Location tan fregona</h1>
-<%= @location.name %>
+<div class="container my-3 center-content">
+  <h1><%= @location.name %></h1>
+
+  <div class="card rounded shadow col-4" >
+    <% if @location.photo.present? %>
+      <%= image_tag @location.photo %>
+    <% else %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+    <%= @location.name %>
+    <%= @location.address %>
+  </div>
+
+    <%= link_to 'Edit', edit_location_path(@location) %>
+    <%= link_to 'Back', locations_path %>
+    <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
+    <%= link_to 'See reviews', location_reviews_path(@location), class: 'btn btn-primary' %>
+</div>
