@@ -1,1 +1,38 @@
 <h1>Aquí creas una Location</h1>
+
+<%= simple_form_for @location do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+
+  <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category' } %>
+
+  <div id="subcategory_wrapper" style="display: none;">
+    <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
+  </div>
+
+
+  <%= f.input :photo, as: :file %>
+
+  <%= f.button :submit %>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const categorySelect = document.getElementById("location_category");
+    const subcategoryWrapper = document.getElementById("subcategory_wrapper");
+    const subcategorySelect = document.getElementById("location_subcategory");
+
+    categorySelect.addEventListener("change", function() {
+      if (this.value === "Public Space") {
+        subcategorySelect.innerHTML = "<option value=''>Select Subcategory</option><%= j options_for_select(Location::PUBLIC_SUBTYPE) %>";
+        subcategoryWrapper.style.display = "block";
+      } else if (this.value === "Private Space") {
+        subcategorySelect.innerHTML = "<option value=''>Select Subcategory</option><%= j options_for_select(Location::PRIVATE_SUBTYPE) %>";
+        subcategoryWrapper.style.display = "block";
+      } else {
+        subcategoryWrapper.style.display = "none";
+      }
+    });
+  });
+</script>
