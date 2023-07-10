@@ -1,18 +1,109 @@
-<div class="container my-3 center-content">
-  <h1><%= @location.name %></h1>
+<div class="container my-3">
+  <div class="row">
+    <h1><%= @location.name %></h1>
+    <div class="d-flex">
+      <div class="card rounded p-3 mx-3 shadow col-6" >
+        <% if @location.photo.present? %>
+          <%= image_tag @location.photo %>
+        <% else %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+        <strong><h4><%= @location.name %> <br></h4></strong>
+        <%= @location.address %> <br>
+        <%= @location.category %> <br>
+        <%= @location.subcategory %> <br>
+        <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
+        <br>
+        <%= link_to 'See reviews', location_reviews_path(@location), class: 'btn btn-primary' %>
+        <br>
+        <div class="d-flex">
+          <p> <%= link_to 'Edit', edit_location_path(@location) %>
+          <%= link_to 'Back', locations_path %> </p>
+        </div>
+      </div>
+      <div class="row">
+        <% if @location.reviews.any? %>
+          <div class="card rounded shadow p-3 mx-3 col-md-12">
+            <h1>Ratings and reviews</h1>
+            <div class="row my-3">
+              <div class="col-md-6">
+                <p><strong>Meal Cost:</strong> $<%= average_rating(:meal_cost) %> USD</p>
+                <p><strong>Coffee Cost:</strong> $<%= average_rating(:coffee_cost) %> USD</p>
+                <p><strong>Rent Cost:</strong> $<%= average_rating(:rent_cost) %> USD</p>
+                <p><strong>Beer Cost:</strong> $<%= average_rating(:beer_cost) %> USD</p>
+                <p><strong>Average Noise Level:</strong> $<%= average_rating(:noise_level) %></p>
+                <p><strong>Safety level:</strong> <%= average_rating(:safety) %></p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Working Internet Speed:</strong> <%= average_rating(:internet_speed) %></p>
+                <p><strong>Considered Family Zone:</strong> <%= average_rating(:family_zone) %></p>
+                <p><strong>Options for Nightlife:</strong> <%= average_rating(:nightlife) %></p>
+                <p><strong>Is Pet Friendly:</strong> <%= average_rating(:pet_friendly) %></p>
+                <p><strong>Restaurants Variety:</strong> <%= average_rating(:restaurants_qty) %></p>
+                <p><strong>Have Shopping:</strong> <%= average_rating(:shopping) %></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Dealer near?:</strong> <%= percentage_rating(:dealer) %>%</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Subway near?:</strong> <%= percentage_rating(:metro) %>%</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Bike near?:</strong> <%= percentage_rating(:bike) %>%</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Bus near?:</strong> <%= percentage_rating(:bus) %>%</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Uber or ride app?:</strong> <%= percentage_rating(:uber) %>%</p>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <p>No reviews available.</p>
+        <% end %>
+      </div>
+    </div>
+    <div class="container my-5">
+      <h2>Detailed Ratings and reviews</h2>
 
-  <div class="card rounded shadow col-4" >
-    <% if @location.photo.present? %>
-      <%= image_tag @location.photo %>
-    <% else %>
-      <%= image_tag "logo.png" %>
-    <% end %>
-    <%= @location.name %>
-    <%= @location.address %>
+      <% @location.reviews.each do |review| %>
+        <div class="card p-3 rounded shadow col-12" >
+          <p><strong>Title:</strong> <%= review.title %></p>
+          <p><strong>Comment:</strong> <%= review.comment %></p>
+          <% if review.photo.present? %>
+            <p><strong>Photo:</strong> <%= image_tag review.photo %></p>
+          <% else %>
+            <p><strong>Photo:</strong> <%= image_tag "logo.png" %></p>
+          <% end %>
+          <p><strong>Meal Cost:</strong> <%= review.meal_cost %></p>
+          <p><strong>Coffee Cost:</strong> <%= review.coffee_cost %></p>
+          <p><strong>Rent Cost:</strong> <%= review.rent_cost %></p>
+          <p><strong>Beer Cost:</strong> <%= review.beer_cost %></p>
+          <p><strong>Noise Level:</strong> <%= review.noise_level %></p>
+          <p><strong>Safety:</strong> <%= review.safety %></p>
+          <p><strong>Internet Speed:</strong> <%= review.internet_speed %></p>
+          <p><strong>Family Zone:</strong> <%= review.family_zone %></p>
+          <p><strong>Nightlife:</strong> <%= review.nightlife %></p>
+          <p><strong>Pet Friendly:</strong> <%= review.pet_friendly %></p>
+          <p><strong>Restaurants Quantity:</strong> <%= review.restaurants_qty %></p>
+          <p><strong>Shopping:</strong> <%= review.shopping %></p>
+          <p><strong>Dealer:</strong> <%= review.dealer %></p>
+          <p><strong>Metro:</strong> <%= review.metro ? 'Yes' : 'No' %></p>
+          <p><strong>Bike:</strong> <%= review.bike ? 'Yes' : 'No' %></p>
+          <p><strong>Bus:</strong> <%= review.bus ? 'Yes' : 'No' %></p>
+          <p><strong>Uber:</strong> <%= review.uber ? 'Yes' : 'No' %></p>
+          <p><strong>Dealer:</strong> <%= review.dealer ? 'Yes' : 'No' %></p>
+          <%= link_to 'Edit Review', edit_review_path(@location, review) %>
+          <%= link_to 'Delete Review', location_review_path(@location, review), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-    <%= link_to 'Edit', edit_location_path(@location) %>
-    <%= link_to 'Back', locations_path %>
-    <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
-    <%= link_to 'See reviews', location_reviews_path(@location), class: 'btn btn-primary' %>
 </div>
