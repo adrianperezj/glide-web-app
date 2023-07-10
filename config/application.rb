@@ -15,6 +15,7 @@ module GlideWebApp
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.assets.precompile += %w( review_form.js )
 
     # Configuration for the application, engines, and railties goes here.
     #
