@@ -46,6 +46,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_location
-    @location = Location.find(params[:location_id])
+    @location = Location.find_by(id: params[:location_id])
+    redirect_to root_path, alert: 'Location not found' unless @location
   end
 end
