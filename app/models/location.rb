@@ -3,12 +3,18 @@ class Location < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
+  # Geocoding
+
   geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  # Options for the category and subcategory
+
   CATEGORIES = ["Public Space", "Private Space"]
   PUBLIC_SUBTYPE = ["Neighborhood", "Block/Square", "Street", "Park", "Cultural Landmark", "Natural Landmark"]
-  PRIVATE_SUBTYPE = ["House", "Flat", "Restaurant", "Bar", "Hotel", "Workshop", "Office"]
+  PRIVATE_SUBTYPE = ["House", "Flat", "Restaurant", "Bar", "Hotel", "Workshop", "Office", "Shopping Mall"]
+
+  # Validations
 
   validates :name, presence: true
   validates :address, presence: true
