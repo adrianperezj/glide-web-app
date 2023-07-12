@@ -7,6 +7,7 @@ export default class extends Controller {
     this.currentSectionIndex = 0
     this.sections = Array.from(this.sectionTargets)
     this.updateProgress()
+    console.log("Hello, Stimulus!", this.element)
   }
 
   transition(event) {
@@ -18,6 +19,7 @@ export default class extends Controller {
     this.showNextSection(nextSectionIndex)
     this.currentSectionIndex = nextSectionIndex
     this.updateProgress()
+    console.log("Hello, Stimulus again!", this.element)
   }
 
   hideCurrentSection() {
@@ -28,6 +30,7 @@ export default class extends Controller {
   showNextSection(nextSectionIndex) {
     const nextSection = this.sections[nextSectionIndex]
     nextSection.classList.remove("d-none")
+    console.log("Hello, Stimulus yet again MF!", this.element)
   }
 
   calculateNextSectionIndex(direction) {
