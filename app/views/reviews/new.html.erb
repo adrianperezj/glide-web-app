@@ -20,7 +20,7 @@
     <%= form.input :title %>
     <%= form.input :comment, as: :text %>
     <%= form.input :photo, as: :file %>
-    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#nextSection" data-direction="next">Next ---&gt;</button>
   </div>
 
   <div id="review-form-expenses" class="d-none">
@@ -29,7 +29,7 @@
     <%= form.input :coffee_cost %>
     <%= form.input :rent_cost %>
     <%= form.input :beer_cost %>
-    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#nextSection" data-direction="next">Next ---&gt;</button>
     <button data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
   </div>
 
@@ -44,7 +44,7 @@
     <%= form.input :restaurants_qty, collection: 1..5 %>
     <%= form.input :shopping, collection: 1..5 %>
     <%= form.input :dealer, as: :boolean %>
-    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#nextSection" data-direction="next">Next ---&gt;</button>
     <button data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
   </div>
 
@@ -54,16 +54,15 @@
     <%= form.input :bike, as: :boolean %>
     <%= form.input :bus, as: :boolean %>
     <%= form.input :uber, as: :boolean %>
-    <button data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+    <button data-action="click->review-form#nextSection" data-direction="next">Next ---&gt;</button>
     <button data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
   </div>
 
   <div id="review-form-submit" class="d-none">
     <h2>Success</h2>
     <p>Your review has been submitted successfully.</p>
-    <%= form.button :submit, class: 'btn btn-primary' %>
-    <%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
+    <%= form.button :submit, class: 'btn btn-primary', id: "review-form-submit-button", style: "display: none;" %>
   </div>
-
-
 <% end %>
+
+<%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
