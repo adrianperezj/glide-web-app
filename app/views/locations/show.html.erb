@@ -1,4 +1,5 @@
 <div class="container my-3">
+
   <div class="row">
     <h1><%= @location.name %></h1>
     <div class="d-flex">
@@ -21,6 +22,7 @@
           <%= link_to 'Back', locations_path %> </p>
         </div>
       </div>
+
       <div class="row">
         <% if @location.reviews.any? %>
           <div class="card rounded shadow p-3 mx-3 col-md-12">
@@ -43,6 +45,7 @@
                 <p><strong>Have Shopping:</strong> <%= average_rating(:shopping) %></p>
               </div>
             </div>
+
             <div class="row">
               <div class="col-md-6">
                 <p><strong>Dealer near?:</strong> <%= percentage_rating(:dealer) %>%</p>
@@ -51,14 +54,17 @@
                 <p><strong>Subway near?:</strong> <%= percentage_rating(:metro) %>%</p>
               </div>
             </div>
+
             <div class="row">
               <div class="col-md-6">
                 <p><strong>Bike near?:</strong> <%= percentage_rating(:bike) %>%</p>
               </div>
+
               <div class="col-md-6">
                 <p><strong>Bus near?:</strong> <%= percentage_rating(:bus) %>%</p>
               </div>
             </div>
+
             <div class="row">
               <div class="col-md-6">
                 <p><strong>Uber or ride app?:</strong> <%= percentage_rating(:uber) %>%</p>
@@ -70,7 +76,16 @@
         <% end %>
       </div>
     </div>
-    <div class="container my-5">
+
+      <div class="container p-3 mx-3">
+        <div style="width: 90%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+
+    <div class="container p-3 mx-3">
       <h2>Detailed Ratings and reviews</h2>
 
       <% @location.reviews.each do |review| %>

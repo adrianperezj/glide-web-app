@@ -8,14 +8,31 @@ class LocationsController < ApplicationController
         lat: location.latitude,
         lng: location.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: {location: location})
       }
     end
   end
 
   def show
     @location = Location.find(params[:id])
-  end
+    # Geocode the address to obtain latitude and longitude
+    # Assign the latitude and longitude values from the model
+    latitude = @location.latitude
+    longitude = @location.longitude
+
+    if latitude.present? && longitude.present?
+      # Define the @markers variable with the pin location
+      @markers = [{
+        lat: latitude,
+        lng: longitude,
+        title: @location.name
+      }]
+    else
+      # Handle the case where latitude or longitude is missing
+      @markers = []
+    end
+ end
+
 
   def new
     @location = Location.new
