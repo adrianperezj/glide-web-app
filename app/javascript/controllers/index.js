@@ -7,6 +7,12 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import CategoryController from "./category_controller"
+application.register("category", CategoryController)
+
+import FormMapController from "./form_map_controller"
+application.register("form-map", FormMapController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -15,3 +21,6 @@ application.register("map", MapController)
 
 import ReviewFormController from "./review_form_controller"
 application.register("review-form", ReviewFormController)
+
+import ShowMapController from "./show_map_controller"
+application.register("show-map", ShowMapController)

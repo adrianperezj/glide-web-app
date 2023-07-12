@@ -25,7 +25,9 @@ class LocationsController < ApplicationController
       @markers = [{
         lat: latitude,
         lng: longitude,
-        title: @location.name
+        title: @location.name,
+        info_window_html: render_to_string(partial: "info_window", locals: { location: @location }),
+        marker_html: render_to_string(partial: "marker", locals: {location: @location})
       }]
     else
       # Handle the case where latitude or longitude is missing
@@ -40,10 +42,8 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    #  reverse geocoding
     if @location.save
-      # do reverse geoding
-      # extract city and neighborhood from reverse geocing
-      # assign values and update
       redirect_to @location, notice: 'Location was successfully created.'
     else
       render :new, notice: 'Location was not created. Please review your fields.'
@@ -69,6 +69,17 @@ class LocationsController < ApplicationController
   # end
 
   private
+
+  def extract_city_from_results(results)
+    # Extract the city from the results using your preferred method
+    # This can vary depending on the structure of the results returned by Geocoder
+    # Adjust this logic based on your specific use case
+    results.first.city
+  end
+
+    # def extract_neighborhood_from_results(results)
+    #   results.first.neighborhood
+    # end
 
   def set_user
     @user = current_user
