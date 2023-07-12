@@ -8,6 +8,27 @@
 
 require "faker"
 
+2.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: "123456",
+    username: downcase(Faker::Internet.username(specifier: 5..8)),
+  )
+end
+
+2.times do
+  Location.create(
+    name: Faker::Address.street_name,
+    address: Faker::Address.street_address,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    category: "Public Space",
+    subcategory: "Park",
+    user_id: [1,2].sample
+  )
+end
+
+
 17.times do
   Review.create(
     title: Faker::Lorem.sentence(word_count: 3),

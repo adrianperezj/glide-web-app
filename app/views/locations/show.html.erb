@@ -1,4 +1,5 @@
 <div class="container my-3">
+<% console %>
 
   <div class="row">
     <h1><%= @location.name %></h1>
@@ -11,6 +12,7 @@
         <% end %>
         <strong><h4><%= @location.name %> <br></h4></strong>
         <%= @location.address %> <br>
+        <%= @location.city %> <br>
         <%= @location.category %> <br>
         <%= @location.subcategory %> <br>
         <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
@@ -33,7 +35,7 @@
                 <p><strong>Coffee Cost:</strong> $<%= average_rating(:coffee_cost) %> USD</p>
                 <p><strong>Rent Cost:</strong> $<%= average_rating(:rent_cost) %> USD</p>
                 <p><strong>Beer Cost:</strong> $<%= average_rating(:beer_cost) %> USD</p>
-                <p><strong>Average Noise Level:</strong> $<%= average_rating(:noise_level) %></p>
+                <p><strong>Average Noise Level:</strong> <%= average_rating(:noise_level) %></p>
                 <p><strong>Safety level:</strong> <%= average_rating(:safety) %></p>
               </div>
               <div class="col-md-6">
@@ -79,9 +81,9 @@
 
       <div class="container p-3 mx-3">
         <div style="width: 90%; height: 600px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          data-controller="show-map"
+          data-show-map-markers-value="<%= @markers.to_json %>"
+          data-show-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
 
