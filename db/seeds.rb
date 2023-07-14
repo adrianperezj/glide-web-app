@@ -12,7 +12,7 @@ require "faker"
   User.create(
     email: Faker::Internet.email,
     password: "123456",
-    username: downcase(Faker::Internet.username(specifier: 5..8)),
+    username: (Faker::Internet.username(specifier: 5..8)).downcase
   )
 end
 
@@ -20,6 +20,8 @@ end
   Location.create(
     name: Faker::Address.street_name,
     address: Faker::Address.street_address,
+    city: Faker::Address.city,
+    neighborhood: Faker::Address.community,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
     category: "Public Space",
