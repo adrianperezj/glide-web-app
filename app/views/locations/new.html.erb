@@ -3,8 +3,8 @@
 <%= simple_form_for @location do |f| %>
   <%= f.input :address, input_html: { data: { address_autocomplete_target: "address" }, class: "d-none" },
                       wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
-  <%= f.input :city, input_html: { readonly: true } %>
-  <%= f.input :neighborhood, input_html: { readonly: true } %>
+  <%= f.input :city %>
+  <%= f.input :neighborhood %>
 
   <div data-controller="category" data-category-target="categorySelectWrapper">
     <%= f.label :category %>

@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   # Reviews
   resources :reviews, except: [:new, :create]
+
+  # Cities
+  get "/cities", to: "pages#cities", as: :cities
 end

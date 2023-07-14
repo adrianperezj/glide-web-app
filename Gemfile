@@ -82,3 +82,5 @@ gem "geocoder"
 gem "cloudinary"
 
 gem "faker"
+
+gem "algoliasearch-rails"

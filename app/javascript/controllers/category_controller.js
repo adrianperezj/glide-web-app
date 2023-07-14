@@ -1,5 +1,5 @@
 // app/javascript/controllers/category_controller.js
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "stimulus";
 
 export default class extends Controller {
   static targets = ["categorySelect", "subcategoryWrapper", "subcategorySelect"];
