@@ -3,15 +3,18 @@ class Location < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
-  geocoded_by :address
+  # Geocoding
+
+  geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  # Options for the category and subcategory
 
   CATEGORIES = ["Public Space", "Private Space"]
   PUBLIC_SUBTYPE = ["Neighborhood", "Block/Square", "Street", "Park", "Cultural Landmark", "Natural Landmark"]
-  PRIVATE_SUBTYPE = ["House", "Flat", "Restaurant", "Bar", "Hotel", "Workshop", "Office"]
+  PRIVATE_SUBTYPE = ["House", "Flat", "Restaurant", "Bar", "Hotel", "Workshop", "Office", "Shopping Mall"]
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # Validations
 
   validates :name, presence: true
   validates :address, presence: true
@@ -28,4 +31,18 @@ class Location < ApplicationRecord
   def private_space?
     category == "Private Space"
   end
+
+  def full_address
+    [address, neighborhood, city].compact.join(', ')
+  end
+
+  # PG search method to look in one model
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_city_and_neighborhood,
+    against: [ :city, :neighborhood ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

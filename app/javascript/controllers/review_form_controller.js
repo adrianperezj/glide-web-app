@@ -92,9 +92,32 @@ export default class extends Controller {
 
   calculateNextSectionIndex(direction) {
     if (direction === "next") {
-      return this.currentSectionIndex + 1
+      const nextSectionIndex = this.currentSectionIndex + 1;
+      nextSection = this.sections[nextSectionIndex];
     } else if (direction === "previous") {
-      return this.currentSectionIndex - 1
+      const previousSectionIndex = this.currentSectionIndex - 1;
+      nextSection = this.sections[previousSectionIndex];
+    }
+
+    currentSection.classList.add("d-none");
+    nextSection.classList.remove("d-none");
+
+    this.currentSectionIndex = Array.from(this.sections).indexOf(nextSection);
+
+    this.updateProgress();
+    this.updateButtons();
+  }
+
+  updateButtons() {
+    // Show or hide previous and next buttons based on current section
+    if (this.currentSectionIndex === 0) {
+      this.hidePreviousButton();
+    } else if (this.currentSectionIndex === this.sections.length - 1) {
+      this.hideNextButton();
+      this.showSubmitButton();
+    } else {
+      this.showPreviousButton();
+      this.showNextButton();
     }
   }
 

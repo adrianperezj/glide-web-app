@@ -1,29 +1,19 @@
-<h1>Aquí creas una Location</h1>
+<h1>Aquí editas una Location</h1>
 
 <%= simple_form_for @location do |f| %>
-  <%= f.input :address, input_html: { data: { address_autocomplete_target: "address" }, class: "d-none" },
-                      wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
-  <%= f.input :city %>
-  <%= f.input :neighborhood %>
+  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
 
   <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category' } %>
 
   <div id="subcategory_wrapper" style="display: none;">
     <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
   </div>
-
   <%= f.input :name %>
   <%= f.input :photo, as: :file %>
+
   <%= f.button :submit %>
 <% end %>
-
-  <div class="container p-3 mx-3">
-    <div id="map-container" style="width: 90%; height: 600px;"
-      data-controller="form-map"
-      data-form-map-markers-value="<%= @markers.to_json %>"
-      data-form-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {

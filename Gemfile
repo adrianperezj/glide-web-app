@@ -80,3 +80,7 @@ end
 gem "geocoder"
 
 gem "cloudinary"
+
+gem "faker"
+
+gem "pg_search"
