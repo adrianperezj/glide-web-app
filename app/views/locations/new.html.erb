@@ -6,14 +6,10 @@
   <%= f.input :city %>
   <%= f.input :neighborhood %>
 
-  <div data-controller="category" data-category-target="categorySelectWrapper">
-    <%= f.label :category %>
-    <%= f.select :category, options_for_select(Location::CATEGORIES), { include_blank: "Select Category" }, { id: 'location_category', data: { target: 'categorySelect' } } %>
+  <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category' } %>
 
-    <div id="subcategory_wrapper" style="display: none;" data-category-target="subcategoryWrapper">
-      <%= f.label :subcategory %>
-      <%= f.select :subcategory, [], { include_blank: "Select Subcategory" }, { id: 'location_subcategory', data: { target: 'subcategorySelect' } } %>
-    </div>
+  <div id="subcategory_wrapper" style="display: none;">
+    <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
   </div>
 
   <%= f.input :name %>
@@ -28,3 +24,23 @@
       data-form-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const categorySelect = document.getElementById("location_category");
+    const subcategoryWrapper = document.getElementById("subcategory_wrapper");
+    const subcategorySelect = document.getElementById("location_subcategory");
+
+    categorySelect.addEventListener("change", function() {
+      if (this.value === "Public Space") {
+        subcategorySelect.innerHTML = "<option value=''>Select Subcategory</option><%= j options_for_select(Location::PUBLIC_SUBTYPE) %>";
+        subcategoryWrapper.style.display = "block";
+      } else if (this.value === "Private Space") {
+        subcategorySelect.innerHTML = "<option value=''>Select Subcategory</option><%= j options_for_select(Location::PRIVATE_SUBTYPE) %>";
+        subcategoryWrapper.style.display = "block";
+      } else {
+        subcategoryWrapper.style.display = "none";
+      }
+    });
+  });
+</script>

@@ -18,8 +18,8 @@ class Location < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
-  # validates :city, presence: true
-  # validates :neighborhood, presence: true
+  validates :city, presence: true
+  validates :neighborhood, presence: true
   validates :category, inclusion: { in: CATEGORIES }
   validates :subcategory, inclusion: { in: PUBLIC_SUBTYPE }, if: :public_space?
   validates :subcategory, inclusion: { in: PRIVATE_SUBTYPE }, if: :private_space?
@@ -35,4 +35,14 @@ class Location < ApplicationRecord
   def full_address
     [address, neighborhood, city].compact.join(', ')
   end
+
+  # PG search method to look in one model
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_city_and_neighborhood,
+    against: [ :city, :neighborhood ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
