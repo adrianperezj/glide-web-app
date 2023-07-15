@@ -1,2 +1,17 @@
 <h1>Mira qué Location tan fregona</h1>
-<%= @location.name %>
+<p><strong>Name:</strong> <%= @location.name %></p>
+
+<h2>Reviews:</h2>
+<% if @location.reviews.any? %>
+  <ul>
+    <% @location.reviews.each do |review| %>
+      <li>
+        <strong>Title:</strong> <%= review.title %><br>
+        <strong>Comment:</strong> <%= review.comment %>
+        <!-- Add other review attributes you want to display -->
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No reviews yet.</p>
+<% end %>

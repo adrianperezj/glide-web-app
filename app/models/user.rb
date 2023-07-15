@@ -6,8 +6,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  attr_accessor :avatar_public_id
-
   has_many :locations
   has_many :reviews
 end
