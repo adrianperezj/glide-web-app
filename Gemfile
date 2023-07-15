@@ -83,4 +83,4 @@ gem "cloudinary"
 
 gem "faker"
 
-gem "algoliasearch-rails"
+gem "pg_search"

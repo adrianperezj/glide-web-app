@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def cities
-    @cities = Location.all.map { |location| location.city }.uniq
+      @cities = Location.all.map { |location| location.city }.uniq
   end
 end
