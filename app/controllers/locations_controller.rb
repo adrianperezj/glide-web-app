@@ -33,8 +33,7 @@ class LocationsController < ApplicationController
       # Handle the case where latitude or longitude is missing
       @markers = []
     end
- end
-
+  end
 
   def new
     @location = Location.new

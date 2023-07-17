@@ -18,10 +18,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = current_user.reviews.find(params[:id])
-  end
-
   def update
     @review = current_user.reviews.find(params[:id])
 
@@ -47,6 +43,9 @@ class ReviewsController < ApplicationController
 
   def set_location
     @location = Location.find_by(id: params[:location_id])
-    redirect_to root_path, alert: 'Location not found' unless @location
+
+    unless @location
+      redirect_to root_path, alert: 'Location not found.'
+    end
   end
 end
