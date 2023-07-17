@@ -11,3 +11,29 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Estilos de los Range Input de la sección de Ratings, no borrar:
+.form-group {
+  margin-bottom: 60px;
+}
+
+.range-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.range-input {
+  width: 50%;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  width: 50%;
+}
+
+.range-label {
+  font-size: 12px;
+}
