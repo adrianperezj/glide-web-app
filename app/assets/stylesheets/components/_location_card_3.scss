@@ -1,0 +1,143 @@
+.container-location-card-3 {
+  width: 250px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  display: inline-flex;
+}
+
+.location-name {
+  width: 210px;
+  height: auto;
+  color: #6C757D;
+  font-size: 26px;
+  font-family: Anek Latin;
+  font-weight: 500;
+  line-height: 1;
+  word-wrap: break-word;
+}
+
+.spaces-card {
+  width: 210px;
+  height: 30px;
+  padding: 0;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: self-end;
+  display: inline-flex;
+}
+
+.space-left {
+  width: 100px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: #C8E8F1;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 0.25px #097695 solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.space-left-txt {
+  text-align: center;
+  color: #097695;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.space-right {
+  width: 100px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: absolute;
+  background: #C8E8F1;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 0.25px #097695 solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.space-right-txt{
+  text-align: center;
+  color: #097695;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.container-address {
+  width: 210px;
+  height: 70px;
+  position: relative;
+}
+
+.address-txt {
+  width: 180px;
+  height: 70px;
+  max-height: 70px;
+  left: 25px;
+  top: 0px;
+  position: absolute;
+  color: #191919;
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.address-pin {
+  width: 15px;
+  height: 25px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background-image: url(pin_2_address.png);
+  background-size: cover;
+  align-content: center;
+}
+
+.btn-cyan-700 {
+  width: 210px;
+  height: 30px;
+  background: #097695;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.btn-cyan-700-txt {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.btn-cyan-700:hover {
+  background: #045065;
+}

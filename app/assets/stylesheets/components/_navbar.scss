@@ -1,6 +1,8 @@
 .navbar-lewagon {
+  height: 55px;
+  padding: 0;
   justify-content: space-between;
-  background: white;
+  background: #097695;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +11,54 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-link {
+  font-family: Anek Latin;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+}
+
+.nav-link:hover {
+  color: #FD7E14
+}
+
+/*.dropdown-item {
+  width: 200px;
+  height: 70px;
+  color: #FD7E14;
+}*/
+
+.navbar-toggler {
+  width: 30px;
+  height: 30px;
+  background-color: #FD7E14;
+  border-radius: 5px;
+  /* Centrar el contenido del botón */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-toggler-icon {
+  /* Centrar las líneas de hamburguesa */
+  background-image: none !important;
+}
+
+.navbar-toggler-icon::before {
+  /* Crear las líneas de hamburguesa utilizando un pseudo-elemento */
+  content: "\2261";
+  font-size: 30px;
+  color: white;
+}
+
+.navbar-toggler:hover {
+  background-color: #A24C03;
+}
+
+#navbarSupportedContent.show {
+  width: 200px;
+  height: 55px;
+  background-color: #097695;
 }
