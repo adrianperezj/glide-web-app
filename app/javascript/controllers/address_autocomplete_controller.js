@@ -9,7 +9,7 @@ export default class extends Controller {
   static targets = ["address", "addressAutocomplete", "mapContainer"]
 
   connect() {
-    console.log("hello motherfucker")
+    console.log("hello autocomplete")
     this.geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       types: "country,region,place,postcode,locality,neighborhood,address"

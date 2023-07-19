@@ -35,6 +35,10 @@ class ReviewsController < ApplicationController
     redirect_to location, notice: 'Review deleted successfully.'
   end
 
+  def my_reviews
+    @reviews = current_user.reviews
+  end
+
   private
 
   def review_params
