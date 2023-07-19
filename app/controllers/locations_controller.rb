@@ -8,7 +8,7 @@ class LocationsController < ApplicationController
         lat: location.latitude,
         lng: location.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
-        marker_html: render_to_string(partial: "marker", locals: {location: location})
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
@@ -41,8 +41,10 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    #  reverse geocoding
     if @location.save
+      # do reverse geoding
+      # extract city and neighborhood from reverse geocing
+      # assign values and update
       redirect_to @location, notice: 'Location was successfully created.'
     else
       render :new, notice: 'Location was not created. Please review your fields.'
@@ -67,18 +69,11 @@ class LocationsController < ApplicationController
   #   redirect_to locations_url, notice: 'Location was successfully destroyed.'
   # end
 
-  private
-
-  def extract_city_from_results(results)
-    # Extract the city from the results using your preferred method
-    # This can vary depending on the structure of the results returned by Geocoder
-    # Adjust this logic based on your specific use case
-    results.first.city
+  def my_locations
+    @locations = current_user.locations
   end
 
-    # def extract_neighborhood_from_results(results)
-    #   results.first.neighborhood
-    # end
+  private
 
   def set_user
     @user = current_user

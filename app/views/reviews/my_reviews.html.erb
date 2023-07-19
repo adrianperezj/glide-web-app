@@ -1,0 +1,4 @@
+<h1>My Reviews</h1>
+<% @reviews.each do |review| %>
+  <p><%= review.title %> - <%= review.content %></p>
+<% end %>

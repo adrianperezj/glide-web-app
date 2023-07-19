@@ -1,5 +1,4 @@
 <div class="container my-3">
-<% console %>
 
   <div class="row">
     <h1><%= @location.name %></h1>
@@ -79,11 +78,11 @@
       </div>
     </div>
 
-      <div class="container p-3 mx-3">
+      <div class="container">
         <div style="width: 90%; height: 600px;"
-          data-controller="show-map"
-          data-show-map-markers-value="<%= @markers.to_json %>"
-          data-show-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
 
