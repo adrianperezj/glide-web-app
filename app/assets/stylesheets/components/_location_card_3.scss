@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   display: inline-flex;
 }
 
@@ -52,16 +52,6 @@
   display: inline-flex;
 }
 
-.space-left-txt {
-  text-align: center;
-  color: #097695;
-  font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
-  line-height: 18px;
-  word-wrap: break-word;
-}
-
 .space-right {
   width: 100px;
   height: 30px;
@@ -77,7 +67,7 @@
   display: inline-flex;
 }
 
-.space-right-txt{
+.space-txt {
   text-align: center;
   color: #097695;
   font-size: 12px;
@@ -127,9 +117,6 @@
   justify-content: center;
   align-items: center;
   display: inline-flex;
-}
-
-.btn-cyan-700-txt {
   text-align: center;
   color: white;
   font-size: 12px;
@@ -137,6 +124,16 @@
   font-weight: 600;
   word-wrap: break-word;
 }
+
+/* Este estilo es para el card de prueba
+.btn-cyan-700-txt {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  word-wrap: break-word;
+}*/
 
 .btn-cyan-700:hover {
   background: #045065;
