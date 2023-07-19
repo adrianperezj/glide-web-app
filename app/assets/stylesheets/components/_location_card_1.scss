@@ -1,0 +1,98 @@
+.container-location-card-1 {
+  width: 250px;
+  height: 350px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  display: inline-flex;
+}
+
+.location-name {
+  width: 210px;
+  height: auto;
+  color: #6C757D;
+  font-size: 26px;
+  font-family: Anek Latin;
+  font-weight: 500;
+  line-height: 1;
+  word-wrap: break-word;
+}
+
+.img-location-card-1 {
+  width: 210px;
+  height: 160px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  display: flex;
+}
+
+.spaces-card {
+  width: 210px;
+  height: 30px;
+  padding: 0;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: self-end;
+  display: inline-flex;
+}
+
+.space-left {
+  width: 100px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: #C8E8F1;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 0.25px #097695 solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.space-left-txt {
+  text-align: center;
+  color: #097695;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  line-height: 18px;
+  word-wrap: break-word;
+}
+
+.space-right {
+  width: 100px;
+  height: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: absolute;
+  background: #C8E8F1;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 0.25px #097695 solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.space-right-txt{
+  text-align: center;
+  color: #097695;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  line-height: 18px;
+  word-wrap: break-word;
+}

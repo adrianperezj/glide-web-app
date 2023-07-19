@@ -13,8 +13,13 @@
             params[:query],
             class: "form-control",
             placeholder: "Type a city name"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      %>
+      <button type="submit" class="btn btn-search">
+        <img class="lupa" src="<%= image_path('search.png') %>" alt="Search">
+      </button>
     <% end %>
   </div>
 </div>
+
+
+<%# <%= submit_tag "Search", name: "", class: "btn btn-search" %>
