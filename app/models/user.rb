@@ -8,4 +8,15 @@ class User < ApplicationRecord
 
   has_many :locations
   has_many :reviews
+  has_one_attached :avatar
+
+  def avatar_or_default_url
+    avatar.attached? ? avatar_url : default_avatar_url
+  end
+
+  private
+
+  def default_avatar_url
+    ActionController::Base.helpers.asset_path('avatar-white.png')
+  end
 end

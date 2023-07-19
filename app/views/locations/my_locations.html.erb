@@ -1,0 +1,4 @@
+<h1>My Locations</h1>
+<% @locations.each do |location| %>
+  <p><%= location.name %> - <%= location.address %> - <%= location.city %> - <%= location.neighborhood %></p>
+<% end %>
