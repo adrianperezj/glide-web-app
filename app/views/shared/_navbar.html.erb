@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="display: flex; width: 1440px; height: 72px; padding: 24px 48px; align-items: center; flex-shrink: 0; background: var(--primary-primary, #097695);">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "/assets/Glide-logo-white.png", style: "width: 80px;" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,26 +9,31 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto" style="gap: 10px;">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "My Reviews", my_reviews_path, class: "nav-link" %>
+            <%= link_to "My Reviews", my_reviews_path, class: "nav-link", style: "color: white"%>
           </li>
           <li class="nav-item">
-            <%= link_to "My Locations", my_locations_path, class: "nav-link" %>
+            <%= link_to "My Locations", my_locations_path, class: "nav-link", style: "color: white" %>
           </li>
-          <li class="nav-item dropdown">
-            <%# a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag current_user.avatar_url, class: "avatar", alt: "User Avatar" %>
+        <%# AVATAR %>
+         <li class="nav-item dropdown" style="gap: 20px;">
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, class: "avatar bordered-avatar", alt: "User Avatar" %>
+              <% else %>
+                <%= image_tag "/assets/avatar-white.png", class: "avatar bordered-avatar", alt: "Default Avatar" %>
+              <% end %>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-            </div>
+          <%# menu desplegable desde el avatar, log out %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+          </div>
           </li>
-        <% else %>
+          <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
