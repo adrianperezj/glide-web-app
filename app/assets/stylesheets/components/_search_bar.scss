@@ -1,0 +1,28 @@
+.btn-search {
+  width: 30px;
+  height: 30px;
+  padding: 0%;
+  border-radius: 0px 10px 10px 0px;
+  background-color: #097695;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  border-radius: 10px 0px 0px 10px;
+  color: var(--gray-500, #ADB5BD);
+  text-align: center;
+
+  /* Input */
+  font-family: Anek Latin;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 31.2px */
+}
+
+.lupa {
+  width: 18px;
+  height: 18px;
+}

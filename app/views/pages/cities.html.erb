@@ -1,5 +1,114 @@
-<h1>Ciudades</h1>
-
 <% @cities.each do |city| %>
   <li><%= city %></li>
 <% end %>
+
+<!-- Este es el título con pin-->
+<div class="container-title">
+  <div class="title">
+    <div class="title-img-pin"></div>
+    <div class="title-txt">Create a New Location</div>
+  </div>
+</div>
+
+
+<div class="blanco"></div>
+
+
+<!-- Este es el título con lapiz-->
+<div class="container-title">
+  <div class="title">
+    <div class="title-img-pencil"></div>
+    <div class="title-txt">Create a New Review</div>
+  </div>
+</div>
+
+
+<div class="blanco"></div>
+
+
+<!-- Formulario-->
+<form class="container-form">
+  <div>
+    <label class="form-label" for="exampleFormControlTextarea1">Review Title</label>
+    <textarea class="form-field" id="exampleFormControlTextarea1" rows="1" placeholder="Name your Review"></textarea>
+  </div>
+</form>
+
+
+<div class="blanco"></div>
+
+
+<!-- Este div es la location-card 1-->
+<div class="container-location-card-1">
+    <div class="location-name">Chapultepec Park</div>
+    <div class="img-location-card-1">
+      <img src="https://via.placeholder.com/210x160" />
+    </div>
+    <div class="spaces-card">
+        <div class="space-left">
+          <div class="space-left-txt">Private</div>
+        </div>
+        <div class="space-right">
+          <div class="space-right-txt">Business</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="blanco"></div>
+
+
+<!-- Este div es la city-card-->
+<div class="container-city-card-1">
+    <div class="img-city-card">
+        <img src="https://via.placeholder.com/250x190" />
+    </div>
+    <div class="white-city-card">
+        <div class="info-city-card">
+            <div class="city-name">Mexico City</div>
+            <div class="country-name">Mexico</div>
+        </div>
+        <div class="container-stars">
+            <div class="star-c">
+              <!--<img class="star-fill" src="star-fill.png">-->
+              <div class="star-e"></div>
+            </div>
+            <div  class="star-c">
+              <div class="star-e"></div>
+            </div>
+            <div  class="star-c">
+              <div class="star-e"></div>
+            </div>
+            <div  class="star-c">
+              <div class="star-e"></div>
+            </div>
+            <div  class="star-c">
+              <div class="star-e"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="blanco"></div>
+
+
+<!-- Este div es la location-card 3-->
+<div class="container-location-card-3">
+    <div class="location-name">Hegmann Mountains</div>
+    <div class="spaces-card">
+        <div class="space-left">
+          <div class="space-txt">Private</div>
+        </div>
+        <div class="space-right">
+          <div class="space-txt">Business</div>
+        </div>
+    </div>
+    <div class="container-address">
+        <div class="address-txt">Av. Insurgentes # 1130, Col. Extremadura, Alcaldía Benito Juárez, C.P. 04330 Ciudad de México</div>
+        <div class="address-pin"></div>
+    </div>
+      <button type="submit" class="btn btn-cyan-700">
+        <div class="btn-cyan-700-txt">View Location</div>
+      </button>
+</div>
