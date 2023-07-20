@@ -5,9 +5,13 @@
     <div class="d-flex">
       <div class="card rounded p-3 mx-3 shadow col-6" >
         <% if @location.photo.present? %>
-          <%= image_tag @location.photo %>
+          <div class="location-photo-container">
+            <%= image_tag @location.photo, class: "location-photo" %>
+          </div>
         <% else %>
-          <%= image_tag "map.png" %>
+          <div class="location-photo-container">
+            <%= image_tag "map.png", class: "location-photo" %>
+          </div>
         <% end %>
         <strong><h4><%= @location.name %> <br></h4></strong>
         <%= @location.address %> <br>
@@ -93,11 +97,15 @@
         <div class="card p-3 rounded shadow col-12" >
           <p><strong>Title:</strong> <%= review.title %></p>
           <p><strong>Comment:</strong> <%= review.comment %></p>
-          <% if review.photo.present? %>
-            <p><strong>Photo:</strong> <%= image_tag review.photo %></p>
-          <% else %>
-            <p><strong>Photo:</strong> <%= image_tag "map.png" %></p>
-          <% end %>
+          <% if @location.photo.present? %>
+          <div class="location-photo-container">
+            <%= image_tag @location.photo, class: "location-photo" %>
+          </div>
+        <% else %>
+          <div class="location-photo-container">
+            <%= image_tag "map.png", class: "location-photo" %>
+          </div>
+        <% end %>
           <p><strong>Meal Cost:</strong> <%= review.meal_cost %></p>
           <p><strong>Coffee Cost:</strong> <%= review.coffee_cost %></p>
           <p><strong>Rent Cost:</strong> <%= review.rent_cost %></p>
