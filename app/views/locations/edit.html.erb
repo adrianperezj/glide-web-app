@@ -11,7 +11,7 @@
   <br>
   <%= f.input :address,
     input_html: {data: {address_autocomplete_target: "address"}, class: "d-none", value: @location.address},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} unless params[:action] == 'edit' %>
   <%= f.input :city, value: @location.city %>
   <%= f.input :neighborhood, value: @location.neighborhood %>
   <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category' } %>
