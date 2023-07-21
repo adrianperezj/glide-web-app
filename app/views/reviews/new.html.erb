@@ -39,7 +39,7 @@
     <!-- Tercera seccion del formulario "Ratings" -->
     <div data-review-form-target="section" id="step-3" class="d-none">
       <h2>Ratings</h2>
-      <!-- Range Input: Noise Level -->
+      <!-- Range Inputs: Noise Level, Safety Level, Internet Speed, Family Zone, Pet Friendly, Nightlife, Restaurants, Shopping, Dealer -->
       <div class="form-group">
         <label for="noise_level" class="form-label">How noisy is this location?</label>
         <div class="range-container">
@@ -53,12 +53,10 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Safety Level -->
       <div class="form-group">
-        <label for="safety" class="form-label">How safe is this location?</label>
+        <label for="safety_level" class="form-label">How safe is this location?</label>
         <div class="range-container">
-          <input type="range" name="review[safety_level]" class="form-range range-input" min="1" max="5" id="safety">
+          <input type="range" name="review[safety_level]" class="form-range range-input" min="1" max="5" id="safety_level">
           <div class="range-labels">
             <span class="range-label">Very Unsafe</span>
             <span class="range-label">Unsafe</span>
@@ -68,8 +66,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Internet Speed -->
       <div class="form-group">
         <label for="internet_speed" class="form-label">How would you rate the internet speed in this location?</label>
         <div class="range-container">
@@ -83,8 +79,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Family Zone -->
       <div class="form-group">
         <label for="family_zone" class="form-label">How family-friendly is this location?</label>
         <div class="range-container">
@@ -98,8 +92,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Pet Friendly -->
       <div class="form-group">
         <label for="pet_friendly" class="form-label">How pet-friendly is this location?</label>
         <div class="range-container">
@@ -113,8 +105,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Nightlife -->
       <div class="form-group">
         <label for="nightlife" class="form-label">How would you rate the nightlife in this location?</label>
         <div class="range-container">
@@ -128,8 +118,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Restaurants -->
       <div class="form-group">
         <label for="restaurants_qty" class="form-label">How many restaurants are available in this location?</label>
         <div class="range-container">
@@ -143,8 +131,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Shopping -->
       <div class="form-group">
         <label for="shopping" class="form-label">How convenient is the shopping in this location?</label>
         <div class="range-container">
@@ -158,8 +144,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Range Input: Dealer -->
       <div class="form-group">
         <label for="dealer" class="form-label">Are there any dealers nearby this location?</label>
         <%= form.input :dealer, as: :boolean %>
@@ -169,25 +153,39 @@
     <!-- Cuarta seccion del formulario "Mobility" -->
     <div data-review-form-target="section" id="step-4" class="d-none">
       <h2>Mobility</h2>
-      <h4>Check the ones available in this location</h4>
-      <%= form.input :metro, as: :boolean %>
-      <%= form.input :bike, as: :boolean %>
-      <%= form.input :bus, as: :boolean %>
-      <%= form.input :uber, as: :boolean %>
+      <!-- Mobility inputs: Metro, Bike, Bus, Uber -->
+      <div class="form-group">
+        <label for="metro" class="form-label">Metro</label>
+        <%= form.input :metro, as: :boolean, label: false %>
+      </div>
+      <div class="form-group">
+        <label for="bike" class="form-label">Bike</label>
+        <%= form.input :bike, as: :boolean, label: false %>
+      </div>
+      <div class="form-group">
+        <label for="bus" class="form-label">Bus</label>
+        <%= form.input :bus, as: :boolean, label: false %>
+      </div>
+      <div class="form-group">
+        <label for="uber" class="form-label">Uber</label>
+        <%= form.input :uber, as: :boolean, label: false %>
+      </div>
     </div>
 
     <!-- Quinta seccion del formulario "Submit" -->
     <div data-review-form-target="section" id="submit" class="d-none">
       <%= form.button :submit, class: 'btn btn-primary' %>
-      <%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
+      <%= link_to 'Cancel', location_path(@location), class: 'btn btn-secondary' %>
     </div>
 
-    <button class="btn btn-secondary" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
-    <button class="btn btn-secondary" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
+    <div class="d-flex justify-content-between mb-4">
+      <button class="btn btn-secondary" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="next">Next ---&gt;</button>
+      <button class="btn btn-outline-secondary" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="previous">&lt;--- Previous</button>
+    </div>
 
   <% end %>
 
-  <%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
+  <%= link_to 'Cancel', location_path(@location), class: 'btn btn-secondary float-end mt-3' %>
 </div>
 
 <script>

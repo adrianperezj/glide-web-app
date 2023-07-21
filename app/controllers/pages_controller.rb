@@ -5,6 +5,10 @@ class PagesController < ApplicationController
   end
 
   def cities
-      @cities = Location.all.map { |location| location.city }.uniq
+    if params[:query].present?
+      @locations = Location.all.select { |location| location.city == params[:query]}
+    else
+      @locations = Location.all
+    end
   end
 end

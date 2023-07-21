@@ -12,16 +12,12 @@ $font-size-base:         1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $cyan-700;
-$secondary:  $orange-500;
+$primary:    $cyan-700 !default;
+$secondary:  $orange-500 !default;
 $primary-dark:    $cyan-900;
 $secondary-dark:  $orange-700;
 $primary-light:    $cyan-100;
 $secondary-light:  $orange-100;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
 
 // Buttons & inputs' radius
 $border-radius:    15px;
