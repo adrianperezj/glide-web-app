@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_08_180128) do
     t.string "address"
     t.string "city"
     t.string "neighborhood"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "subcategory"
