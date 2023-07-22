@@ -154,6 +154,12 @@
   margin-bottom: 20px; /* Add some spacing between the icon and the title */
 }
 
+.icon-title {
+  width: 60px; /* Adjust the size of the icon as needed */
+  height: 60px;
+  margin-bottom: 0px; /* Add some spacing between the icon and the title */
+}
+
 .h4-landing {
   font-family: Anek Latin;
   font-size: 24px;
@@ -271,4 +277,50 @@
 .btn-footer:hover {
   background-color: white; /* Change this to the desired button hover color */
   color: #071041;
+}
+
+.container-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 0;
+}
+
+
+/* Buttons */
+
+.btn-cyan-700 {
+  width: 210px;
+  height: 30px;
+  background: #097695;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+/* Este estilo es para el card de prueba
+.btn-cyan-700-txt {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  word-wrap: break-word;
+}*/
+
+.btn-cyan-700:hover {
+  background: #045065;
+}
+
+.btn-secondary {
+  background: $orange-500;
+  color: white;
 }

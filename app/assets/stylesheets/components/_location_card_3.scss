@@ -125,33 +125,3 @@
   background-size: cover;
   align-content: center;
 }
-
-.btn-cyan-700 {
-  width: 210px;
-  height: 30px;
-  background: #097695;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
-  word-wrap: break-word;
-}
-
-/* Este estilo es para el card de prueba
-.btn-cyan-700-txt {
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
-  word-wrap: break-word;
-}*/
-
-.btn-cyan-700:hover {
-  background: #045065;
-}
