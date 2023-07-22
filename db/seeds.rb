@@ -41,7 +41,7 @@ puts "---------------------------------------------------------------"
 puts "Locations ready!"
 puts "---------------------------------------------------------------"
 
-17.times do
+30.times do
   adjectives = [Faker::Adjective.positive, Faker::Adjective.negative].sample
 
   Review.create(
@@ -66,7 +66,7 @@ puts "---------------------------------------------------------------"
     bus: [true, false].sample,
     dealer: [true, false].sample,
     user_id: 1,
-    location_id: 10
+    location_id: rand(11..15)
   )
 end
 

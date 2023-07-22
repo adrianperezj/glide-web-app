@@ -1,0 +1,47 @@
+.input-container-meals {
+  display: inline-block;
+  width: fit-content ;
+  border-radius: 8px;
+  border-color: gray;
+  background-color: #f1f1f1;
+  margin: 16px;
+  padding: 24px 16px 6px 16px;
+  text-align: center;
+}
+
+/* Square container for each input */
+.input-container {
+  display: inline-block;
+  width: 200px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  width: 50%;
+}
+
+.range-label {
+  font-size: 12px;
+}
+
+
+.form-group {
+  margin-bottom: 50px;
+}
+
+.range-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.range-input {
+  width: 50%;
+}

@@ -12,9 +12,11 @@ Rails.application.routes.draw do
 
   # Cities
   get "/cities", to: "pages#cities", as: :cities
+  get "/cities/:id", to: "pages#city_show", as: :city_show
 
   # Neighborhoods by city
   get "/neighborhoods/:city", to: "pages#neighborhoods", as: :neighborhoods
+  get "/neighborhoods/:id", to: "pages#neighborhood_show", as: :neighborhood_show
 
   #My reviews and my locations
   get 'my_locations', to: 'locations#my_locations', as: :my_locations
