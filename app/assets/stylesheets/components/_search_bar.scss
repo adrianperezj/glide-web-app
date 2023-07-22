@@ -1,9 +1,9 @@
 .btn-search {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   padding: 0%;
   border-radius: 0px 10px 10px 0px;
-  background-color: #097695;
+  background-color: #071041;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
 .form-control {
   border-radius: 10px 0px 0px 10px;
   color: var(--gray-500, #ADB5BD);
-  text-align: center;
+  text-align: left;
 
   /* Input */
   font-family: Anek Latin;
@@ -25,4 +25,9 @@
 .lupa {
   width: 18px;
   height: 18px;
+}
+
+.col-sm-8 {
+  display: flex;
+  justify-content: center;
 }
