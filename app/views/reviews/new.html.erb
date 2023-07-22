@@ -1,7 +1,7 @@
 <div class="container mt-4 mb-4">
   <div class="container-title">
     <div class="title">
-      <img src="<%= image_path('pencil-square.png') %>" alt="Pencil Icon" class="icon-title">
+      <img src="<%= image_path('pencil-square.png') %>" alt="Pencil Icon" class="title-img-pencil">
       <div class="title-txt">Create a review</div>
     </div>
   </div>
@@ -19,14 +19,7 @@
 
     <!-- Barra de progreso -->
     <div class="progress mb-4">
-      <div data-review-form-target="progressBar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-      </div>
-    </div>
-
-    <!-- Quinta seccion del formulario "Submit" -->
-    <%= link_to 'Cancel', location_path(@location), class: 'btn btn-primary float-end mt-3' %>
-    <div data-review-form-target="section" id="submit" class="d-none">
-      <%= form.button :submit, class: 'btn btn-outline-primary' %>
+      <div data-review-form-target="progressBar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 
     <!-- Primera seccion del formulario "General" -->
@@ -40,10 +33,30 @@
     <!-- Segunda seccion del formulario "Expenses" -->
     <div data-review-form-target="section" id="step-2" class="d-none">
       <h2>Expenses</h2>
-      <%= form.input :meal_cost %>
-      <%= form.input :coffee_cost %>
-      <%= form.input :rent_cost %>
-      <%= form.input :beer_cost %>
+
+      <!-- Meal Cost -->
+      <div class="input-container-meals">
+        <i class="fas fa-utensils icon"></i> <!-- Meal icon -->
+        <%= form.input :meal_cost, input_html: { style: 'max-width: 150px;' } %>
+      </div>
+
+      <!-- Coffee Cost -->
+      <div class="input-container-meals">
+        <i class="fas fa-coffee icon"></i> <!-- Coffee icon -->
+        <%= form.input :coffee_cost, input_html: { style: 'max-width: 150px;' } %>
+      </div>
+
+      <!-- Rent Cost -->
+      <div class="input-container-meals">
+        <i class="fas fa-home icon"></i> <!-- House icon -->
+        <%= form.input :rent_cost, input_html: { style: 'max-width: 150px;' } %>
+      </div>
+
+      <!-- Beer Cost -->
+      <div class="input-container-meals">
+        <i class="fas fa-beer icon"></i> <!-- Beer icon -->
+        <%= form.input :beer_cost, input_html: { style: 'max-width: 150px;' } %>
+      </div>
     </div>
 
     <!-- Tercera seccion del formulario "Ratings" -->
@@ -182,11 +195,21 @@
       </div>
     </div>
 
+    <!-- Quinta seccion del formulario "Submit" -->
+    <div data-review-form-target="section" id="submit" class="d-none">
+      <%= form.button :submit, class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', location_path(@location), class: 'btn btn-secondary' %>
+    </div>
+
     <div class="d-flex justify-content-center mb-4">
       <button class="btn btn-outline-secondary" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="previous">Back</button>
       <button class="btn btn-secondary ms-3" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="next">Next</button>
     </div>
+
   <% end %>
+
+  <%= link_to 'Cancel', location_path(@location), class: 'btn btn-secondary float-end mt-3' %>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
