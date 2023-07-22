@@ -1,9 +1,14 @@
-<div class="container my-3">
-
+<div class="container-title mt-3">
+  <div class="title">
+    <div class="title-img-pin"></div>
+    <div class="title-txt"><h1><%= @location.name %></h1></div>
+  </div>
+</div>
+<br>
+<div class="container p-5 my-3">
   <div class="row justify-content-center">
-    <h1><%= @location.name %></h1>
     <div class="d-flex">
-      <div class="card rounded p-3 mx-3 shadow col-6" >
+      <div class="card rounded p-3 mx-3 my-5 shadow col-6" >
         <% if @location.photo.present? %>
           <div class="location-photo-container">
             <%= image_tag @location.photo, class: "location-photo" %>
@@ -30,7 +35,7 @@
 
       <div class="row">
         <% if @location.reviews.any? %>
-          <div class="card rounded shadow p-3 mx-3 col-md-12">
+          <div class="card rounded shadow p-3 mx-3 my-5 col-md-12">
             <h1>Ratings and reviews</h1>
             <div class="row my-3">
               <div class="col-md-6">
@@ -82,7 +87,7 @@
       </div>
     </div>
 
-      <div class="container">
+      <div class="container p-5">
         <div style="width: 90%; height: 600px;"
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
@@ -90,11 +95,11 @@
         </div>
       </div>
 
-    <div class="container p-3 mx-3">
+    <div class="container p-3 mx-3 my-5">
       <h2>Detailed Ratings and reviews</h2>
 
       <% @location.reviews.each do |review| %>
-        <div class="card p-3 rounded shadow col-12" >
+        <div class="card p-3 my-5 rounded shadow col-12" >
           <p><strong>Title:</strong> <%= review.title %></p>
           <p><strong>Comment:</strong> <%= review.comment %></p>
           <% if @location.photo.present? %>

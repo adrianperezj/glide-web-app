@@ -21,8 +21,12 @@
   <% @locations.each do |location| %>
     <div class="container-location-card-3 mt-4 mx-3">
       <div class="location-name"><%= location.name%></div>
-      <div class="img-city-card">
-        <img src="https://via.placeholder.com/210x160" />
+      <div class="img-location-3">
+        <% if location.photo.present? %>
+          <%= image_tag location.photo %>
+        <% else %>
+          <%= image_tag "map.png" %>
+        <% end %>
       </div>
       <div class="spaces-card">
         <div class="space-left">
@@ -40,7 +44,6 @@
     </div>
   <% end %>
 </div>
-
 
 <!--.chars first20.join
 <div class="container-location-card-3">

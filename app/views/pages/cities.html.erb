@@ -10,39 +10,20 @@
   <% if @locations.is_a?(Location) %>
     <div class="container p-5 mx-5 align-items-center">
     <!-- Este div es la city-card-->
-      <div class="container-city-card-1">
-          <div class="img-city-card">
-            <% if @locations.photo.key.present? %>
-              <%= cl_image_tag(@locations.photo.key) %>
-            <% else %>
-              <%= image_tag ("map.png") %>
-            <% end %>
-          </div>
-          <div class="white-city-card">
-              <div class="info-city-card">
-                <div class="city-name"> <%= @locations.city %> </div>
-                <%= link_to "View city", locations_path(query: @locations.city), class: "btn btn-cyan-700" %>
-              </div>
-              <div class="container-stars">
-                  <div class="star-c">
-                    <!--<img class="star-fill" src="star-fill.png">-->
-                    <div class="star-e"></div>
-                  </div>
-                  <div  class="star-c">
-                    <div class="star-e"></div>
-                  </div>
-                  <div  class="star-c">
-                    <div class="star-e"></div>
-                  </div>
-                  <div  class="star-c">
-                    <div class="star-e"></div>
-                  </div>
-                  <div  class="star-c">
-                    <div class="star-e"></div>
-                  </div>
-                </div>
-            </div>
+    <div class="container-city-card-1">
+      <div class="img-city-card">
+        <% if @locations.photo.key.present? %>
+          <%= cl_image_tag(@locations.photo.key) %>
+        <% else %>
+          <%= image_tag ("map.png") %>
+        <% end %>
+      </div>
+      <div class="white-city-card">
+        <div class="info-city-card">
+          <div class="city-name"> <%= @locations.city %> </div>
+          <%= link_to "View city", locations_path(query: @locations.city), class: "btn btn-cyan-700" %>
         </div>
+      </div>
     </div>
   <% else %>
     <div class="container p-5 mx-5 align-items-center">
@@ -59,29 +40,12 @@
             <div class="white-city-card">
                 <div class="info-city-card">
                   <div class="city-name"> <%= location.city %> </div>
-                  <%= link_to "View city", locations_path(query: location.city), class: "btn btn-cyan-700" %>
+                  <%= link_to "View city", city_show_path(location), class: "btn btn-cyan-700" %>
                 </div>
-                <div class="container-stars">
-                    <div class="star-c">
-                      <!--<img class="star-fill" src="star-fill.png">-->
-                      <div class="star-e"></div>
-                    </div>
-                    <div  class="star-c">
-                      <div class="star-e"></div>
-                    </div>
-                    <div  class="star-c">
-                      <div class="star-e"></div>
-                    </div>
-                    <div  class="star-c">
-                      <div class="star-e"></div>
-                    </div>
-                    <div  class="star-c">
-                      <div class="star-e"></div>
-                    </div>
-                </div>
-            </div>
+                <div class="container"><%= @locations.length %> locations</div>
+          </div>
         </div>
-      <% end %>
+      <% end %> <!-- end of each do -->
     </div>
   <% end %>
 </div>
