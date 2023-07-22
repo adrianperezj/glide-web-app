@@ -1,30 +1,37 @@
-<h1>Aquí editas una Location</h1>
-<% console %>
+<div class="container-title mt-3">
+  <div class="title">
+    <div class="title-img-pin"></div>
+    <div class="title-txt">Edit Location</div>
+  </div>
+</div>
 
-<%= simple_form_for @location do |f| %>
-  <div>
-    <strong>Address:</strong>
-    <span><%= @location.address %></span>
+<div class="container" style="margin-left: 30px">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4 col-sm-offset-4">
+      <br>
+      <strong>Address:</strong>
+      <span><%= @location.address %></span>
+      <br>
+      <%= simple_form_for @location do |f| %>
+        <br>
+        <%= f.input :address, label: "Only re-type to change address", input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+        <%= f.input :city, input_html: {class: "form-control-location"} %>
+        <%= f.input :neighborhood %>
+        <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %>
+        <div id="subcategory_wrapper" style="display: none;">
+          <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
+        </div>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, class: "btn btn-cyan-700-location" %>
+      <% end %>
+    </div>
   </div>
-  <br>
-    <strong>Please confirm:</strong>
-  <br>
-  <%= f.input :address,
-    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none", value: @location.address},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-  <%= f.input :city, value: @location.city %>
-  <%= f.input :neighborhood, value: @location.neighborhood %>
-  <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category' } %>
-  <div id="subcategory_wrapper" style="display: none;">
-    <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
-  </div>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+</div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("click", function() {
     const categorySelect = document.getElementById("location_category");
     const subcategoryWrapper = document.getElementById("subcategory_wrapper");
     const subcategorySelect = document.getElementById("location_subcategory");

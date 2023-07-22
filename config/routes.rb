@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # Cities
   get "/cities", to: "pages#cities", as: :cities
 
+  # Neighborhoods by city
+  get "/neighborhoods/:city", to: "pages#neighborhoods", as: :neighborhoods
+
   #My reviews and my locations
   get 'my_locations', to: 'locations#my_locations', as: :my_locations
   get 'my_reviews', to: 'reviews#my_reviews', as: :my_reviews

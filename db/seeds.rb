@@ -8,33 +8,45 @@
 
 require "faker"
 
-2.times do
-  User.create(
-    email: Faker::Internet.email,
-    password: "123456",
-    username: (Faker::Internet.username(specifier: 5..8)).downcase
-  )
-end
+puts "---------------------------------------------------------------"
+puts "Sit tight, we're seeding the database..."
+puts "---------------------------------------------------------------"
 
-2.times do
-  Location.create(
-    name: Faker::Address.street_name,
-    address: Faker::Address.street_address,
-    city: Faker::Address.city,
-    neighborhood: Faker::Address.community,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude,
-    category: "Public Space",
-    subcategory: "Park",
-    user_id: [1,2].sample
-  )
-end
 
+# 2.times do
+#   User.create(
+#     email: Faker::Internet.email,
+#     password: "123456",
+#     username: (Faker::Internet.username(specifier: 5..8)).downcase
+#   )
+# end
+
+# puts "Users created!"
+# puts "---------------------------------------------------------------"
+
+# 10.times do
+#   Location.create(
+#     name: Faker::Address.street_name,
+#     address: Faker::Address.full_address,
+#     city: Faker::Address.city,
+#     neighborhood: Faker::Address.community,
+#     latitude: Faker::Address.latitude,
+#     longitude: Faker::Address.longitude,
+#     category: "Public Space",
+#     subcategory: ["Park", "Street", "Neighborhood"].sample,
+#     user_id: [1,2].sample
+#   )
+# end
+
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
 
 17.times do
+  adjectives = [Faker::Adjective.positive, Faker::Adjective.negative].sample
+
   Review.create(
-    title: Faker::Lorem.sentence(word_count: 3),
-    comment: Faker::Lorem.paragraph(sentence_count: 2),
+    title: adjectives,
+    comment: Faker::Restaurant.review,
     # photo: 'logo.png',
     noise_level: rand(1..5),
     family_zone: rand(1..5),
@@ -54,6 +66,8 @@ end
     bus: [true, false].sample,
     dealer: [true, false].sample,
     user_id: 1,
-    location_id: rand(1..3)
+    location_id: 10
   )
 end
+
+puts "Hooray! We're done seeding the database!"
