@@ -1,4 +1,4 @@
-<div class="container-title mt-3">
+<div class="container-title">
   <div class="title">
     <div class="title-img-pin"></div>
     <div class="title-txt">Locations</div>
@@ -20,12 +20,12 @@
 <div class="d-flex justify-content-center">
   <% @locations.each do |location| %>
     <div class="container-location-card-3 mt-4 mx-3">
-      <div class="location-name"><%= location.name%></div>
+      <div class="location-name-3"><%= truncate(location.name, length: 35, omission: '...') %> </div>
       <div class="img-location-3">
         <% if location.photo.present? %>
-          <%= image_tag location.photo %>
+          <%= image_tag location.photo, class: "img-location-3" %>
         <% else %>
-          <%= image_tag "map.png" %>
+          <%= image_tag "map.png", class: "img-location-3" %>
         <% end %>
       </div>
       <div class="spaces-card">
@@ -37,41 +37,10 @@
         </div>
       </div>
       <div class="container-address">
-        <p class="address-txt"><%= location.address %></p>
+        <p class="address-txt"><%= truncate(location.address, length: 45, omission: '...') %></p>
         <div class="address-pin"></div>
       </div>
       <p><%= link_to "View location", location_path(location), class: "btn btn-cyan-700" %></p>
     </div>
   <% end %>
 </div>
-
-<!--.chars first20.join
-<div class="container-location-card-3">
-    <div class="location-name">Hegmann Mountains</div>
-    <div class="spaces-card">
-        <div class="space-left">
-          <div class="space-left-txt">Private</div>
-        </div>
-        <div class="space-right">
-          <div class="space-right-txt">Business</div>
-        </div>
-    </div>
-    <div class="container-address">
-        <div class="address-txt">Av. Insurgentes # 1130, Col. Extremadura, Alcaldía Benito Juárez, C.P. 04330 Ciudad de México</div>
-        <div class="address-pin"></div>
-    </div>
-      <button type="submit" class="btn btn-cyan-700">
-        <div class="btn-cyan-700-txt">View Location</div>
-      </button>
-</div>
-
-<div class="card mx-3 my-3">
-  <% @locations.each do |location| %>
-   <h4><strong><%= location.name %></strong></h4>
-    <p><%= location.address %></p>
-    <p><%= location.category %></p>
-    <p><%= location.subcategory %></p>
-    <p><%= link_to "View location", location_path(location) %></p>
-  <% end %>
-</div>
--->
