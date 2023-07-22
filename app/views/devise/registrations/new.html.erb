@@ -10,19 +10,19 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+                        input_html: { autocomplete: "email", class: "w-100" }%>
             <%= f.input :username,
                         required: true,
                         autofocus: true,
-                        input_html: { autocomplete: "username" }%>
+                        input_html: { autocomplete: "username", class: "w-100" }%>
             <%= f.input :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { autocomplete: "new-password", class: "w-100" } %>
             <%= f.input :password_confirmation,
                         required: true,
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :avatar, as: :file %>
+                        input_html: { autocomplete: "new-password", class: "w-100" } %>
+            <%= f.input :avatar, as: :file, input_html: { class: "w-100" } %>
           </div>
 
           <div class="form-actions">

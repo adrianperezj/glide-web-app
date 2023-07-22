@@ -19,8 +19,8 @@
         <%= f.input :city, input_html: {class: "form-control-location"} %>
         <%= f.input :neighborhood %>
         <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %>
-        <div id="subcategory_wrapper" style="display: none;">
-          <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
+        <div id="subcategory_wrapper">
+          <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory', class: "w-100" } %>
         </div>
         <%= f.input :name %>
         <%= f.input :photo, as: :file %>

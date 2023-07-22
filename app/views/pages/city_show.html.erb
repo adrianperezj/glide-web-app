@@ -1,0 +1,123 @@
+  <div class="container-title mt-5">
+    <div class="title">
+      <div class="title-img-pin"></div>
+      <div class="title-txt"><h1><%= @location.city %></h1></div>
+    </div>
+  </div>
+  <br>
+
+<div class="container p-5 my-3">
+  <div class="row justify-content-center">
+    <div class="d-flex">
+      <div class="card rounded p-3 mx-3 my-5 shadow col-6" >
+        <% if @location.photo.present? %>
+          <div class="location-photo-container">
+            <%= image_tag @location.photo, class: "location-photo" %>
+          </div>
+        <% else %>
+          <div class="city-photo-container">
+            <%= image_tag "map.png", class: "location-photo" %>
+          </div>
+        <% end %>
+        <strong><h4><%= @location.city %> <br></h4></strong>
+        <%= @location.address %> <br>
+        <%= @location.city %> <br>
+        <%= @location.category %> <br>
+        <%= @location.subcategory %> <br>
+        <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
+        <br>
+        <%= link_to 'See reviews', location_reviews_path(@location), class: 'btn btn-primary' %>
+        <br>
+        <div class="d-flex">
+          <p> <%= link_to 'Edit', edit_location_path(@location) %>
+          <%= link_to 'Back', locations_path %> </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <% if @location.reviews.any? %>
+          <div class="card rounded shadow p-3 mx-3 my-5 col-md-12">
+            <h1>Ratings and reviews</h1>
+            <div class="row my-3">
+              <div class="col-md-6">
+                <p><strong>Meal Cost:</strong> $<%= average_rating_by_city(@location.city, "meal_cost") %> USD</p>
+                <p><strong>Coffee Cost:</strong> $<%= average_rating_by_city(@location.city, "coffee_cost") %> USD</p>
+                <p><strong>Rent Cost:</strong> $<%= average_rating_by_city(@location.city, "rent_cost") %> USD</p>
+                <p><strong>Beer Cost:</strong> $<%= average_rating_by_city(@location.city, "beer_cost") %> USD</p>
+                <p><strong>Average Noise Level:</strong> <%= average_rating_by_city(@location.city, "noise_level") %></p>
+                <p><strong>Safety level:</strong> <%= average_rating_by_city(@location.city, "safety") %></p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Working Internet Speed:</strong> <%= average_rating_by_city(@location.city, "internet_speed") %></p>
+                <p><strong>Considered Family Zone:</strong> <%= average_rating_by_city(@location.city, "family_zone") %></p>
+                <p><strong>Options for Nightlife:</strong> <%= average_rating_by_city(@location.city, "nightlife") %></p>
+                <p><strong>Is Pet Friendly:</strong> <%= average_rating_by_city(@location.city, "pet_friendly") %></p>
+                <p><strong>Restaurants Variety:</strong> <%= average_rating_by_city(@location.city, "restaurants_qty") %></p>
+                <p><strong>Have Shopping:</strong> <%= average_rating_by_city(@location.city, "shopping") %></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Dealer near?:</strong> <%= percentage_rating_by_city(@location.city, "dealer") %>%</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Subway near?:</strong> <%= percentage_rating_by_city(@location.city, "metro") %>%</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Bike near?:</strong> <%= percentage_rating_by_city(@location.city, "bike") %>%</p>
+              </div>
+
+              <div class="col-md-6">
+                <p><strong>Bus near?:</strong> <%= percentage_rating_by_city(@location.city, "bus") %>%</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Uber or ride app?:</strong> <%= percentage_rating_by_city(@location.city, "uber") %>%</p>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <p>No reviews available.</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <h1>Explore neighborhoods in <%= @location.city %></h1>
+
+<div class="container p-5 mx-5 align-items-center">
+  <div class="row">
+    <% neighborhoods = neighborhoods(@location.city) %>
+    <% if neighborhoods.any? %>
+      <% neighborhoods.each do |neighborhood| %>
+        <div class="col-md-3">
+          <div class="container-city-card-1">
+            <div class="img-city-card">
+              <% if @location.photo.present? %>
+                <%= image_tag @location.photo, class: "location-photo" %>
+              <% else %>
+                <%= image_tag "map.png", class: "location-photo" %>
+              <% end %>
+            </div>
+            <div class="white-city-card">
+              <div class="info-city-card">
+                <div class="city-name"> <%= neighborhood %> </div>
+                <%= link_to "View neighborhood", class: "btn btn-cyan-700" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="col-md-12">
+        <p>No neighborhoods in this city</p>
+      </div>
+    <% end %>
+  </div>
+</div>
