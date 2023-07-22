@@ -19,30 +19,10 @@
   padding-bottom: 60px; /* Add 60px padding at the bottom */
 }
 
-
-.form-group {
-  margin-bottom: 50px;
-}
-
-.range-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.range-input {
-  width: 50%;
-}
-
-.range-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-  width: 50%;
-}
-
-.range-label {
-  font-size: 12px;
+/* Icon style */
+.icon {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .bordered-avatar {
@@ -161,11 +141,6 @@
   margin-bottom: 20px; /* Add some spacing between the icon and the title */
 }
 
-.icon-title {
-  width: 60px; /* Adjust the size of the icon as needed */
-  height: 60px;
-  margin-bottom: 0px; /* Add some spacing between the icon and the title */
-}
 
 .h4-landing {
   font-family: Anek Latin;
@@ -231,25 +206,6 @@
 
 /* Style for the buttons */
 
-.btn-footer {
-  background-color: #071041; /* Change this to the desired primary button color */
-  color: white;
-}
-
-.btn-footer:hover {
-  background-color: white; /* Change this to the desired button hover color */
-  color: #071041;
-}
-
-.container-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 0;
-}
-
-
 /* Buttons */
 
 .btn-cyan-700 {
@@ -272,4 +228,14 @@
 .btn-secondary {
   background: $orange-500;
   color: white;
+}
+
+.btn-footer {
+  background-color: #071041; /* Change this to the desired primary button color */
+  color: white;
+}
+
+.btn-footer:hover {
+  background-color: white; /* Change this to the desired button hover color */
+  color: #071041;
 }
