@@ -4,28 +4,29 @@
     <div class="title-txt">Create a New Location</div>
   </div>
 </div>
-
-<div class="container-new-location" style="margin-left: 30px;">
-  <%= simple_form_for @location do |f| %>
-    <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-    <%= f.input :city, input_html: {class: "form-control-location"} %>
-    <%= f.input :neighborhood %>
-    <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %>
-    <div id="subcategory_wrapper" style="display: none;">
-      <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
-    </div class="photo-upload">
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, class: "btn btn-cyan-700-location" %>
-  <% end %>
+<br>
+<div class="container" style="margin-left: 30px">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4 col-sm-offset-4">
+      <%= simple_form_for @location do |f| %>
+        <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+        <%= f.input :city, input_html: {class: "form-control-location"} %>
+        <%= f.input :neighborhood %>
+        <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %>
+        <div id="subcategory_wrapper" style="display: none;">
+          <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory' } %>
+        </div>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, class: "btn btn-cyan-700-location" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-
-
-
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("click", function() {
     const categorySelect = document.getElementById("location_category");
     const subcategoryWrapper = document.getElementById("subcategory_wrapper");
     const subcategorySelect = document.getElementById("location_subcategory");
