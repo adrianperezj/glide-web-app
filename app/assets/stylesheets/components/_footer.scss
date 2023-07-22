@@ -1,0 +1,50 @@
+
+/* Style for the social media icons in the footer */
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media li:last-child {
+  margin-right: 0;
+}
+
+.social-media a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  background-color: #097695; /* Change this to the desired color for the social media icons */
+  border-radius: 50%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-section {
+  background-color: #097695; /* Replace with your desired blue color */
+  color: white; /* Set text color for better visibility on the blue background */
+  /* Add any other styles you need for the footer */
+  padding: 64px 0;
+}
+
+/* Style for the contact information */
+.contact-info {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
