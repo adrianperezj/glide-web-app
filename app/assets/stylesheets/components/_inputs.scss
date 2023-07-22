@@ -1,47 +1,96 @@
-.input-container-meals {
-  display: inline-block;
-  width: fit-content ;
-  border-radius: 8px;
-  border-color: gray;
-  background-color: #f1f1f1;
-  margin: 16px;
-  padding: 24px 16px 6px 16px;
-  text-align: center;
-}
-
-/* Square container for each input */
-.input-container {
-  display: inline-block;
-  width: 200px;
-  border-radius: 8px;
-  background-color: #f1f1f1;
-  margin: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-.range-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-  width: 50%;
-}
-
-.range-label {
-  font-size: 12px;
-}
+/* Meals Inputs */
+  .input-container-meals {
+    display: inline-block;
+    border-radius: 8px;
+    border-color: gray;
+    background-color: #f1f1f1;
+    margin: 16px;
+    padding: 24px 16px 6px 16px;
+    text-align: center; /* Aligns the entire content (including the label) to center */
+  }
 
 
-.form-group {
-  margin-bottom: 50px;
-}
+  /* Target the label inside .input-container-meals to center its text */
+  .input-container-meals label {
+    display: block; /* Ensures the label takes full width within the container */
+    text-align: center; /* Centers the text within the label */
+  }
 
-.range-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+   /* Input Container */
+  .input-container-mobility {
+    display: inline-block;
+    border-radius: 8px;
+    border-color: gray;
+    background-color: #f1f1f1;
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+    justify-content: center;
+    width: 200px;
+  }
 
-.range-input {
-  width: 50%;
-}
+  /* Icon inside Input Container */
+  .input-container i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .input-container-mobility label {
+    display: block; /* Ensures the label takes full width within the container */
+    text-align: center; /* Centers the text within the label */
+  }
+
+  /* Optional: Adjust the icon position and size */
+  .input-container-meals .icon {
+    display: block; /* Ensures the icon takes full width within the container */
+    text-align: center; /* Centers the icon within the container */
+    font-size: 24px; /* You can adjust the font-size as needed */
+    margin-bottom: 12px; /* Adds some spacing between the icon and the label */
+  }
+
+
+/* Ratings range inputs */
+  .range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .range-label {
+    font-size: 12px;
+  }
+
+  /* Styling for the Font Awesome icons in the labels */
+  .form-label i {
+    margin-right: 10px; /* Add spacing between the icon and the label text */
+  }
+
+  /* Styling for the label with the icon */
+  .form-label {
+    display: flex;
+    align-items: center; /* Align the icon vertically */
+    margin-bottom: 24px; /* Add some spacing between the labels */
+  }
+
+  .form-group {
+    margin-bottom: 60px; /* Adjust the value as needed to increase the space */
+  }
+
+  /* Styling for the range input container */
+  .range-container {
+    width: 40%;
+    position: relative; /* Allows positioning the icon */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Styling for the range input */
+  .range-input {
+    width: 100%; /* To make the range input expand inside its container */
+    border: 1px solid #ced4da; /* Gray border color */
+    border-radius: 12px; /* Rounded corners */
+    padding: 4px; /* Some padding to create space between the input and the border */
+  }
