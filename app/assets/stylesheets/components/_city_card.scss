@@ -26,6 +26,15 @@
   display: flex;
 }
 
+/* Make the image fit inside the card */
+.img-city-card img {
+  width: 100%;
+  height: 190px; /* Adjust the height as needed */
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
 .white-city-card {
   width: 250px;
   height: 140px;
@@ -71,10 +80,11 @@
   font-family: Anek Latin, sans-serif;
   font-weight: 500;
   line-height: 24px;
+  text-align: left;
   word-wrap: break-word;
 }
 
-.container-stars {
+/*.container-stars {
   width: 110px;
   height: 15px;
   position: relative;
@@ -95,13 +105,29 @@
   width: 100%;
   height: 100%;
   position: relative;
-}*/
+}
 
 .star-e {
   width: 15px;
   height: 15px;
   padding-right: 0px;
   background: #FD7E14;
+}*/
+
+
+/* Style the pin icon */
+.pin-icon {
+  width: 11px; /* Adjust the size of the pin icon as needed */
+  height: 15px;
+  margin-right: 5px; /* Add spacing between the pin icon and the location count */
+}
+
+/* Style the location count */
+.location-count {
+  font-size: 14px;
+  color: #6C757D;
+  font-family: Anek Latin, sans-serif;
+  font-weight: 500;
 }
 
 .blanco {

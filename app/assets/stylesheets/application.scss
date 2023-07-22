@@ -14,7 +14,7 @@
 
 // Estilos de los Range Input de la sección de Ratings, no borrar:
 .form-group {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .range-container {
@@ -69,18 +69,206 @@
 }
 
 .hero-section {
-  background-color: #071041;
-  padding: 100px 0; /* Adjust the top and bottom padding as needed */
+  background-color: $cyan-700;
+  padding: 120px 0; /* Adjust the top and bottom padding as needed */
   text-align: center;
   color: white;
 }
 
 .hero-section h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 48px;
+  margin-bottom: 0px; /* Adjust the margin as needed */
 }
 
 .hero-section p {
+  margin-top: 24px;
   font-size: 18px;
   line-height: 1.6;
+}
+
+.second-section {
+  background-color: white;
+  padding: 60px 0; /* Adjust the padding as needed */
+}
+
+.second-section h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.second-section img {
+  max-width: 80%; /* Adjust the size of the image as needed */
+  margin-bottom: 20px;
+}
+
+.second-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.second-section .col-md-6 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.second-section .btn-signup {
+  margin-top: 30px;
+  background-color: $cyan-700;
+  color: white;
+  max-width: 100px;
+}
+
+.second-section .btn-signup:hover {
+  background-color: $cyan-900;
+}
+
+
+.col-md-4-landing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0px 40px; /* Adjust the vertical margin (spacing) between the containers */
+  padding: 48px;
+}
+
+
+.square-container-landing {
+  width: 270px; /* Adjust the size of the container as needed */
+  height: 270px;
+  background-color: white;
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 20px; /* Adjust the border-radius as needed for the desired roundness */
+  padding: 24px; /* Add some padding to create space between content and container edge */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-landing {
+  width: 80px; /* Adjust the size of the icon as needed */
+  height: 80px;
+  margin-bottom: 20px; /* Add some spacing between the icon and the title */
+}
+
+.h4-landing {
+  font-family: Anek Latin;
+  font-size: 24px;
+  font-style: bold;
+  font-weight: 400;
+  line-height: 130%; /* 31.2px */
+  text-align: center;
+  color: black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.third-section {
+  background-color: lightgray;
+  padding: 48px 0; /* Add space at the top and bottom of the section */
+}
+
+/* Adjust spacing between the containers for different screen sizes */
+.col-md-4-landing {
+  display: flex;
+  justify-content: center;
+  margin: 0 10px; /* Adjust the horizontal margin (spacing) between the containers */
+}
+
+.third-section h2 {
+  font-size: 36px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+
+/* ... (existing styles) ... */
+
+.text-center {
+  text-align: center;
+}
+
+.fourth-section {
+  background-color: white;
+  padding: 48px 0; /* Add space at the top and bottom of the section */
+}
+
+/* Adjust spacing between the containers for different screen sizes */
+.col-md-4 {
+  margin: 10px; /* Adjust the horizontal margin (spacing) between the cards */
+}
+
+
+/* Center the h2 title */
+.fourth-section h2 {
+  margin-bottom: 20px; /* Add some spacing between the h2 title and the cards */
+}
+
+/* Style the location info container */
+.location-info {
+  display: flex;
+  align-items: center;
+}
+
+
+/* Style for the social media icons in the footer */
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media li:last-child {
+  margin-right: 0;
+}
+
+.social-media a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  background-color: #097695; /* Change this to the desired color for the social media icons */
+  border-radius: 50%;
+}
+
+/* Additional style for the footer */
+.footer-section {
+  color: white; /* Change the font color as needed */
+  background-color: #097695;
+  padding: 64px 0;
+}
+
+/* Style for the contact information */
+.contact-info {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
+
+/* Style for the buttons */
+
+.btn-footer {
+  background-color: #071041; /* Change this to the desired primary button color */
+  color: white;
+}
+
+.btn-footer:hover {
+  background-color: white; /* Change this to the desired button hover color */
+  color: #071041;
 }
