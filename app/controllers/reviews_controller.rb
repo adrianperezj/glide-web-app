@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :comment, :noise_level, :safety, :internet_speed, :family_zone, :nightlife, :pet_friendly, :restaurants_qty, :shopping, :metro, :bike, :bus, :uber, :dealer, :photo)
+    params.require(:review).permit(:title, :comment, :meal_cost, :coffee_cost, :rent_cost, :beer_cost, :noise_level, :safety_level, :internet_speed, :family_zone, :nightlife, :pet_friendly, :restaurants_qty, :shopping, :metro, :bike, :bus, :uber, :dealer, :photo)
   end
 
   def set_location
