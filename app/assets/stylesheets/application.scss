@@ -11,8 +11,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/footer";
 
 // Estilos de los Range Input de la sección de Ratings, no borrar:
+
+.main-content {
+  padding-bottom: 60px; /* Add 60px padding at the bottom */
+}
+
+
 .form-group {
   margin-bottom: 50px;
 }
@@ -222,51 +229,6 @@
 }
 
 
-/* Style for the social media icons in the footer */
-.social-media {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.social-media li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.social-media li:last-child {
-  margin-right: 0;
-}
-
-.social-media a {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 20px;
-  color: white;
-  background-color: #097695; /* Change this to the desired color for the social media icons */
-  border-radius: 50%;
-}
-
-/* Additional style for the footer */
-.footer-section {
-  color: white; /* Change the font color as needed */
-  background-color: #097695;
-  padding: 64px 0;
-}
-
-/* Style for the contact information */
-.contact-info {
-  list-style: none;
-  padding: 0;
-}
-
-.contact-info li {
-  margin-bottom: 10px;
-}
-
 /* Style for the buttons */
 
 .btn-footer {
@@ -300,21 +262,8 @@
   display: inline-flex;
   text-align: center;
   color: white;
-  font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
   word-wrap: break-word;
 }
-
-/* Este estilo es para el card de prueba
-.btn-cyan-700-txt {
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
-  word-wrap: break-word;
-}*/
 
 .btn-cyan-700:hover {
   background: #045065;
