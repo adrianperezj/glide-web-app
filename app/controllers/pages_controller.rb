@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def cities
     if params[:query].present?
-      @locations = Location.all.select { |location| location.city == params[:query]}
+      @locations = Location.all.find { |location| location.city == params[:query]} || "City not found"
     else
       @locations = Location.all
     end
