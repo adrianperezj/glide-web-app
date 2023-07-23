@@ -3,12 +3,11 @@
 .social-media {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-bottom: 7px;
 }
 
 .social-media li {
   display: inline-block;
-  margin-right: 10px;
 }
 
 .social-media li:last-child {
@@ -19,6 +18,7 @@
   display: inline-block;
   width: 40px;
   height: 40px;
+  margin-bottom: 10px;
   line-height: 40px;
   text-align: center;
   font-size: 20px;
@@ -36,15 +36,29 @@ body {
   background-color: #097695; /* Replace with your desired blue color */
   color: white; /* Set text color for better visibility on the blue background */
   /* Add any other styles you need for the footer */
-  padding: 64px 0;
+  padding: 30px 0;
+}
+
+.footer-txt {
+  font-family: Anek Latin;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 
 /* Style for the contact information */
 .contact-info {
   list-style: none;
+  margin-bottom: 18px;
   padding: 0;
+  font-family: Anek Latin;
+  font-size: 12px;
 }
 
 .contact-info li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.contact-info i {
+  margin-right: 10px;
 }

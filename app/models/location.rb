@@ -1,6 +1,6 @@
 class Location < ApplicationRecord
   belongs_to :user, optional: true
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, dependent: :nullify
   has_one_attached :photo
 
   geocoded_by :full_address

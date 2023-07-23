@@ -27,7 +27,7 @@ class LocationsController < ApplicationController
         lng: longitude,
         title: @location.name,
         info_window_html: render_to_string(partial: "info_window", locals: { location: @location }),
-        marker_html: render_to_string(partial: "marker", locals: {location: @location})
+        marker_html: render_to_string(partial: "marker", locals: { location: @location })
       }]
     else
       # Handle the case where latitude or longitude is missing
@@ -41,6 +41,7 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    @location.user = current_user
     if @location.save
       # do reverse geoding
       # extract city and neighborhood from reverse geocing
