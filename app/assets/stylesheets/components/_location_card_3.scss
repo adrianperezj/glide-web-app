@@ -3,9 +3,14 @@
   justify-content: center;
 }
 
+.row {
+  justify-content: center;
+}
+
 .container-location-card-3 {
   width: 250px;
   height: 400px;
+  margin-top: 40px;
   padding: 15, 10, 10, 10;
   border-radius: 15px;
   overflow: hidden;
@@ -128,13 +133,13 @@
   width: 210px;
   height: 30px;
   background: #097695;
-  border-radius: 5px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   display: inline-flex;
   text-align: center;
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   font-family: Anek Latin;
   font-weight: 600;
   word-wrap: break-word;

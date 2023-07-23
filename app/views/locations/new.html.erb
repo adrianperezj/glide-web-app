@@ -1,25 +1,44 @@
-<div class="container-title mt-3">
+<div class="container-title-myloc">
   <div class="title">
     <div class="title-img-pin"></div>
     <div class="title-txt">Create a New Location</div>
   </div>
 </div>
-<br>
-<div class="container" style="margin-left: 30px">
+
+<div class="container-new-loc"">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4 col-sm-offset-4">
+    <div class="col-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <%= simple_form_for @location do |f| %>
         <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
-        <%= f.input :city, input_html: {class: "form-control-location"} %>
-        <%= f.input :neighborhood %>
+
+        <!--<div class="container-map mt-4">
+          <div style="width: 90%; height: 600px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>-->
+
+        <%= f.input :city, class: "form-control" %>
+        <%= f.input :neighborhood, class: "form-control" %>
+
+        <div class="section-name">
+          <div class="title">
+            <div class="title-img-pin"></div>
+            <div class="title-txt">Name your Location</div>
+          </div>
+          <div>
+            <%= f.input :name, label: false, class: "input-name" %>
+          </div>
+        </div>
+
         <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %>
         <div id="subcategory_wrapper" style="display: none;">
           <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory', class: "w-100" } %>
         </div>
-        <%= f.input :name %>
         <%= f.input :photo, as: :file %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.button :submit, class: "btn btn-cyan-700-location" %>
       <% end %>
     </div>
   </div>
