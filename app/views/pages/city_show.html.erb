@@ -109,7 +109,7 @@
             <div class="white-city-card">
               <div class="info-city-card">
                 <div class="city-name"> <%= neighborhood %> </div>
-                <%= link_to "View neighborhood", class: "btn btn-cyan-700" %>
+                <%= link_to "View neighborhood", neighborhood_show_path(query: find_location), class: "btn btn-cyan-700" %>
               </div>
             </div>
           </div>

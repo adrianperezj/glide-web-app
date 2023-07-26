@@ -17,4 +17,8 @@ class PagesController < ApplicationController
   def city_show
     @location = Location.find(params[:id])
   end
+
+  def neighborhood_show
+    @location = Location.find(params[:query])
+  end
 end
