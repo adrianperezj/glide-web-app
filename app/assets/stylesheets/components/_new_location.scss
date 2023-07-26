@@ -1,10 +1,13 @@
 .container-title-myloc {
   padding-top: 40px;
-  padding-bottom: 40px;
+
 }
 
 .container-new-loc {
   width: 100%;
+  align-content: center;
+  border-radius: 10px;
+  padding: 40px;
 }
 
 .container-map {
@@ -19,7 +22,6 @@
   color: var(--gray-500, #ADB5BD);
   text-align: left;
   /* Input */
-  font-family: Anek Latin;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -36,7 +38,6 @@
   border-radius: 8px;
   background-color: white;
   text-align: left;
-  font-family: Anek Latin;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -57,12 +58,12 @@
 }
 
 .location_name {
-  width: 400px !important;
+  width: 300px !important;
 }
 
 .btn-cyan-700-location {
-  width: 120px;
-  height: 30px;
+  width: 160px;
+  height: 48px;
   background: #097695;
   border-radius: 10px;
   justify-content: center;
@@ -70,8 +71,7 @@
   display: inline-flex;
   text-align: center;
   color: white;
-  font-size: 14px;
-  font-family: Anek Latin;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1;
   word-wrap: break-word;
@@ -79,4 +79,8 @@
 
 .btn-cyan-700:hover {
   background: #045065;
+}
+
+.custom-label {
+  font-family: "Anek Latin", sans-serif;
 }
