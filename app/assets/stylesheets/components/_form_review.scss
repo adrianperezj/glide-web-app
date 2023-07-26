@@ -19,8 +19,8 @@
 
 .form-field {
   align-self: stretch;
-  width: 600px;
-  height: 35px;
+  width: 100%;
+  height: 40px;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
@@ -28,19 +28,14 @@
   background: white;
   border-radius: 10px;
   border: 0.50px #ADB5BD solid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  display: flex;
+  /* Align the text to the left */
+  text-align: left;
+  /* Rest of the styles remain unchanged */
 }
 
 .form-field::placeholder {
   align-self: stretch;
-  text-align: center;
-  color: #888f95;
-  font-size: 14px;
-  font-family: Anek Latin;
-  word-wrap: break-word;
-  align-items: center;
+  /* Align the placeholder text to the left */
+  text-align: left;
+  /* Rest of the styles remain unchanged */
 }

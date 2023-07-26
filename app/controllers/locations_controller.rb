@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_user, only: [:new, :create, :edit, :update]
+  CATEGORIES = ["Public Space", "Private Space"]
+
 
   def index
       @locations = Location.all
