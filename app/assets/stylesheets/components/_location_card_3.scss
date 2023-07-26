@@ -158,3 +158,69 @@
 .btn-cyan-700:hover {
   background: #045065;
 }
+
+/* Styles for the main container */
+.content-block {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for the image container */
+.image-container {
+  flex: 0 0 200px; /* Adjust the width of the image container as needed */
+  margin-right: 20px; /* Add some space between the image and text */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optionally, add some rounded corners to the image */
+}
+
+/* Styles for the text container */
+.text-container {
+  flex: 1; /* Take up the remaining available space */
+}
+
+.text-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+.text-container p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Styles for the main container */
+.content-block {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for the image container */
+.image-container {
+  flex: 0 0 200px; /* Adjust the width of the image container as needed */
+  margin-right: 20px; /* Add some space between the image and text */
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optionally, add some rounded corners to the image */
+}
+
+/* Styles for the text container */
+.text-container {
+  flex: 1; /* Take up the remaining available space */
+}
+
+.text-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px; /* Add some space below the title */
+}
+
+.text-container p {
+  font-size: 16px;
+  line-height: 1.6;
+}
