@@ -7,36 +7,46 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
+require "open-uri"
+
 
 puts "---------------------------------------------------------------"
 puts "Sit tight, we're seeding the database..."
 puts "---------------------------------------------------------------"
 
 
-# 2.times do
-#   User.create(
-#     email: Faker::Internet.email,
-#     password: "123456",
-#     username: (Faker::Internet.username(specifier: 5..8)).downcase
-#   )
-# end
+2.times do
+  User.create!(
+    email: Faker::Internet.email,
+    password: "123456",
+    username: (Faker::Internet.username(specifier: 5..8)).downcase
+  )
+end
 
-# puts "Users created!"
-# puts "---------------------------------------------------------------"
+puts "Users created!"
+puts "---------------------------------------------------------------"
 
-# 10.times do
-#   Location.create(
-#     name: Faker::Address.street_name,
-#     address: Faker::Address.full_address,
-#     city: Faker::Address.city,
-#     neighborhood: Faker::Address.community,
-#     latitude: Faker::Address.latitude,
-#     longitude: Faker::Address.longitude,
-#     category: "Public Space",
-#     subcategory: ["Park", "Street", "Neighborhood"].sample,
-#     user_id: [1,2].sample
-#   )
-# end
+10.times do
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+article = Article.new(title: "NES", body: "A great console")
+article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+article.save
+end
+
+10.times do
+  Location.create!(
+    name: Faker::Address.street_name,
+    address: Faker::Address.full_address,
+    city: Faker::Address.city,
+    neighborhood: Faker::Address.community,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude,
+    category: "Public Space",
+    subcategory: ["Park", "Street", "Neighborhood"].sample,
+    user_id: [1,2].sample,
+    photo: article
+  )
+end
 
 puts "Locations ready!"
 puts "---------------------------------------------------------------"
@@ -44,7 +54,7 @@ puts "---------------------------------------------------------------"
 30.times do
   adjectives = [Faker::Adjective.positive, Faker::Adjective.negative].sample
 
-  Review.create(
+  Review.create!(
     title: adjectives,
     comment: Faker::Restaurant.review,
     # photo: 'logo.png',
@@ -66,7 +76,7 @@ puts "---------------------------------------------------------------"
     bus: [true, false].sample,
     dealer: [true, false].sample,
     user_id: 1,
-    location_id: rand(11..15)
+    location_id: rand(1..5)
   )
 end
 

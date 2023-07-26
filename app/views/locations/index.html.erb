@@ -19,7 +19,7 @@
 
 <div class="container-loc">
   <div class="row">
-      <% @locations.each do |location| %>
+      <% @locations.where(city: params[:query]).each do |location| %>
         <!--<div class="col-md-4">-->
           <div class="container-location-card-3 mx-2">
             <div class="location-name-3"><%= truncate(location.name, length: 35, omission: '...') %> </div>
