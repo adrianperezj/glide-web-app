@@ -1,96 +1,168 @@
 /* Meals Inputs */
-  .input-container-meals {
-    display: inline-block;
-    border-radius: 8px;
-    border-color: gray;
-    background-color: #f1f1f1;
-    margin: 16px;
-    padding: 24px 16px 6px 16px;
-    text-align: center; /* Aligns the entire content (including the label) to center */
-  }
+.input-container-meals {
+  display: inline-block;
+  border-radius: 8px;
+  border-color: gray;
+  background-color: #f1f1f1;
+  margin: 16px;
+  padding: 24px 16px 6px 16px;
+  text-align: center;
+}
 
+/* Target the label inside .input-container-meals to center its text */
+.input-container-meals label {
+  display: block;
+  text-align: center;
+}
 
-  /* Target the label inside .input-container-meals to center its text */
-  .input-container-meals label {
-    display: block; /* Ensures the label takes full width within the container */
-    text-align: center; /* Centers the text within the label */
-  }
-
-   /* Input Container */
-  .input-container-mobility {
-    display: inline-block;
-    border-radius: 8px;
-    border-color: gray;
-    background-color: #f1f1f1;
-    margin: 16px;
-    padding: 16px;
-    text-align: center;
-    justify-content: center;
-    width: 200px;
-  }
-
-  /* Icon inside Input Container */
-  .input-container i {
-    display: block;
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-
-  .input-container-mobility label {
-    display: block; /* Ensures the label takes full width within the container */
-    text-align: center; /* Centers the text within the label */
-  }
-
-  /* Optional: Adjust the icon position and size */
-  .input-container-meals .icon {
-    display: block; /* Ensures the icon takes full width within the container */
-    text-align: center; /* Centers the icon within the container */
-    font-size: 24px; /* You can adjust the font-size as needed */
-    margin-bottom: 12px; /* Adds some spacing between the icon and the label */
-  }
-
+/* Optional: Adjust the icon position and size */
+.input-container-meals .icon {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
 
 /* Ratings range inputs */
-  .range-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    width: 100%;
-  }
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  width: 100%;
+}
 
-  .range-label {
-    font-size: 12px;
-  }
+.range-label {
+  font-size: 12px;
+}
 
-  /* Styling for the Font Awesome icons in the labels */
-  .form-label i {
-    margin-right: 10px; /* Add spacing between the icon and the label text */
-  }
+/* Styling for the Font Awesome icons in the labels */
+.form-label i {
+  margin-right: 10px;
+}
 
-  /* Styling for the label with the icon */
-  .form-label {
-    display: flex;
-    align-items: center; /* Align the icon vertically */
-    margin-bottom: 24px; /* Add some spacing between the labels */
-  }
+/* Style for the form labels */
+.form-label-location {
+  color: #6C757D;
+  font-size: 20px;
+  font-family: Anek Latin;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-bottom: 5px; /* Add spacing between labels and input fields */
+}
 
-  .form-group {
-    margin-bottom: 60px; /* Adjust the value as needed to increase the space */
-  }
+/* Styling for the label with the icon */
+.form-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
 
-  /* Styling for the range input container */
-  .range-container {
-    width: 40%;
-    position: relative; /* Allows positioning the icon */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.form-label-mobility {
+  display: flex;
+  align-items: left;
+  width: 100px;
+}
 
-  /* Styling for the range input */
-  .range-input {
-    width: 100%; /* To make the range input expand inside its container */
-    border: 1px solid #ced4da; /* Gray border color */
-    border-radius: 12px; /* Rounded corners */
-    padding: 4px; /* Some padding to create space between the input and the border */
-  }
+.form-label-mobility i {
+  margin-right: 8px;
+}
+
+.form-group {
+  margin-bottom: 60px;
+}
+
+.form-group-mobility {
+  justify-content: space-between;
+}
+
+/* Styling for the range input container */
+.range-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Styling for the range input */
+.range-input {
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+/* Mobility Container */
+.mobility-container {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 16px 32px 6px 32px;
+  display: inline-block;
+}
+
+/* Input Row */
+.input-row-mobility {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Adjust the column widths as needed */
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Icon in Input Row */
+.input-row-mobility .icon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+/* Checkbox in Input Row */
+.input-row-mobility .form-checkbox-custom {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: 2px solid $orange-500;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Checked Checkbox in Input Row */
+.input-row-mobility .form-checkbox-custom:checked {
+  background-color: $orange-500;
+}
+
+
+/* Style for the category and subcategory buttons */
+.btn-group-toggle label.btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Add custom icon styles here */
+.btn-group-toggle label.btn::before {
+  font-family: "Font Awesome"; /* Replace with the actual font-family name for Font Awesome */
+  font-size: 18px; /* Adjust the size of the icon as needed */
+  content: "\f007"; /* Replace with the Unicode value of the desired Font Awesome icon */
+  margin-right: 5px; /* Add some spacing between the icon and the label text */
+}
+
+/* Style for the label text in the buttons */
+.btn-group-toggle label.btn {
+  color: white; /* Set the color of the label text */
+}
+
+/* Style for the active button (when selected) */
+.btn-group-toggle label.btn.active {
+  background-color: $orange-700; /* Replace with your desired active button background color */
+  border-color: $orange-700; /* Replace with your desired active button border color */
+}
+
+/* Style for the form labels */
+.form-label {
+  color: #6C757D;
+  font-size: 20px;
+  font-family: Anek Latin;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-bottom: 5px; /* Add spacing between labels and input fields */
+}

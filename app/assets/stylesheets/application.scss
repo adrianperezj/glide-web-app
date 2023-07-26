@@ -235,6 +235,12 @@
   font-weight: 500;
 }
 
+.btn-secondary:hover,
+.btn-outline-secondary:hover {
+  background: $orange-700;
+  color: white;
+}
+
 .btn-footer {
   width: 105px;
   height: 25px;
