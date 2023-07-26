@@ -7,10 +7,10 @@ class PagesController < ApplicationController
   def cities
     if params[:query].present?
       # @locations = Location.all.find { |location| location.city == params[:query]} || "City not found"
-      @locations = Location.search_by_city_and_neighborhood(params[:query]).first
+      @locations = Location.search_by_city_and_neighborhood(params[:query]).first || "City not found"
     else
       # return all locations excluding repeated cities, include only the first location with city
-      # @locations = Location.all.group_by(&:city).map { |city, locations| locations.first }
+      @locations = Location.all.group_by(&:city).map { |city, locations| locations.first }
     end
   end
 
