@@ -210,11 +210,14 @@
   width: 210px;
   height: 30px;
   background: #097695;
-  border-radius: 5px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   display: inline-flex;
   text-align: center;
+  font-family: Anek Latin;
+  font-size: 14px;
+  font-weight: 500;
   color: white;
   word-wrap: break-word;
 }
@@ -226,6 +229,10 @@
 .btn-secondary {
   background: $orange-500;
   color: white;
+  border-radius: 10px;
+  font-family: Anek Latin;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .btn-secondary:hover,
@@ -235,11 +242,23 @@
 }
 
 .btn-footer {
-  background-color: #071041; /* Change this to the desired primary button color */
+  width: 105px;
+  height: 25px;
+  background-color: $orange-500; /* Change this to the desired primary button color */
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  text-align: center;
+  font-family: Anek Latin;
+  font-size: 12px;
+  font-weight: 500;
   color: white;
+  margin-bottom: 10px;
+  margin-right: 5px;
 }
 
 .btn-footer:hover {
-  background-color: white; /* Change this to the desired button hover color */
-  color: #071041;
+  background-color: $orange-700; /* Change this to the desired button hover color */
+  color: white;
 }

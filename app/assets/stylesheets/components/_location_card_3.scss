@@ -3,10 +3,15 @@
   justify-content: center;
 }
 
+.row {
+  justify-content: center;
+}
+
 .container-location-card-3 {
   width: 250px;
   height: flex; /* Adjusted height to accommodate more vertical padding */
   padding: 20px 20px 0px 20px; /* Increased vertical padding to 24px */
+
   border-radius: 15px;
   overflow: hidden; /* Add overflow: hidden to hide any content overflowing from the container */
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
@@ -128,7 +133,7 @@
   width: 210px;
   height: 30px;
   background: #097695;
-  border-radius: 5px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   display: inline-flex;
