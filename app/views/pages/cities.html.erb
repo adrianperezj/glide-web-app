@@ -31,7 +31,7 @@
       <% @locations.each do |location| %>
         <div class="container-city-card-1">
             <div class="img-city-card">
-              <% if location.photo.key.present? %>
+              <% if location.photo.key.attached? %>
                 <%= cl_image_tag(location.photo.key) %>
               <% else %>
                 <%= image_tag ("map.png") %>
