@@ -166,3 +166,74 @@
   word-wrap: break-word;
   margin-bottom: 5px; /* Add spacing between labels and input fields */
 }
+
+
+/* Style for toggle buttons */
+
+/* Style for toggle buttons */
+
+.clickable-category {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 24px 24px;
+  border: 1px solid $orange-500;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: $orange-100;
+  color: $orange-500;
+}
+
+.clickable-subcategory {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid $orange-500;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: $orange-100;
+  color: $orange-500;
+}
+
+.clickable-category.active,
+.clickable-subcategory.active {
+  background-color: $orange-500;
+  color: white;
+  border-color: $orange-500;
+}
+
+.clickable-category i,
+.clickable-subcategory i {
+  margin-right: 5px;
+  color: $orange-500;
+}
+
+.clickable-category.active i,
+.clickable-subcategory.active i {
+  margin-right: 5px;
+  color: white;
+}
+
+.subcategory-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  width: max-content;
+}
+
+.toggle-buttons {
+  display: flex;
+  flex-direction: row; /* Change to column to display buttons below the label */
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.toggle-buttons label {
+  padding-bottom: 5px;
+}
+
+.toggle-buttons .clickable-category,
+.toggle-buttons .clickable-subcategory {
+  margin-bottom: 5px;
+}

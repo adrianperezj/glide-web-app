@@ -12,14 +12,6 @@
         <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
 
-        <!--<div class="container-map mt-4">
-          <div style="width: 90%; height: 600px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>-->
-
         <%= f.input :city, class: "form-control" %>
         <%= f.input :neighborhood, class: "form-control" %>
 
@@ -33,10 +25,47 @@
           </div>
         </div>
 
-        <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %>
-        <div id="subcategory_wrapper" style="display: none;">
-          <%= f.input :subcategory, collection: [], include_blank: "Select Subcategory", input_html: { id: 'location_subcategory', class: "w-100" } %>
+       <!-- <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %> -->
+        <div class="mb-4">
+        <label class="custom-label" for="location_category">What type of location is it?</label>
         </div>
+
+        <div class="toggle-buttons">
+          <div class="clickable-category" data-value="Public Space">
+            <i class="fas fa-people-group"></i>
+            <small>Public Space</small>
+          </div>
+          <div class="clickable-category" data-value="Private Space">
+            <i class="fas fa-key"></i>
+            <small>Private Space</small>
+          </div>
+          <input type="hidden" id="location_category" name="location[category]" value="<%= @location.category %>">
+        </div>
+
+        <div class="mb-4">
+          <label class="custom-label" for="location_subcategory">What describes the location better?</label>
+        </div>
+        <div class="toggle-buttons">
+          <div id="private_subcategory_wrapper" class="d-none">
+            <% Location::PRIVATE_SUBTYPE.each do |subtype| %>
+              <div class="clickable-subcategory" data-value="<%= subtype %>" id="private_subtype_<%= subtype %>">
+                <i class="<%= getIconForSubcategory(subtype) %>"></i>
+                <small><%= subtype %></small>
+              </div>
+            <% end %>
+          </div>
+
+          <div id="public_subcategory_wrapper" class="d-none">
+            <% Location::PUBLIC_SUBTYPE.each do |subtype| %>
+              <div class="clickable-subcategory" data-value="<%= subtype %>" id="public_subtype_<%= subtype %>">
+                <i class="<%= getIconForSubcategory(subtype) %>"></i>
+                <small><%= subtype %></small>
+              </div>
+            <% end %>
+          </div>
+        <input type="hidden" id="location_subcategory" name="location[subcategory]" value="<%= @location.subcategory %>">
+      </div>
+
         <%= f.input :photo, as: :file %>
         <%= f.button :submit, class: "btn btn-cyan-700-location" %>
       <% end %>
@@ -45,21 +74,90 @@
 </div>
 
 <script>
-  document.addEventListener("click", function() {
-    const categorySelect = document.getElementById("location_category");
-    const subcategoryWrapper = document.getElementById("subcategory_wrapper");
-    const subcategorySelect = document.getElementById("location_subcategory");
+document.addEventListener("DOMContentLoaded", function () {
+  const categoryButtons = document.querySelectorAll('.clickable-category');
+  const subcategoryButtons = document.querySelectorAll('.clickable-subcategory');
+  const categoryInput = document.getElementById('location_category');
+  const subcategoryInput = document.getElementById('location_subcategory');
+  const privateSubcategoryWrapper = document.getElementById('private_subcategory_wrapper');
+  const publicSubcategoryWrapper = document.getElementById('public_subcategory_wrapper');
 
-    categorySelect.addEventListener("change", function() {
-      if (this.value === "Public Space") {
-        subcategorySelect.innerHTML = "<option value=''>Select Subcategory</option><%= j options_for_select(Location::PUBLIC_SUBTYPE) %>";
-        subcategoryWrapper.style.display = "block";
-      } else if (this.value === "Private Space") {
-        subcategorySelect.innerHTML = "<option value=''>Select Subcategory</option><%= j options_for_select(Location::PRIVATE_SUBTYPE) %>";
-        subcategoryWrapper.style.display = "block";
+  const toggleSubcategories = (selectedCategory) => {
+    if (selectedCategory === "Public Space") {
+      privateSubcategoryWrapper.classList.add('d-none');
+      publicSubcategoryWrapper.classList.remove('d-none');
+    } else if (selectedCategory === "Private Space") {
+      publicSubcategoryWrapper.classList.add('d-none');
+      privateSubcategoryWrapper.classList.remove('d-none');
+    }
+  };
+
+  const selectSubcategory = (selectedSubcategory) => {
+    subcategoryButtons.forEach((button) => {
+      if (button.getAttribute('data-value') === selectedSubcategory) {
+        button.classList.add('active');
       } else {
-        subcategoryWrapper.style.display = "none";
+        button.classList.remove('active');
       }
     });
+    subcategoryInput.value = selectedSubcategory;
+  };
+
+  const unselectSubcategories = () => {
+    subcategoryButtons.forEach((button) => {
+      button.classList.remove('active');
+    });
+    subcategoryInput.value = '';
+  };
+
+  const toggleActiveClass = (event) => {
+    categoryButtons.forEach((category) => {
+      category.classList.remove('active');
+    });
+
+    const selectedCategory = event.currentTarget;
+    selectedCategory.classList.add('active');
+    categoryInput.value = selectedCategory.getAttribute('data-value');
+    toggleSubcategories(selectedCategory.getAttribute('data-value'));
+    unselectSubcategories();
+  };
+
+  const toggleActiveOnClick = (category) => {
+    category.addEventListener('click', toggleActiveClass);
+  };
+
+  categoryButtons.forEach(toggleActiveOnClick);
+
+  // Event listener for subcategory buttons
+  subcategoryButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const selectedSubcategory = event.currentTarget.getAttribute('data-value');
+      selectSubcategory(selectedSubcategory);
+    });
   });
+});
+
+const subtypeIcons = {
+  // Public Space subcategories
+  "Neighborhood": "fas fa-city",
+  "Block/Square": "fas fa-cube",
+  "Street": "fas fa-road",
+  "Park": "fas fa-tree",
+  "Cultural Landmark": "fas fa-landmark",
+  "Natural Landmark": "fas fa-mountain",
+
+  // Private Space subcategories
+  "House": "fas fa-home",
+  "Flat": "fas fa-building",
+  "Restaurant": "fas fa-utensils",
+  "Bar": "fas fa-glass-martini",
+  "Hotel": "fas fa-hotel",
+  "Workshop": "fas fa-tools",
+  "Office": "fas fa-building"
+};
+
+function getIconForSubcategory(subtype) {
+  return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
+}
+
 </script>
