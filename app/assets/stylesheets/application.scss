@@ -228,6 +228,12 @@
   color: white;
 }
 
+.btn-secondary:hover,
+.btn-outline-secondary:hover {
+  background: $orange-700;
+  color: white;
+}
+
 .btn-footer {
   background-color: #071041; /* Change this to the desired primary button color */
   color: white;

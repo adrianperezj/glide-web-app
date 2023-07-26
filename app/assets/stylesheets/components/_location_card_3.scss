@@ -5,24 +5,23 @@
 
 .container-location-card-3 {
   width: 250px;
-  height: 400px;
-  padding: 15, 10, 10, 10;
+  height: flex; /* Adjusted height to accommodate more vertical padding */
+  padding: 20px 20px 0px 20px; /* Increased vertical padding to 24px */
   border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Add overflow: hidden to hide any content overflowing from the container */
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
   background-color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 18px;
   display: inline-flex;
-  overflow: visible;
 }
 
 .location-name-3 {
   width: 210px;
-  height: 44px;
-  margin-top: 15px;
+  height: flex;
+  padding-top: 32px;
   display: flex;
   align-items: center;
   color: #6C757D;
@@ -34,11 +33,12 @@
 }
 
 .img-location-3 {
-  width: 210px;
+  width: 184px;
   height: 160px;
   object-fit: cover;
   object-position: center;
-  border-radius: 10px;
+  border-radius: 10px; /* Adjusted border radius to match the container */
+  overflow: hidden; /* Add overflow: hidden to hide any content overflowing from the container */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -135,20 +135,8 @@
   text-align: center;
   color: white;
   font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
   word-wrap: break-word;
 }
-
-/* Este estilo es para el card de prueba
-.btn-cyan-700-txt {
-  text-align: center;
-  color: white;
-  font-size: 12px;
-  font-family: Anek Latin;
-  font-weight: 600;
-  word-wrap: break-word;
-}*/
 
 .btn-cyan-700:hover {
   background: #045065;
