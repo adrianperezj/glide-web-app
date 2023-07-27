@@ -1,17 +1,17 @@
 .container-map {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .row {
   justify-content: center;
 }
 
-.container-location-card-3 {
+.container-location-whitecard-3 {
   width: 250px;
   height: flex; /* Adjusted height to accommodate more vertical padding */
-  padding: 20px 20px 0px 20px; /* Increased vertical padding to 24px */
-
+  padding: 15, 10, 10, 10; /* Increased vertical padding to 24px */
   border-radius: 15px;
   overflow: hidden; /* Add overflow: hidden to hide any content overflowing from the container */
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08);
@@ -25,8 +25,8 @@
 
 .location-name-3 {
   width: 210px;
-  height: flex;
-  padding-top: 32px;
+  height: 55px;
+  padding-top: 15px;
   display: flex;
   align-items: center;
   color: #6C757D;
@@ -38,7 +38,7 @@
 }
 
 .img-location-3 {
-  width: 184px;
+  width: 210px;
   height: 160px;
   object-fit: cover;
   object-position: center;
@@ -129,7 +129,7 @@
   align-content: center;
 }
 
-.btn-cyan-700 {
+.btn-cyan-700-location {
   width: 210px;
   height: 30px;
   background: #097695;
