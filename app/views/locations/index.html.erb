@@ -19,8 +19,9 @@
 
 <div class="container-loc">
   <div class="row">
-      <% @locations.each do |location| %>
-          <div class="container-location-whitecard-3 mb-3 mx-2">
+      <% @locations.where(city: params[:query]).each do |location| %>
+        <!--<div class="col-md-4">-->
+          <div class="container-location-card-3 mb-3 mx-2">
             <div class="location-name-3"><%= truncate(location.name, length: 35, omission: '...') %> </div>
             <div class="img-location-3">
               <% if location.photo.present? %>

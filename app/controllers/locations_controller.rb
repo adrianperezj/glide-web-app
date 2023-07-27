@@ -86,4 +86,24 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:name, :address, :city, :neighborhood, :category, :subcategory, :photo)
     # params.require(:location).permit(:name, :address, :category, :subcategory, :photo)
   end
+
+  def getIconForSubcategory(subtype)
+    subtype_icons = {
+      "Neighborhood" => "fas fa-city",
+      "Block/Square" => "fas fa-cube",
+      "Street" => "fas fa-road",
+      "Park" => "fas fa-tree",
+      "Cultural Landmark" => "fas fa-landmark",
+      "Natural Landmark" => "fas fa-mountain",
+      "House" => "fas fa-home",
+      "Flat" => "fas fa-building",
+      "Restaurant" => "fas fa-utensils",
+      "Bar" => "fas fa-glass-martini",
+      "Hotel" => "fas fa-hotel",
+      "Workshop" => "fas fa-tools",
+      "Office" => "fas fa-building"
+    }
+
+    subtype_icons[subtype] || "fas fa-question" # Default icon class if not found in the mapping
+  end
 end

@@ -96,11 +96,12 @@
     <% neighborhoods = neighborhoods(@location.city) %>
     <% if neighborhoods.any? %>
       <% neighborhoods.each do |neighborhood| %>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="container-city-card-1">
             <div class="img-city-card">
-              <% if @location.photo.present? %>
-                <%= image_tag @location.photo, class: "location-photo" %>
+              <% find_location = Location.find_by(neighborhood: neighborhood) %>
+              <% if find_location.photo.present? %>
+                <%= image_tag find_location.photo, class: "location-photo" %>
               <% else %>
                 <%= image_tag "map.png", class: "location-photo" %>
               <% end %>
@@ -108,7 +109,7 @@
             <div class="white-city-card">
               <div class="info-city-card">
                 <div class="city-name"> <%= neighborhood %> </div>
-                <%= link_to "View neighborhood", class: "btn btn-cyan-700" %>
+                <%= link_to "View neighborhood", neighborhood_show_path(query: find_location), class: "btn btn-cyan-700" %>
               </div>
             </div>
           </div>
@@ -121,3 +122,5 @@
     <% end %>
   </div>
 </div>
+
+<% console %>

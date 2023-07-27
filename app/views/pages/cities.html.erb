@@ -21,7 +21,7 @@
       <div class="white-city-card">
         <div class="info-city-card">
           <div class="city-name"> <%= @locations.city %> </div>
-          <%= link_to "View city", locations_path(query: @locations.city), class: "btn btn-cyan-700" %>
+          <%= link_to "View city", city_show_path(@locations), class: "btn btn-cyan-700" %>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
             <div class="white-city-card">
                 <div class="info-city-card">
                   <div class="city-name"> <%= location.city %> </div>
-                  <%= link_to "View city", city_show_path(location), class: "btn btn-cyan-700" %>
+                  <%= link_to "View city", city_show_path(@locations), class: "btn btn-cyan-700" %>
                 </div>
                 <div class="container"><%= @locations.length %> locations</div>
           </div>
