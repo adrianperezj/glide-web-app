@@ -1,14 +1,13 @@
-<div class="container-title mt-3">
+<div class="container-title">
   <div class="title">
     <div class="title-img-pin"></div>
     <div class="title-txt"><h1><%= @location.name %></h1></div>
   </div>
 </div>
-<br>
-<div class="container p-5 my-3">
+<div class="container">
   <div class="row justify-content-center">
     <div class="d-flex">
-      <div class="card rounded p-3 mx-3 my-5 shadow col-6" >
+      <div class="card rounded p-3 mx-3 my-1 col-6" >
         <% if @location.photo.present? %>
           <div class="location-photo-container">
             <%= image_tag @location.photo, class: "location-photo" %>
@@ -18,24 +17,29 @@
             <%= image_tag "map.png", class: "location-photo" %>
           </div>
         <% end %>
-        <strong><h4><%= @location.name %> <br></h4></strong>
+        <strong><h4 class="mt-2"><%= @location.name %> <br></h4></strong>
         <%= @location.address %> <br>
         <%= @location.city %> <br>
+
+        <div class="spaces-card">
+              <div class="space-left">
+                <span class="space-txt"><%= @location.category %></span>
+              </div>
+              <div class="space-right">
+                <span class="space-txt"><%= @location.subcategory %></span>
+              </div>
+          </div>
         <%= @location.category %> <br>
         <%= @location.subcategory %> <br>
-        <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
-        <br>
-        <%= link_to 'See reviews', location_reviews_path(@location), class: 'btn btn-primary' %>
-        <br>
         <div class="d-flex">
-          <p> <%= link_to 'Edit', edit_location_path(@location) %>
-          <%= link_to 'Back', locations_path %> </p>
+        <%= link_to 'Write a review', new_location_review_path(@location), class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_location_path(@location), class: 'btn btn-outline-primary' %>
         </div>
       </div>
 
       <div class="row">
         <% if @location.reviews.any? %>
-          <div class="card rounded shadow p-3 mx-3 my-5 col-md-12">
+          <div class="card rounded shadow p-3 mx-3 my-1 col-md-12">
             <h1>Ratings and reviews</h1>
             <div class="row my-3">
               <div class="col-md-6">
@@ -135,4 +139,5 @@
       <% end %>
     </div>
   </div>
+</div>
 </div>
