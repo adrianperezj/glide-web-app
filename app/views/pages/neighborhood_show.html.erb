@@ -97,7 +97,7 @@
     <% locations = Location.where(neighborhood: @location.neighborhood) %>
     <% if locations.any? %>
       <% locations.each do |location| %>
-        <div class="col-md-4">
+        <div class="col-12 col-md-4">
           <div class="container-city-card-1">
             <div class="img-city-card">
               <%# find_location = Location.find_by(neighborhood: neighborhood) %>
@@ -110,7 +110,7 @@
             <div class="white-city-card">
               <div class="info-city-card">
                 <div class="city-name"> <%= location.name %> </div>
-                <%= link_to "View location", class: "btn btn-cyan-700" %>
+                <%= link_to "View location", location_path(location), class: "btn btn-cyan-700" %>
               </div>
             </div>
           </div>
@@ -123,5 +123,3 @@
     <% end %>
   </div>
 </div>
-
-<% console %>

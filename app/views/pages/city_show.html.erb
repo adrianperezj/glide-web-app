@@ -96,7 +96,7 @@
     <% neighborhoods = neighborhoods(@location.city) %>
     <% if neighborhoods.any? %>
       <% neighborhoods.each do |neighborhood| %>
-        <div class="col-md-4">
+        <div class="col-12 col-sm-4">
           <div class="container-city-card-1">
             <div class="img-city-card">
               <% find_location = Location.find_by(neighborhood: neighborhood) %>
@@ -122,5 +122,3 @@
     <% end %>
   </div>
 </div>
-
-<% console %>
