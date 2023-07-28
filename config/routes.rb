@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # Neighborhoods by city
   get "/neighborhoods/:city", to: "pages#neighborhoods", as: :neighborhoods
-  get "/neighborhoods/:id", to: "pages#neighborhood_show", as: :neighborhood_show
+  get "/neighborhoods", to: "pages#neighborhood_show", as: :neighborhood_show
 
   #My reviews and my locations
   get 'my_locations', to: 'locations#my_locations', as: :my_locations

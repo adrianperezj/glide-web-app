@@ -1,0 +1,133 @@
+.container-1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+}
+
+.container-csl {
+  display: inline-flex;
+  justify-content: center;
+  margin-right: 35px;
+  margin-top: 0%;
+}
+
+.card-show-loc {
+  width: 250px;
+  height: auto;
+  padding: 15, 10, 10, 10;
+  border-radius: 15px;
+  overflow: hidden;
+  /*border-color: gray;
+  border-style: solid;*/
+  box-shadow: 8px 8px 16px rgba(0.05, 0, 0, 0.1);
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  display: inline-flex;
+}
+
+
+.comment-txt {
+  width: 210px;
+  height: 50px;
+  max-height: 70px;
+  left: 25px;
+  top: 0px;
+  position: absolute;
+  color: #191919;
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.cr {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 0%;
+}
+
+.container-rating {
+  padding: 10px 20px 10px 20px;
+  border-radius: 15px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.title-ratings {
+  font-family: Anek Latin;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.cr-left {
+  margin-left: 15px;
+  margin-right: 35px;
+}
+
+.cr-right {
+  margin-left: 35px;
+  margin-right: 20px;
+}
+
+.rating-icon-1 i {
+  display: block;
+  margin-right: 25px;
+  margin-bottom: 1rem;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 24px;
+
+}
+
+.rating-txt-exp {
+  width: 160px;
+}
+
+.rating-txt-rt {
+  width: 220px;
+}
+
+.dealer {
+  margin-left: 15px;
+}
+
+.btn-EB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.btn-secondary-EB {
+  width: 150px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: $orange-500;
+  color: white;
+  border-radius: 10px;
+  font-family: Anek Latin;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background: $orange-700;
+}
+
+
+/*.rating-icon-2 i {
+  display: block;
+  margin-right: 25px;
+  margin-bottom: 1rem;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 24px;
+}*/
