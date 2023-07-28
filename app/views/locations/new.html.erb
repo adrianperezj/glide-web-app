@@ -49,7 +49,7 @@
           <div id="private_subcategory_wrapper" class="d-none">
             <% Location::PRIVATE_SUBTYPE.each do |subtype| %>
               <div class="clickable-subcategory" data-value="<%= subtype %>" id="private_subtype_<%= subtype %>">
-                <i class="<%= getIconForSubcategory(subtype) %>"></i>
+                <i class="<%= Location.getIconForSubcategory(subtype) %>"></i>
                 <small><%= subtype %></small>
               </div>
             <% end %>
@@ -58,7 +58,7 @@
           <div id="public_subcategory_wrapper" class="d-none">
             <% Location::PUBLIC_SUBTYPE.each do |subtype| %>
               <div class="clickable-subcategory" data-value="<%= subtype %>" id="public_subtype_<%= subtype %>">
-                <i class="<%= getIconForSubcategory(subtype) %>"></i>
+                <i class="<%= Location.getIconForSubcategory(subtype) %>"></i>
                 <small><%= subtype %></small>
               </div>
             <% end %>
