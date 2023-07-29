@@ -28,15 +28,14 @@
                   <div class="space-right">
                     <span class="space-txt"><%= @location.subcategory %></span>
                   </div>
-                </div>
-                <div class="container-address">
-                  <p class="address-txt"><%= truncate(@location.address, length: 45, omission: '...') %></p>
-                  <div class="address-pin"></div>
-                </div>
-                <div>
-                  <p><%= link_to 'Write a review', new_location_review_path(@location), class: "btn btn-cyan-700" %></p>
-                  <p><%= link_to 'See reviews', location_reviews_path(@location), class: "btn btn-cyan-700" %></p>
-                </div>
+              </div>
+              <div class="container-address">
+                <p class="address-txt"><%= truncate(@location.address, length: 45, omission: '...') %></p>
+                <div class="address-pin"></div>
+              </div>
+              <div>
+                <p><%= link_to 'Write a review', new_location_review_path(@location), class: "btn btn-cyan-700" %></p>
+                <p><%= link_to 'Edit Location', edit_location_path(@location), class: "btn btn-cyan-700" %></p>
               </div>
             </div>
 
@@ -307,11 +306,9 @@
   </div>
 
 
-  <!--BOTONES EDIT - BACK-->
-  <div class="btn-EB">
-    <div class="d-flex">
-      <p><%= link_to 'Edit Location', edit_location_path(@location), class: "btn btn-secondary-EB" %></p>
-      <p><%= link_to 'Back', locations_path, class: "btn btn-secondary-EB" %> </p>
-    </div>
+<!--BOTONES EDIT - BACK-->
+<div class="btn-EB">
+  <div class="d-flex">
+    <p><%= link_to 'Back', locations_path, class: "btn btn-secondary-EB" %> </p>
   </div>
 </div>
