@@ -188,7 +188,7 @@
                 </div>
                 <div>
                   <p>
-                    <%= link_to 'Edit Review' , edit_review_path(@location, review), class: "btn btn-cyan-700" %>
+                    <%= link_to 'Edit Review' , edit_location_review_path(@location, review), class: "btn btn-cyan-700" %>
                   </p>
                   <p>
                     <%= link_to 'Delete Review' , location_review_path(@location, review), method: :delete, data: {

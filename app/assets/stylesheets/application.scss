@@ -207,6 +207,15 @@
 
 /* Buttons */
 
+.btn-primary {
+  background: $cyan-700;
+  color: white;
+  border-radius: 10px;
+  font-family: Anek Latin;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .btn-cyan-700 {
   width: 210px;
   height: 30px;
@@ -234,6 +243,16 @@
   font-family: Anek Latin;
   font-size: 14px;
   font-weight: 500;
+}
+
+.btn-outline-secondary {
+  background: white;
+  color: $orange-500;
+  border-radius: 10px;
+  font-family: Anek Latin;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid $orange-500;
 }
 
 .btn-secondary:hover,

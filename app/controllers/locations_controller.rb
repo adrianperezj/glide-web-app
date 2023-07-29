@@ -2,23 +2,22 @@ class LocationsController < ApplicationController
   before_action :set_user, only: [:new, :create, :edit, :update]
   CATEGORIES = ["Public Space", "Private Space"]
 
-
   def index
-      @locations = Location.all
-      @markers = @locations.geocoded.map do |location|
-        {
-          lat: location.latitude,
-          lng: location.longitude,
-          info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
-          marker_html: render_to_string(partial: "marker")
-        }
-      end
+    @locations = Location.all
+    @markers = @locations.geocoded.map do |location|
+    {
+      lat: location.latitude,
+      lng: location.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { location: location }),
+      marker_html: render_to_string(partial: "marker")
+    }
+    end
   end
 
   def show
     @location = Location.find(params[:id])
-    # Geocode the address to obtain latitude and longitude
-    # Assign the latitude and longitude values from the model
+    @review = @location.reviews.find(params[:review_id]) # Assuming you have nested resources
+
     latitude = @location.latitude
     longitude = @location.longitude
 
@@ -35,6 +34,8 @@ class LocationsController < ApplicationController
       # Handle the case where latitude or longitude is missing
       @markers = []
     end
+    rescue ActiveRecord::RecordNotFound
+    # Handle the case where the review for the location is not found
   end
 
   def new

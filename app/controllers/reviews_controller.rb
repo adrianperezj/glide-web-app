@@ -18,11 +18,16 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
   def update
-    @review = current_user.reviews.find(params[:id])
+    @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      redirect_to @review.location
+      flash[:success] = "Review updated successfully!" # Optionally, show a success flash message
+      redirect_to location_path(@review.location) # Redirect to the location view after successful update
     else
       render :edit
     end
