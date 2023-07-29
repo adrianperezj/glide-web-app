@@ -1,47 +1,322 @@
-<h1>Edit Review</h1>
+<div class="container mb-4">
+  <div class="container-title">
+    <div class="title">
+      <img src="<%= image_path('pencil-square.png') %>" alt="Pencil Icon" class="title-img-pencil">
+      <div class="title-txt">Edit your review</div>
+    </div>
+  </div>
 
-<div class="location-info">
-  <h3>Location Information:</h3>
-  <p><strong>Name:</strong> <%= @location.name %></p>
-  <p><strong>Address:</strong> <%= @location.address %></p>
-  <p><strong>Category:</strong> <%= @location.category %></p>
-  <p><strong>Subtype:</strong> <%= @location.public_space? ? @location.subcategory : @location.subcategory %></p>
+  <div class="d-flex">
+    <div>
+      <div class="container-csl">
+         <div class="card-show-loc">
+              <div class="location-name-3"><%= truncate(@location.name, length: 35, omission: '...') %> </div>
+              <div class="img-location-3">
+                <% if @location.photo.present? %>
+                  <%= image_tag @location.photo, class: "img-location-3" %>
+                <% else %>
+                  <%= image_tag "map.png", class: "img-location-3" %>
+                <% end %>
+              </div>
+              <div class="spaces-card">
+                <div class="space-left">
+                  <span class="space-txt"><%= @location.category %></span>
+                </div>
+                <div class="space-right">
+                  <span class="space-txt"><%= @location.subcategory %></span>
+                </div>
+              </div>
+              <div class="container-address mb-4">
+                <p class="address-txt"><%= truncate(@location.address, length: 45, omission: '...') %></p>
+                <div class="address-pin"></div>
+              </div>
+          </div>
+      </div>
+      <div class="mt-4">
+        <%= link_to 'Cancel', location_path(@location), class: 'btn btn-outline-secondary mt-3' %>
+      </div>
+    </div>
+
+    <div style="flex: 1; margin-left: 48px;">
+      <%= simple_form_for([@location, @review], html: { data: { controller: "review-form" }, method: :patch }) do |form| %>
+        <%= form.error_notification %>
+
+        <!-- Barra de progreso -->
+        <div class="progress mb-4">
+          <div data-review-form-target="progressBar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <!-- Primera seccion del formulario "General" -->
+        <div data-review-form-target="section" id="step-1">
+          <h2>General</h2>
+          <h4 class="ratings-subtitle" >Share your experience in this location</h4>
+          <%= form.input :title %>
+          <%= form.input :comment, as: :text %>
+          <%= form.input :photo, as: :file %>
+        </div>
+
+        <!-- Segunda seccion del formulario "Expenses" -->
+        <div data-review-form-target="section" id="step-2" class="d-none">
+          <h2>Expenses</h2>
+          <h4 class="ratings-subtitle">Share the average price of the following items</h4>
+
+          <!-- Meal Cost -->
+          <div class="input-container-meals">
+            <i class="fas fa-utensils icon"></i> <!-- Meal icon -->
+            <%= form.input :meal_cost, input_html: { style: 'max-width: 150px;' } %>
+          </div>
+
+          <!-- Coffee Cost -->
+          <div class="input-container-meals">
+            <i class="fas fa-coffee icon"></i> <!-- Coffee icon -->
+            <%= form.input :coffee_cost, input_html: { style: 'max-width: 150px;' } %>
+          </div>
+
+          <!-- Rent Cost -->
+          <div class="input-container-meals">
+            <i class="fas fa-home icon"></i> <!-- House icon -->
+            <%= form.input :rent_cost, input_html: { style: 'max-width: 150px;' } %>
+          </div>
+
+          <!-- Beer Cost -->
+          <div class="input-container-meals">
+            <i class="fas fa-beer icon"></i> <!-- Beer icon -->
+            <%= form.input :beer_cost, input_html: { style: 'max-width: 150px;' } %>
+          </div>
+        </div>
+
+        <!-- Tercera seccion del formulario "Ratings" -->
+        <div data-review-form-target="section" id="step-3" class="d-none">
+          <h2>Ratings</h2>
+          <h4 class="ratings-subtitle">Rate the following aspects of this location</h4>
+          <div>
+              <!-- Noise Level -->
+              <div class="form-group">
+                <label for="noise_level" class="form-label">
+                  <i class="fas fa-volume-up"></i> <!-- Noise Level icon -->
+                  How noisy is this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[noise_level]" class="form-range range-input" min="1" max="5" id="noise_level">
+                  <div class="range-labels">
+                    <span class="range-label">Very Quiet</span>
+                    <span class="range-label">Quiet</span>
+                    <span class="range-label">Moderate</span>
+                    <span class="range-label">Noisy</span>
+                    <span class="range-label">Very Noisy</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Safety Level -->
+              <div class="form-group">
+                <label for="safety_level" class="form-label">
+                  <i class="fas fa-shield-alt"></i> <!-- Safety Level icon -->
+                  How safe is this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[safety_level]" class="form-range range-input" min="1" max="5" id="safety_level">
+                  <div class="range-labels">
+                    <span class="range-label">Very Unsafe</span>
+                    <span class="range-label">Unsafe</span>
+                    <span class="range-label">Neutral</span>
+                    <span class="range-label">Safe</span>
+                    <span class="range-label">Very Safe</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Internet Speed -->
+              <div class="form-group">
+                <label for="internet_speed" class="form-label">
+                  <i class="fas fa-wifi"></i> <!-- Internet Speed icon -->
+                  How would you rate the internet speed in this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[internet_speed]" class="form-range range-input" min="1" max="5" id="internet_speed">
+                  <div class="range-labels">
+                    <span class="range-label">Very Slow</span>
+                    <span class="range-label">Slow</span>
+                    <span class="range-label">Average</span>
+                    <span class="range-label">Fast</span>
+                    <span class="range-label">Very Fast</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Family Zone -->
+              <div class="form-group">
+                <label for="family_zone" class="form-label">
+                  <i class="fas fa-child"></i> <!-- Family Zone icon -->
+                  How family-friendly is this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[family_zone]" class="form-range range-input" min="1" max="5" id="family_zone">
+                  <div class="range-labels">
+                    <span class="range-label">Not friendly</span>
+                    <span class="range-label">Less friendly</span>
+                    <span class="range-label">Neutral</span>
+                    <span class="range-label">Family-friendly</span>
+                    <span class="range-label">Very friendly</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pet Friendly -->
+              <div class="form-group">
+                <label for="pet_friendly" class="form-label">
+                  <i class="fas fa-paw"></i> <!-- Pet Friendly icon -->
+                  How pet-friendly is this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[pet_friendly]" class="form-range range-input" min="1" max="5" id="pet_friendly">
+                  <div class="range-labels">
+                    <span class="range-label">Not friendly</span>
+                    <span class="range-label">Less friendly</span>
+                    <span class="range-label">Neutral</span>
+                    <span class="range-label">Pet-friendly</span>
+                    <span class="range-label">Very friendly</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Nightlife -->
+              <div class="form-group">
+                <label for="nightlife" class="form-label">
+                  <i class="fas fa-glass-cheers"></i> <!-- Nightlife icon -->
+                  How would you rate the nightlife in this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[nightlife]" class="form-range range-input" min="1" max="5" id="nightlife">
+                  <div class="range-labels">
+                    <span class="range-label">No Nightlife</span>
+                    <span class="range-label">Limited</span>
+                    <span class="range-label">Moderate</span>
+                    <span class="range-label">Good</span>
+                    <span class="range-label">Vibrant Nightlife</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Restaurants Quantity -->
+              <div class="form-group">
+                <label for="restaurants_qty" class="form-label">
+                  <i class="fas fa-utensils"></i> <!-- Restaurants Quantity icon -->
+                  How many restaurants are available in this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[restaurants_qty]" class="form-range range-input" min="1" max="5" id="restaurants_qty">
+                  <div class="range-labels">
+                    <span class="range-label">Very Few</span>
+                    <span class="range-label">Few</span>
+                    <span class="range-label">Moderate</span>
+                    <span class="range-label">Many</span>
+                    <span class="range-label">A Lot</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shopping -->
+              <div class="form-group">
+                <label for="shopping" class="form-label">
+                  <i class="fas fa-shopping-bag"></i> <!-- Shopping icon -->
+                  How convenient is the shopping in this location?
+                </label>
+                <div class="range-container">
+                  <input type="range" name="review[shopping]" class="form-range range-input" min="1" max="5" id="shopping">
+                  <div class="range-labels">
+                    <span class="range-label">Not Convenient</span>
+                    <span class="range-label">Somewhat</span>
+                    <span class="range-label">Neutral</span>
+                    <span class="range-label">Convenient</span>
+                    <span class="range-label">Very Convenient</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dealer -->
+              <div class="form-group">
+                <label for="dealer" class="form-label">
+                  <i class="fas fa-cannabis"></i> <!-- Dealer icon -->
+                  Check if there any dealers nearby this location?
+                </label>
+                <%= form.input :dealer, as: :boolean %>
+              </div>
+          </div>
+        </div>
+
+        <!-- Cuarta seccion del formulario "Mobility" -->
+        <div data-review-form-target="section" id="step-4" class="d-none mb-4">
+          <h2>Mobility</h2>
+          <h4 class="ratings-subtitle">Which mobility options are available in this location?</h4>
+          <!-- Mobility inputs: Metro, Bike, Bus, Uber -->
+          <div class="mobility-container">
+            <div class="form-group-mobility">
+              <div class="input-row-mobility">
+                <i class="fas fa-subway icon"></i> <!-- Metro icon -->
+                <label for="metro" class="form-label-mobility">Metro</label>
+                <%= form.input :metro, as: :boolean, label: false, input_html: { class: "form-checkbox-custom" } %>
+              </div>
+            </div>
+            <div class="form-group-mobility">
+              <div class="input-row-mobility">
+                <i class="fas fa-bicycle icon"></i> <!-- Bike icon -->
+                <label for="bike" class="form-label-mobility">Bike</label>
+                <%= form.input :bike, as: :boolean, label: false, input_html: { class: "form-checkbox-custom" } %>
+              </div>
+            </div>
+            <div class="form-group-mobility">
+              <div class="input-row-mobility">
+                <i class="fas fa-bus icon"></i> <!-- Bus icon -->
+                <label for="bus" class="form-label-mobility">Bus</label>
+                <%= form.input :bus, as: :boolean, label: false, input_html: { class: "form-checkbox-custom" } %>
+              </div>
+            </div>
+            <div class="form-group-mobility">
+              <div class="input-row-mobility">
+                <i class="fab fa-uber icon"></i> <!-- Uber icon -->
+                <label for="uber" class="form-label-mobility">Uber</label>
+                <%= form.input :uber, as: :boolean, label: false, input_html: { class: "form-checkbox-custom" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quinta seccion del formulario "Submit" -->
+        <div data-review-form-target="section" id="submit" class="d-none">
+        </div>
+      <div class="d-flex mb-4">
+        <div class="flex-grow-1"> <!-- This div will take up the available space and push the Submit button to the left -->
+          <div class="d-flex">
+            <button class="btn btn-outline-secondary me-3" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="previous">Back</button>
+            <button class="btn btn-secondary" data-review-form-target="actionButton" data-action="click->review-form#transition" data-direction="next">Next</button>
+          </div>
+        </div>
+        <div class="ms-auto"> <!-- This div will align the Submit button to the left -->
+          <%= form.button :submit, class: 'btn btn-primary' %>
+        </div>
+      </div>
+
+
+      <% end %>
+    </div>
+  </div>
+
 </div>
 
-<%= simple_form_for([@location, @review]) do |form| %>
-  <%= form.error_notification %>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const progressBar = document.querySelector('[data-review-form-target="progressBar"]');
+    const progressLabel = progressBar.querySelector('.progress-label');
+    const nextButton = document.querySelector('[data-action="click->review-form#transition"][data-direction="next"]');
+    const progressStep = 25; // The progress to increment on each step
 
-  <h2>General</h2>
-  <%= form.input :title %>
-  <%= form.input :comment, as: :text %>
-  <%= form.input :photo, as: :file %>
+    nextButton.addEventListener('click', function () {
+      const currentProgress = parseFloat(progressBar.getAttribute('aria-valuenow')) || 0;
+      const newProgress = currentProgress + progressStep;
 
-  <h2>Expenses</h2>
-  <%= form.input :meal_cost %>
-  <%= form.input :coffee_cost %>
-  <%= form.input :rent_cost %>
-  <%= form.input :beer_cost %>
-
-  <h2>Ratings</h2>
-  <%= form.input :noise_level, collection: 1..5 %>
-  <%= form.input :safety, collection: 1..5 %>
-  <%= form.input :internet_speed, collection: 1..5 %>
-  <%= form.input :family_zone, collection: 1..5 %>
-  <%= form.input :nightlife, collection: 1..5 %>
-  <%= form.input :pet_friendly, collection: 1..5 %>
-  <%= form.input :restaurants_qty, collection: 1..5 %>
-  <%= form.input :shopping, collection: 1..5 %>
-  <%= form.input :dealer, as: :boolean %>
-
-  <h2>Mobility</h2>
-  <%= form.input :metro, as: :boolean %>
-  <%= form.input :bike, as: :boolean %>
-  <%= form.input :bus, as: :boolean %>
-  <%= form.input :uber, as: :boolean %>
-
-  <div class="actions">
-    <%= form.button :submit, class: 'btn btn-primary' %>
-    <%= link_to 'Delete Review', location_review_path(@location, @review), method: :delete, data: { confirm: 'Are you sure you want to delete this review?' }, class: 'btn btn-danger' %>
-    <%= link_to 'Go Back', location_path(@location), class: 'btn btn-secondary' %>
-  </div>
-<% end %>
+      progressBar.style.width = newProgress + '%';
+      progressBar.setAttribute('aria-valuenow', newProgress);
+      progressLabel.textContent = newProgress + '%';
+    });
+  });
+</script>
