@@ -221,7 +221,7 @@ location10 = Location.new(
   name: "Salón Ríos",
   address: "Río Nilo 71, Cuauhtémoc, 06500 Ciudad de México, CDMX",
   city: "Mexico City",
-  neighborhood: "Çuauhtémoc",
+  neighborhood: "Cuauhtémoc",
   latitude: 19.4274332414491,
   longitude: -99.171251546942,
   category: "Public Space",
@@ -231,17 +231,200 @@ location10 = Location.new(
 photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690510972/salon_rios_l55cda.jpg")
 location10.photo.attach(io: photo, filename: "location10.jpg", content_type: "image/jpg")
 location10.save!
-locations = [location1, location2, location3, location4, location5, location6, location7, location8, location9, location10]
 puts "location 10 created successfully"
 puts "Locations ready!"
 puts "---------------------------------------------------------------"
-puts "Seeding a couple of sweet REVIEWS!"
+
+# MORE CITIES >>>>
+
+puts "Creating location 11"
+location11 = Location.new(
+  name: "Macroplaza",
+  address: "Centro, 64000 Monterrey, Nuevo Leon",
+  city: "Monterrey",
+  neighborhood: "Centro",
+  latitude: 25.6695482871451,
+  longitude: -100.310058777447,
+  category: "Public Space",
+  subcategory: "Park",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690662409/glide/macroplaza_hvzehc.jpg")
+location11.photo.attach(io: photo, filename: "location11.jpg", content_type: "image/jpg")
+location11.save!
+puts "location 11 created successfully"
+puts "Locations ready!"
 puts "---------------------------------------------------------------"
-40.times do
+puts "Creating location 12"
+location12 = Location.new(
+  name: "Parque Fundidora",
+  address: "Avenida Fundidora y, Adolfo Prieto S/N, Obrera, 64010 Monterrey, N.L.",
+  city: "Monterrey",
+  neighborhood: "Obrera",
+  latitude: 25.6787624852064,
+  longitude: -100.284297862164,
+  category: "Public Space",
+  subcategory: "Park",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690662504/glide/fundidora_kgj24k.jpg")
+location12.photo.attach(io: photo, filename: "location12.jpg", content_type: "image/jpg")
+location12.save!
+puts "location 12 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 13"
+location13 = Location.new(
+  name: "Paseo Santa Lucía",
+  address: "Avenida Fundidora y, Adolfo Prieto S/N, Obrera, 64010 Monterrey, N.L.",
+  city: "Monterrey",
+  neighborhood: "Obrera",
+  latitude: 25.6752236070032,
+  longitude: -100.287607289153,
+  category: "Public Space",
+  subcategory: "Cultural Landmark",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690662683/glide/paseo_santa_lucia_obobpl.jpg")
+location13.photo.attach(io: photo, filename: "location13.jpg", content_type: "image/jpg")
+location13.save!
+puts "location 13 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 14"
+location14 = Location.new(
+  name: "Barrio Antiguo",
+  address: "Dr. José Ma. Coss, Barrio Antiguo, Centro, 64000 Monterrey, N.L.",
+  city: "Monterrey",
+  neighborhood: "Centro",
+  latitude: 25.6661884851603,
+  longitude: -100.3077349,
+  category: "Public Space",
+  subcategory: "Cultural Landmark",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690662844/glide/barrio_antiguo_monterrey_avnhsu.jpg")
+location14.photo.attach(io: photo, filename: "location14.jpg", content_type: "image/jpg")
+location14.save!
+puts "location 14 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 15"
+location15 = Location.new(
+  name: "Templo de Santo Domingo Guzmán",
+  address: "C. Macedonio Alcalá s/n, RUTA INDEPENDENCIA, Centro, 68000 Oaxaca de Juárez, Oax.",
+  city: "Oaxaca",
+  neighborhood: "Centro",
+  latitude: 17.0658761351728,
+  longitude: -96.7232073162905,
+  category: "Public Space",
+  subcategory: "Cultural Landmark",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663140/glide/templo_de_santo_domingo_oax_acp1xz.jpg")
+location15.photo.attach(io: photo, filename: "location15.jpg", content_type: "image/jpg")
+location15.save!
+puts "location 15 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 16"
+location16 = Location.new(
+  name: "Jardín Etnobotánico de Oaxaca",
+  address: "Reforma Sur n, RUTA INDEPENDENCIA, Centro, 68000 Oaxaca de Juárez, Oax.",
+  city: "Oaxaca",
+  neighborhood: "Centro",
+  latitude: 17.0662887365529,
+  longitude: -96.7219608,
+  category: "Public Space",
+  subcategory: "Cultural Landmark",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663265/glide/Jard%C3%ADn_Etnobot%C3%A1nico_de_Oaxaca_dt0nh4.jpg")
+location16.photo.attach(io: photo, filename: "location16.jpg", content_type: "image/jpg")
+location16.save!
+puts "location 16 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 17"
+location17 = Location.new(
+  name: "Teatro Macedonio Alcalá",
+  address: "Av. de la Independencia 900, Centro, 68000 Oaxaca de Juárez, Oax.",
+  city: "Oaxaca",
+  neighborhood: "Centro",
+  latitude: 17.0623140780383,
+  longitude: -96.723147592614,
+  category: "Public Space",
+  subcategory: "Cultural Landmark",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663439/glide/teatro_macedonio_alcala_q0th7g.jpg")
+location17.photo.attach(io: photo, filename: "location17.jpg", content_type: "image/jpg")
+location17.save!
+puts "location 17 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 18"
+location18 = Location.new(
+  name: "Plaza de la Liberación",
+  address: "Zona Centro, 44100 Guadalajara, Jalisco",
+  city: "Guadalajara",
+  neighborhood: "Centro",
+  latitude: 20.6768448646015,
+  longitude: -103.345767616235,
+  category: "Public Space",
+  subcategory: "Park",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663559/glide/plaza_de_la_liberacion_fj1zq7.jpg")
+location18.photo.attach(io: photo, filename: "location18.jpg", content_type: "image/jpg")
+location18.save!
+puts "location 18 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 19"
+location19 = Location.new(
+  name: "Plaza de los Mariachis",
+  address: "C. Álvaro Obregón 23, San Juan de Dios, 44360 Guadalajara, Jal.",
+  city: "Guadalajara",
+  neighborhood: "San Juan de Dios",
+  latitude: 20.6758337795665,
+  longitude: -103.341794807385,
+  category: "Public Space",
+  subcategory: "Park",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663669/glide/plaza-de-los-mariachis_pwjaw0.jpg")
+location19.photo.attach(io: photo, filename: "location19.jpg", content_type: "image/jpg")
+location19.save!
+puts "location 19 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Creating location 20"
+location20 = Location.new(
+  name: "Teatro Degollado",
+  address: "C. Degollado s/n, Zona Centro, 44100 Guadalajara, Jal.",
+  city: "Guadalajara",
+  neighborhood: "Centro",
+  latitude: 20.6775591941385,
+  longitude: -103.34487512505,
+  category: "Public Space",
+  subcategory: "Cultural Landmark",
+  user_id: usuarios.sample.id
+  )
+photo = URI.open("https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663757/glide/teatro_degollado_ihshqb.jpg")
+location20.photo.attach(io: photo, filename: "location20.jpg", content_type: "image/jpg")
+location20.save!
+locations = [location1, location2, location3, location4, location5, location6, location7, location8, location9, location10, location11, location12, location13, location14, location15, location16, location17, location18, location19, location20]
+puts "location 20 created successfully"
+puts "Locations ready!"
+puts "---------------------------------------------------------------"
+puts "Seeding a couple of sweet REVIEWS, bud!"
+puts "---------------------------------------------------------------"
+60.times do
   adjectives = [Faker::Adjective.positive, Faker::Adjective.negative].sample
 
   Review.create!(
-    title: adjectives,
+    title: adjectives.upcase,
     comment: Faker::Restaurant.review,
     # photo: 'logo.png',
     noise_level: rand(1..5),
