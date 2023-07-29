@@ -24,5 +24,7 @@ Rails.application.routes.draw do
 
   # Custom 404 error page
   get '/404', to: 'application#render_404'
+  # Custom 500 error page
+  get '/500', to: 'application#render_500'
 
 end
