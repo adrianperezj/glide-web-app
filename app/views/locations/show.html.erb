@@ -39,19 +39,6 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="container-address">
-            <p class="address-txt"><%= truncate(@location.address, length: 45, omission: '...') %></p>
-            <div class="address-pin"></div>
-          </div>
-          <div>
-            <p><%= link_to 'Write a review', new_location_review_path(@location), class: "btn btn-cyan-700" %></p>
-            <p><%= link_to 'Edit', edit_location_path(@location), class: "btn btn-cyan-700" %></p>
-          </div>
-        </div>
-      </div>
-=======
->>>>>>> dd56ed3eb7c9c2ea15d552977f825192fd95dcc0
 
           <!-- <div class="row"> -->
             <!-- <div class="d-flex"> -->
@@ -105,166 +92,6 @@
                             </div>
                           </div>
                         </div>
-<<<<<<< HEAD
-                      </div>
-                    </div>
-
-                    <div class="cr-right">
-                      <div class="row">
-                        <div class="d-flex">
-
-                          <div class="rating-icon-1">
-                            <i class="fas fa-volume-up"></i> <!-- Noise Level icon -->
-                            <i class="fas fa-shield-alt"></i> <!-- Safety Level icon -->
-                            <i class="fas fa-wifi"></i> <!-- Internet Speed icon -->
-                            <i class="fas fa-child"></i> <!-- Family Zone icon -->
-                            <i class="fas fa-glass-cheers"></i> <!-- Pet Friendly icon -->
-                            <i class="fas fa-paw"></i> <!-- Nightlife icon -->
-                            <i class="fas fa-utensils"></i> <!-- Restaurants Quantity icon -->
-                            <i class="fas fa-shopping-bag"></i> <!-- Shopping icon -->
-
-                          </div>
-
-                          <div class="rating-txt-rt">
-                            <p><strong>Average Noise Level:</strong>></p>
-                            <p><strong>Safety level:</strong></p>
-                            <p><strong>Working Internet Speed:</strong></p>
-                            <p><strong>Considered Family Zone:</strong></p>
-                            <p><strong>Options for Nightlife:</strong></p>
-                            <p><strong>Is Pet Friendly:</strong></p>
-                            <p><strong>Restaurants Variety:</strong></p>
-                            <p><strong>Have Shopping:</strong></p>
-                          </div>
-
-                          <div class="rating-num">
-                            <p><%= average_rating(:noise_level) %></p>
-                            <p><%= average_rating(:safety) %></p>
-                            <p><%= average_rating(:internet_speed) %></p>
-                            <p><%= average_rating(:family_zone) %></p>
-                            <p><%= average_rating(:nightlife) %></p>
-                            <p><%= average_rating(:pet_friendly) %></p>
-                            <p><%= average_rating(:restaurants_qty) %></p>
-                            <p><%= average_rating(:shopping) %></p>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% else %>
-              <p>No reviews available.</p>
-            <% end %>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!--MAPA-->
-  <div class="container-map mt-4">
-    <div style="width: 85%; height: 400px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-  </div>
-
-  <!--DETAILED REVIEWS-->
-<div class="container-detailed">
-  <div class="container-title">
-    <div class="title">
-      <div class="title-img-pencil"></div>
-      <div class="title-txt">Detailed Ratings and Reviews</div>
-    </div>
-  </div>
-  <div class="container-1">
-    <% @location.reviews.each do |review| %>
-      <div class="row">
-        <div class="d-flex">
-          <div class="container-csl">
-            <div class="card-show-loc">
-                <div class="location-name-3"><%= truncate(review.title, length: 35, omission: '...') %> </div>
-                <div class="img-location-3">
-                  <% if @location.photo.present? %>
-                    <%= image_tag @location.photo, class: "img-location-3" %>
-                  <% else %>
-                    <%= image_tag "map.png", class: "img-location-3" %>
-                  <% end %>
-                </div>
-                <div class="container-comment">
-                  <p><strong>Comment:</strong></p>
-                  <p class="comment-txt"><%= truncate(review.comment, length: 200, omission: '...') %></p>
-                </div>
-                <div>
-                  <p><%= link_to 'Edit Review', edit_review_path(@location, review), class: "btn btn-cyan-700" %></p>
-                  <p><%= link_to 'Delete Review', location_review_path(@location, review), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-cyan-700" %></p>
-                </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="d-flex">
-              <div class="cr">
-                <% if @location.reviews.any? %>
-                  <div class="container-rating">
-                    <p class="title-ratings mx-2">Ratings and Reviews</p>
-                    <div class="row">
-                      <div class="d-flex">
-                        <div class="cr-left">
-                          <div class="row">
-                            <div class="d-flex">
-                              <div class="expenses-show-loc">
-                                <div class="row">
-                                  <div class="d-flex">
-                                    <div class="rating-icon-1">
-                                      <i class="fas fa-utensils icon"></i>
-                                      <i class="fas fa-coffee icon"></i>
-                                      <i class="fas fa-home icon"></i>
-                                      <i class="fas fa-beer icon"></i>
-                                      <i class="fas fa-subway icon"></i>
-                                      <i class="fas fa-bicycle icon"></i>
-                                      <i class="fas fa-bus icon"></i>
-                                      <i class="fab fa-uber icon"></i>
-                                      <i class="fas fa-cannabis"></i> <!-- Dealer icon -->
-                                    </div>
-
-                                    <div class="rating-txt-exp">
-                                      <p><strong>Meal Cost:</strong></p>
-                                      <p><strong>Coffee Cost:</strong></p>
-                                      <p><strong>Rent Cost:</strong></p>
-                                      <p><strong>Beer Cost:</strong></p>
-                                      <p><strong>Subway near?</strong></p>
-                                      <p><strong>Bike near?</strong></p>
-                                      <p><strong>Bus near?</strong></p>
-                                      <p><strong>Uber or ride app?</strong></p>
-                                      <p><strong>Dealer near?</strong></p>
-                                    </div>
-
-                                    <div class="rating-num">
-                                      <p><%= review.meal_cost %></p>
-                                      <p><%= review.coffee_cost %></p>
-                                      <p><%= review.rent_cost %></p>
-                                      <p><%= review.beer_cost %></p>
-                                      <p><%= review.metro ? 'Yes' : 'No' %></p>
-                                      <p><%= review.bike ? 'Yes' : 'No' %></p>
-                                      <p><%= review.bus ? 'Yes' : 'No' %></p>
-                                      <p><%= review.uber ? 'Yes' : 'No' %></p>
-                                      <p><%= review.dealer ? 'Yes' : 'No' %></p>
-
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-=======
-
->>>>>>> dd56ed3eb7c9c2ea15d552977f825192fd95dcc0
                         <div class="cr-right">
                           <div class="row">
                             <div class="d-flex">
@@ -497,8 +324,6 @@
     <% end %>
   </div>
 </div>
-<<<<<<< HEAD
-=======
 
 
 <!--BOTONES EDIT - BACK-->
@@ -508,4 +333,3 @@
     <p><%= link_to 'Back', locations_path, class: "btn btn-secondary-EB" %> </p>
   </div>
 </div>
->>>>>>> dd56ed3eb7c9c2ea15d552977f825192fd95dcc0
