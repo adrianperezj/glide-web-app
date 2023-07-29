@@ -1,17 +1,20 @@
 .container-map {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .row {
   justify-content: center;
 }
 
-.container-location-card-3 {
+.container-location-whitecard-3 {
   width: 250px;
+
   height: 400px;
   margin-top: 40px;
   padding: 15, 10, 10, 10;
+
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
@@ -26,8 +29,10 @@
 
 .location-name-3 {
   width: 210px;
+
   height: 44px;
   margin-top: 15px;
+
   display: flex;
   align-items: center;
   color: #6C757D;
@@ -129,7 +134,7 @@
   align-content: center;
 }
 
-.btn-cyan-700 {
+.btn-cyan-700-location {
   width: 210px;
   height: 30px;
   background: #097695;
