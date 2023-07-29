@@ -1,4 +1,4 @@
-<div class="container">
+<div class="">
   <!-- Este es el título con pin-->
   <div class="container-title">
     <div class="title">
@@ -7,45 +7,51 @@
     </div>
   </div>
 
-  <% if @locations.is_a?(Location) %>
-    <div class="container p-5 mx-5 align-items-center">
-    <!-- Este div es la city-card-->
-    <div class="container-city-card-1">
-      <div class="img-city-card">
-        <% if @locations.photo.key.present? %>
-          <%= cl_image_tag(@locations.photo.key) %>
-        <% else %>
-          <%= image_tag ("map.png") %>
-        <% end %>
-      </div>
-      <div class="white-city-card">
-        <div class="info-city-card">
-          <div class="city-name"> <%= @locations.city %> </div>
-          <%= link_to "View city", city_show_path(@locations), class: "btn btn-cyan-700" %>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="container p-5 mx-5 align-items-center">
-    <!-- Este div es la city-card-->
-      <% @locations.each do |location| %>
-        <div class="container-city-card-1">
-            <div class="img-city-card">
-              <% if location.photo.key.present? %>
-                <%= cl_image_tag(location.photo.key) %>
-              <% else %>
-                <%= image_tag ("map.png") %>
-              <% end %>
-            </div>
-            <div class="white-city-card">
+  <div class="container city">
+    <div class="row">
+
+        <% if @locations.is_a?(Location) %>
+          <div class="container-city-card-1 mb-3 mx-3">
+            <div class="">
+              <div class="img-city-card">
+                <% if @locations.photo.key.present? %>
+                  <%= cl_image_tag(@locations.photo.key) %>
+                <% else %>
+                  <%= image_tag "map.png", class: "location-photo" %>
+                <% end %>
+              </div>
+              <div class="white-city-card">
                 <div class="info-city-card">
-                  <div class="city-name"> <%= location.city %> </div>
+                  <div class="city-name"> <%= @locations.city %> </div>
                   <%= link_to "View city", city_show_path(@locations), class: "btn btn-cyan-700" %>
                 </div>
-                <div class="container"><%= @locations.length %> locations</div>
-          </div>
-        </div>
-      <% end %> <!-- end of each do -->
+              </div>
+            </div>
+        <% else %>
+
+          <% @locations.each do |location| %>
+            <div class="container-city-card-1 mb-3 mx-3">
+                <div class="">
+                    <div class="img-city-card">
+                      <% if location.photo.key.present? %>
+                        <%= cl_image_tag(location.photo.key) %>
+                      <% else %>
+                        <%= image_tag "map.png", class: "location-photo" %>
+                      <% end %>
+                    </div>
+                    <div class="white-city-card">
+                        <div class="info-city-card">
+                          <div class="city-name"> <%= location.city %> </div>
+                          <%= link_to "View city", city_show_path(@locations), class: "btn btn-cyan-700" %>
+                          <div class="container"><%= @locations.length %> locations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <% end %> <!-- end of each do -->
+        <% end %>
+
     </div>
-  <% end %>
+  </div>
+
 </div>

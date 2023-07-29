@@ -1,19 +1,12 @@
 .container-city-card-1 {
   width: 250px;
-  height: flex;
-  /*width: 100%;
-  height: 100%;*/
-  background: white;
+  height: 330px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1px;
+  justify-content: center;
+  align-items: center;
   display: inline-flex;
-  flex-shrink: 0;
-  margin: 8px 8px 8px 8px;
-
 }
 
 .img-city-card img {
@@ -22,20 +15,20 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   flex-direction: column;
+  display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 8px;
-  display: flex;
+  object-fit: cover;
 }
 
-/* Make the image fit inside the card */
+/* Make the image fit inside the card
 .img-city-card img {
   width: 100%;
-  height: 190px; /* Adjust the height as needed */
+  height: 190px; Adjust the height as needed
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-}
+} */
 
 .white-city-card {
   width: 250px;
@@ -46,18 +39,16 @@
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
   display: flex;
-  flex-shrink: 0;
 }
 
 .info-city-card {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  gap: 5px;
+  gap: 20px;
   display: flex;
 }
 
@@ -84,6 +75,21 @@
   line-height: 24px;
   text-align: left;
   word-wrap: break-word;
+}
+
+/* Style the pin icon */
+.pin-icon {
+  width: 11px; /* Adjust the size of the pin icon as needed */
+  height: 15px;
+  margin-right: 5px; /* Add spacing between the pin icon and the location count */
+}
+
+/* Style the location count */
+.location-count {
+  font-size: 14px;
+  color: #6C757D;
+  font-family: Anek Latin, sans-serif;
+  font-weight: 500;
 }
 
 /*.container-stars {
@@ -115,24 +121,3 @@
   padding-right: 0px;
   background: #FD7E14;
 }*/
-
-
-/* Style the pin icon */
-.pin-icon {
-  width: 11px; /* Adjust the size of the pin icon as needed */
-  height: 15px;
-  margin-right: 5px; /* Add spacing between the pin icon and the location count */
-}
-
-/* Style the location count */
-.location-count {
-  font-size: 14px;
-  color: #6C757D;
-  font-family: Anek Latin, sans-serif;
-  font-weight: 500;
-}
-
-.blanco {
-  width: 100%;
-  height: 100px
-}
