@@ -6,28 +6,28 @@
     </div>
   </div>
 
-    <div class="container-1">
-      <div class="row">
+  <div class="container-1">
+    <div class="row">
 
-        <div class="d-flex">
+      <div class="d-flex">
 
-            <div class="container-csl">
-              <div class="card-show-loc">
-                <div class="location-name-3"><%= truncate(@location.name, length: 35, omission: '...') %> </div>
-                <div class="img-location-3">
-                  <% if @location.photo.present? %>
-                    <%= image_tag @location.photo, class: "img-location-3" %>
-                  <% else %>
-                    <%= image_tag "map.png", class: "img-location-3" %>
-                  <% end %>
+          <div class="container-csl">
+            <div class="card-show-loc">
+              <div class="location-name-3"><%= truncate(@location.name, length: 35, omission: '...') %> </div>
+              <div class="img-location-3">
+                <% if @location.photo.present? %>
+                  <%= image_tag @location.photo, class: "img-location-3" %>
+                <% else %>
+                  <%= image_tag "map.png", class: "img-location-3" %>
+                <% end %>
+              </div>
+              <div class="spaces-card">
+                <div class="space-left">
+                  <span class="space-txt"><%= @location.category %></span>
                 </div>
-                <div class="spaces-card">
-                  <div class="space-left">
-                    <span class="space-txt"><%= @location.category %></span>
-                  </div>
-                  <div class="space-right">
-                    <span class="space-txt"><%= @location.subcategory %></span>
-                  </div>
+                <div class="space-right">
+                  <span class="space-txt"><%= @location.subcategory %></span>
+                </div>
               </div>
               <div class="container-address">
                 <p class="address-txt"><%= truncate(@location.address, length: 45, omission: '...') %></p>
@@ -38,111 +38,113 @@
                 <p><%= link_to 'Edit Location', edit_location_path(@location), class: "btn btn-cyan-700" %></p>
               </div>
             </div>
+          </div>
 
-            <!-- <div class="row"> -->
-              <!-- <div class="d-flex"> -->
-            <div class="container-rtl row">
-              <div class="d-flex">
-                <div class="cr-1">
-                  <% if @location.reviews.any? %>
-                    <div class="cr-2">
-                      <p class="title-ratings mx-2">Ratings and Reviews</p>
-                      <div class="row">
-                        <div class="d-flex">
-                          <div class="cr-left">
-                            <div class="row">
-                              <div class="d-flex">
-                                  <div class="rating-icon-1">
-                                    <i class="fas fa-utensils icon"></i>
-                                    <i class="fas fa-coffee icon"></i>
-                                    <i class="fas fa-beer icon"></i>
-                                    <i class="fas fa-home icon"></i>
-                                    <i class="fas fa-subway icon"></i>
-                                    <i class="fas fa-bicycle icon"></i>
-                                    <i class="fas fa-bus icon"></i>
-                                    <i class="fab fa-uber icon"></i>
-                                    <i class="fas fa-cannabis"></i> <!-- Dealer icon -->
-                                  </div>
+          <!-- <div class="row"> -->
+            <!-- <div class="d-flex"> -->
+          <div class="container-rtl row">
+            <div class="d-flex">
+              <div class="cr-1">
+                <% if @location.reviews.any? %>
+                  <div class="cr-2">
+                    <p class="title-ratings mx-2">Ratings and Reviews</p>
+                    <div class="row">
+                      <div class="d-flex">
+                        <div class="cr-left">
+                          <div class="row">
+                            <div class="d-flex">
+                                <div class="rating-icon-1">
+                                  <i class="fas fa-utensils icon"></i>
+                                  <i class="fas fa-coffee icon"></i>
+                                  <i class="fas fa-beer icon"></i>
+                                  <i class="fas fa-home icon"></i>
+                                  <i class="fas fa-subway icon"></i>
+                                  <i class="fas fa-bicycle icon"></i>
+                                  <i class="fas fa-bus icon"></i>
+                                  <i class="fab fa-uber icon"></i>
+                                  <i class="fas fa-cannabis"></i> <!-- Dealer icon -->
+                                </div>
 
-                                  <div class="rating-txt-exp">
-                                    <p><strong>Meal Cost:</strong></p>
-                                    <p><strong>Coffee Cost:</strong></p>
-                                    <p><strong>Beer Cost:</strong></p>
-                                    <p><strong>Rent Cost:</strong></p>
-                                    <p><strong>Subway near?:</strong></p>
-                                    <p><strong>Bike near?:</strong></p>
-                                    <p><strong>Bus near?:</strong></p>
-                                    <p><strong>Uber or ride app?:</strong></p>
-                                    <p><strong>Dealer near?:</strong></p>
-                                  </div>
+                                <div class="rating-txt-exp">
+                                  <p><strong>Meal Cost:</strong></p>
+                                  <p><strong>Coffee Cost:</strong></p>
+                                  <p><strong>Beer Cost:</strong></p>
+                                  <p><strong>Rent Cost:</strong></p>
+                                  <p><strong>Subway near?</strong></p>
+                                  <p><strong>Bike near?</strong></p>
+                                  <p><strong>Bus near?</strong></p>
+                                  <p><strong>Uber or ride app?</strong></p>
+                                  <p><strong>Dealer near?</strong></p>
+                                </div>
 
-                                  <div class="rating-num">
-                                    <p>$<%= average_rating(:meal_cost) %>&nbsp; &nbsp; USD</p>
-                                    <p>$<%= average_rating(:coffee_cost) %>&nbsp; &nbsp;USD</p>
-                                    <p>$<%= average_rating(:beer_cost) %>&nbsp; &nbsp;USD</p>
-                                    <p>$<%= average_rating(:rent_cost) %>&nbsp; &nbsp;USD</p>
-                                    <p><%= percentage_rating(:metro) %>&nbsp; &nbsp;%</p>
-                                    <p><%= percentage_rating(:bike) %>&nbsp; &nbsp;%</p>
-                                    <p><%= percentage_rating(:bus) %>&nbsp; &nbsp;%</p>
-                                    <p><%= percentage_rating(:uber) %>&nbsp; &nbsp;%</p>
-                                    <p><%= percentage_rating(:dealer) %>&nbsp; &nbsp;%</p>
+                                <div class="rating-num">
+                                  <p>$<%= average_rating(:meal_cost) %>&nbsp; &nbsp; USD</p>
+                                  <p>$<%= average_rating(:coffee_cost) %>&nbsp; &nbsp;USD</p>
+                                  <p>$<%= average_rating(:beer_cost) %>&nbsp; &nbsp;USD</p>
+                                  <p>$<%= average_rating(:rent_cost) %>&nbsp; &nbsp;USD</p>
+                                  <p><%= percentage_rating(:metro) %>&nbsp; &nbsp;%</p>
+                                  <p><%= percentage_rating(:bike) %>&nbsp; &nbsp;%</p>
+                                  <p><%= percentage_rating(:bus) %>&nbsp; &nbsp;%</p>
+                                  <p><%= percentage_rating(:uber) %>&nbsp; &nbsp;%</p>
+                                  <p><%= percentage_rating(:dealer) %>&nbsp; &nbsp;%</p>
 
-                                  </div>
-                              </div>
+                                </div>
                             </div>
                           </div>
-                          <div class="cr-right">
-                            <div class="row">
-                              <div class="d-flex">
-                                  <div class="rating-icon-1">
-                                    <i class="fas fa-shield-alt"></i> <!-- Safety Level icon -->
-                                    <i class="fas fa-wifi"></i> <!-- Internet Speed icon -->
-                                    <i class="fas fa-volume-up"></i> <!-- Noise Level icon -->
-                                    <i class="fas fa-home icon"></i><!-- Family Zone icon -->
-                                    <i class="fas fa-glass-cheers"></i> <!-- Nightlife icon -->
-                                    <i class="fas fa-utensils"></i> <!-- Restaurants Quantity icon -->
-                                    <i class="fas fa-shopping-bag"></i> <!-- Shopping icon -->
-                                    <i class="fas fa-paw"></i> <!-- Pet Friendly icon -->
-                                  </div>
+                        </div>
+                        <div class="cr-right">
+                          <div class="row">
+                            <div class="d-flex">
+                                <div class="rating-icon-1">
+                                  <i class="fas fa-shield-alt"></i> <!-- Safety Level icon -->
+                                  <i class="fas fa-wifi"></i> <!-- Internet Speed icon -->
+                                  <i class="fas fa-volume-up"></i> <!-- Noise Level icon -->
+                                  <i class="fas fa-child"></i> <!-- Family Zone icon -->
+                                  <i class="fas fa-glass-cheers"></i> <!-- Nightlife icon -->
+                                  <i class="fas fa-utensils"></i> <!-- Restaurants Quantity icon -->
+                                  <i class="fas fa-shopping-bag"></i> <!-- Shopping icon -->
+                                  <i class="fas fa-paw"></i> <!-- Pet Friendly icon -->
 
-                                  <div class="rating-txt-rt">
-                                    <p><strong>Safety level:</strong></p>
-                                    <p><strong>Working Internet Speed:</strong></p>
-                                    <p><strong>Average Noise Level:</strong></p>
-                                    <p><strong>Considered Family Zone:</strong></p>
-                                    <p><strong>Options for Nightlife:</strong></p>
-                                    <p><strong>Restaurants Variety:</strong></p>
-                                    <p><strong>Have Shopping:</strong></p>
-                                    <p><strong>Pet Friendly:</strong></p>
-                                  </div>
+                                </div>
 
-                                  <div class="rating-num">
-                                    <p><%= average_rating(:safety) %></p>
-                                    <p><%= average_rating(:internet_speed) %></p>
-                                    <p><%= average_rating(:noise_level) %></p>
-                                    <p><%= average_rating(:family_zone) %></p>
-                                    <p><%= average_rating(:nightlife) %></p>
-                                    <p><%= average_rating(:restaurants_qty) %></p>
-                                    <p><%= average_rating(:shopping) %></p>
-                                    <p><%= average_rating(:pet_friendly) %></p>
-                                  </div>
-                              </div>
+                                <div class="rating-txt-rt">
+                                  <p><strong>Safety level:</strong></p>
+                                  <p><strong>Working Internet Speed:</strong></p>
+                                  <p><strong>Average Noise Level:</strong></p>
+                                  <p><strong>Considered Family Zone:</strong></p>
+                                  <p><strong>Options for Nightlife:</strong></p>
+                                  <p><strong>Restaurants Variety:</strong></p>
+                                  <p><strong>Have Shopping:</strong></p>
+                                  <p><strong>Pet Friendly:</strong></p>
+                                </div>
+
+                                <div class="rating-num">
+                                  <p><%= average_rating(:safety) %></p>
+                                  <p><%= average_rating(:internet_speed) %></p>
+                                  <p><%= average_rating(:noise_level) %></p>
+                                  <p><%= average_rating(:family_zone) %></p>
+                                  <p><%= average_rating(:nightlife) %></p>
+                                  <p><%= average_rating(:restaurants_qty) %></p>
+                                  <p><%= average_rating(:shopping) %></p>
+                                  <p><%= average_rating(:pet_friendly) %></p>
+                                </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  <% else %>
-                    <p>No reviews available.</p>
-                  <% end %>
-                </div>
+                  </div>
+                <% else %>
+                  <p>No reviews available.</p>
+                <% end %>
               </div>
             </div>
-
-        </div>
+          </div>
 
       </div>
+
     </div>
+  </div>
 
 
   <!--MAPA-->
@@ -155,6 +157,7 @@
   </div>
 
   <!--DETAILED REVIEWS-->
+
   <div class="container-title">
       <div class="title">
         <div class="title-img-pencil"></div>
@@ -233,15 +236,33 @@
                                         </div>
 
                                         <div class="rating-num">
-                                          <p><%= review.meal_cost %>&nbsp; &nbsp;USD</p>
-                                          <p><%= review.coffee_cost %>&nbsp; &nbsp;USD</p>
-                                          <p><%= review.beer_cost %>&nbsp; &nbsp;USD</p>
-                                          <p><%= review.rent_cost %>&nbsp; &nbsp;USD</p>
-                                          <p><%= review.metro ? 'Yes' : 'No' %></p>
-                                          <p><%= review.bike ? 'Yes' : 'No' %></p>
-                                          <p><%= review.bus ? 'Yes' : 'No' %></p>
-                                          <p><%= review.uber ? 'Yes' : 'No' %></p>
-                                          <p><%= review.dealer ? 'Yes' : 'No' %></p>
+                                          <p>
+                                            <%= review.meal_cost %>&nbsp; &nbsp;USD
+                                          </p>
+                                          <p>
+                                            <%= review.coffee_cost %>&nbsp; &nbsp;USD
+                                          </p>
+                                          <p>
+                                            <%= review.beer_cost %>&nbsp; &nbsp;USD
+                                          </p>
+                                          <p>
+                                            <%= review.rent_cost %>&nbsp; &nbsp;USD
+                                          </p>
+                                          <p>
+                                            <%= review.metro ? 'Yes' : 'No' %>
+                                          </p>
+                                          <p>
+                                            <%= review.bike ? 'Yes' : 'No' %>
+                                          </p>
+                                          <p>
+                                            <%= review.bus ? 'Yes' : 'No' %>
+                                          </p>
+                                          <p>
+                                            <%= review.uber ? 'Yes' : 'No' %>
+                                          </p>
+                                          <p>
+                                            <%= review.dealer ? 'Yes' : 'No' %>
+                                          </p>
                                         </div>
 
                                   </div>
@@ -257,9 +278,9 @@
                                             <i class="fas fa-volume-up"></i> <!-- Noise Level icon -->
                                             <i class="fas fa-people-roof"></i> <!-- Family Zone icon -->
                                             <i class="fas fa-glass-cheers"></i> <!-- Nightlife icon -->
+                                            <i class="fas fa-paw"></i> <!-- Pet Friendly icon -->
                                             <i class="fas fa-utensils"></i> <!-- Restaurants Quantity icon -->
                                             <i class="fas fa-shopping-bag"></i> <!-- Shopping icon -->
-                                            <i class="fas fa-paw"></i> <!-- Pet Friendly icon -->
                                           </div>
 
                                           <div class="rating-txt-rt">
@@ -268,9 +289,9 @@
                                             <p><strong>Average Noise Level:</strong></p>
                                             <p><strong>Considered Family Zone:</strong></p>
                                             <p><strong>Options for Nightlife:</strong></p>
+                                            <p><strong>Pet Friendly:</strong></p>
                                             <p><strong>Restaurants Variety:</strong></p>
                                             <p><strong>Have Shopping:</strong></p>
-                                            <p><strong>Pet Friendly:</strong></p>
                                           </div>
 
                                           <div class="rating-num">
@@ -279,9 +300,9 @@
                                             <p><%= review.noise_level %></p>
                                             <p><%= review.family_zone %></p>
                                             <p><%= review.nightlife %></p>
+                                            <p><%= review.pet_friendly %></p>
                                             <p><%= review.restaurants_qty %></p>
                                             <p><%= review.shopping %></p>
-                                            <p><%= review.pet_friendly %></p>
                                           </div>
 
                                   </div>
@@ -306,9 +327,10 @@
   </div>
 
 
-<!--BOTONES EDIT - BACK-->
-<div class="btn-EB">
-  <div class="d-flex">
-    <p><%= link_to 'Back', locations_path, class: "btn btn-secondary-EB" %> </p>
+  <!--BOTONES EDIT - BACK-->
+  <div class="btn-EB">
+    <div class="d-flex">
+      <p><%= link_to 'Back', locations_path, class: "btn btn-secondary-EB" %> </p>
+    </div>
   </div>
 </div>
