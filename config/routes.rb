@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   #My reviews and my locations
   get 'my_locations', to: 'locations#my_locations', as: :my_locations
   get 'my_reviews', to: 'reviews#my_reviews', as: :my_reviews
+
+  # Custom 404 error page
+  get '/404', to: 'application#render_404'
+
 end
