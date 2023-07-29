@@ -42,7 +42,7 @@
                     <div class="white-city-card">
                         <div class="info-city-card">
                           <div class="city-name"> <%= location.city %> </div>
-                          <%= link_to "View city", city_show_path(@locations), class: "btn btn-cyan-700" %>
+                          <%= link_to "View city", city_show_path(location), class: "btn btn-cyan-700" %>
                           <div class="container"><%= @locations.length %> locations</div>
                         </div>
                     </div>
