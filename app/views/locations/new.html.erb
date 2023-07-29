@@ -73,91 +73,92 @@
   </div>
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const categoryButtons = document.querySelectorAll('.clickable-category');
-  const subcategoryButtons = document.querySelectorAll('.clickable-subcategory');
-  const categoryInput = document.getElementById('location_category');
-  const subcategoryInput = document.getElementById('location_subcategory');
-  const privateSubcategoryWrapper = document.getElementById('private_subcategory_wrapper');
-  const publicSubcategoryWrapper = document.getElementById('public_subcategory_wrapper');
+<script defer>
+window.onload = function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    const categoryButtons = document.querySelectorAll('.clickable-category');
+    const subcategoryButtons = document.querySelectorAll('.clickable-subcategory');
+    const categoryInput = document.getElementById('location_category');
+    const subcategoryInput = document.getElementById('location_subcategory');
+    const privateSubcategoryWrapper = document.getElementById('private_subcategory_wrapper');
+    const publicSubcategoryWrapper = document.getElementById('public_subcategory_wrapper');
 
-  const toggleSubcategories = (selectedCategory) => {
-    if (selectedCategory === "Public Space") {
-      privateSubcategoryWrapper.classList.add('d-none');
-      publicSubcategoryWrapper.classList.remove('d-none');
-    } else if (selectedCategory === "Private Space") {
-      publicSubcategoryWrapper.classList.add('d-none');
-      privateSubcategoryWrapper.classList.remove('d-none');
-    }
-  };
-
-  const selectSubcategory = (selectedSubcategory) => {
-    subcategoryButtons.forEach((button) => {
-      if (button.getAttribute('data-value') === selectedSubcategory) {
-        button.classList.add('active');
-      } else {
-        button.classList.remove('active');
+    const toggleSubcategories = (selectedCategory) => {
+      if (selectedCategory === "Public Space") {
+        privateSubcategoryWrapper.classList.add('d-none');
+        publicSubcategoryWrapper.classList.remove('d-none');
+      } else if (selectedCategory === "Private Space") {
+        publicSubcategoryWrapper.classList.add('d-none');
+        privateSubcategoryWrapper.classList.remove('d-none');
       }
-    });
-    subcategoryInput.value = selectedSubcategory;
-  };
+    };
 
-  const unselectSubcategories = () => {
+    const selectSubcategory = (selectedSubcategory) => {
+      subcategoryButtons.forEach((button) => {
+        if (button.getAttribute('data-value') === selectedSubcategory) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+      subcategoryInput.value = selectedSubcategory;
+    };
+
+    const unselectSubcategories = () => {
+      subcategoryButtons.forEach((button) => {
+        button.classList.remove('active');
+      });
+      subcategoryInput.value = '';
+    };
+
+    const toggleActiveClass = (event) => {
+      categoryButtons.forEach((category) => {
+        category.classList.remove('active');
+      });
+
+      const selectedCategory = event.currentTarget;
+      selectedCategory.classList.add('active');
+      categoryInput.value = selectedCategory.getAttribute('data-value');
+      toggleSubcategories(selectedCategory.getAttribute('data-value'));
+      unselectSubcategories();
+    };
+
+    const toggleActiveOnClick = (category) => {
+      category.addEventListener('click', toggleActiveClass);
+    };
+
+    categoryButtons.forEach(toggleActiveOnClick);
+
+    // Event listener for subcategory buttons
     subcategoryButtons.forEach((button) => {
-      button.classList.remove('active');
-    });
-    subcategoryInput.value = '';
-  };
-
-  const toggleActiveClass = (event) => {
-    categoryButtons.forEach((category) => {
-      category.classList.remove('active');
-    });
-
-    const selectedCategory = event.currentTarget;
-    selectedCategory.classList.add('active');
-    categoryInput.value = selectedCategory.getAttribute('data-value');
-    toggleSubcategories(selectedCategory.getAttribute('data-value'));
-    unselectSubcategories();
-  };
-
-  const toggleActiveOnClick = (category) => {
-    category.addEventListener('click', toggleActiveClass);
-  };
-
-  categoryButtons.forEach(toggleActiveOnClick);
-
-  // Event listener for subcategory buttons
-  subcategoryButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const selectedSubcategory = event.currentTarget.getAttribute('data-value');
-      selectSubcategory(selectedSubcategory);
+      button.addEventListener('click', (event) => {
+        const selectedSubcategory = event.currentTarget.getAttribute('data-value');
+        selectSubcategory(selectedSubcategory);
+      });
     });
   });
-});
 
-const subtypeIcons = {
-  // Public Space subcategories
-  "Neighborhood": "fas fa-city",
-  "Block/Square": "fas fa-cube",
-  "Street": "fas fa-road",
-  "Park": "fas fa-tree",
-  "Cultural Landmark": "fas fa-landmark",
-  "Natural Landmark": "fas fa-mountain",
+  const subtypeIcons = {
+    // Public Space subcategories
+    "Neighborhood": "fas fa-city",
+    "Block/Square": "fas fa-cube",
+    "Street": "fas fa-road",
+    "Park": "fas fa-tree",
+    "Cultural Landmark": "fas fa-landmark",
+    "Natural Landmark": "fas fa-mountain",
 
-  // Private Space subcategories
-  "House": "fas fa-home",
-  "Flat": "fas fa-building",
-  "Restaurant": "fas fa-utensils",
-  "Bar": "fas fa-glass-martini",
-  "Hotel": "fas fa-hotel",
-  "Workshop": "fas fa-tools",
-  "Office": "fas fa-building"
+    // Private Space subcategories
+    "House": "fas fa-home",
+    "Flat": "fas fa-building",
+    "Restaurant": "fas fa-utensils",
+    "Bar": "fas fa-glass-martini",
+    "Hotel": "fas fa-hotel",
+    "Workshop": "fas fa-tools",
+    "Office": "fas fa-building"
+  };
+
+  function getIconForSubcategory(subtype) {
+    return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
+  }
 };
-
-function getIconForSubcategory(subtype) {
-  return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
-}
-
 </script>
