@@ -26,13 +26,9 @@
                   <span class="space-txt"><%= @location.subcategory %></span>
                 </div>
               </div>
-              <div class="container-address">
+              <div class="container-address mb-4">
                 <p class="address-txt"><%= truncate(@location.address, length: 45, omission: '...') %></p>
                 <div class="address-pin"></div>
-              </div>
-              <div>
-                <p><%= link_to 'Write a review', new_location_review_path(@location), class: "btn btn-cyan-700" %></p>
-                <p><%= link_to 'See reviews', location_reviews_path(@location), class: "btn btn-cyan-700" %></p>
               </div>
             </div>
           </div>
