@@ -1,0 +1,169 @@
+.container-map {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.row {
+  justify-content: center;
+}
+
+.container-cards {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.container-location-whitecard-3 {
+  width: 250px;
+  height: 400px;
+  margin-top: 40px;
+  padding: 15, 10, 10, 10;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  display: inline-flex;
+  overflow: visible;
+}
+
+.location-name-3 {
+  width: 210px;
+
+  height: 44px;
+  margin-top: 15px;
+
+  display: flex;
+  align-items: center;
+  color: #6C757D;
+  font-size: 22px;
+  font-family: Anek Latin;
+  font-weight: 500;
+  line-height: 1;
+  word-wrap: break-word;
+}
+
+.img-location-3 {
+  width: 210px;
+  height: 160px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.spaces-card {
+  width: 210px;
+  height: 30px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: self-end;
+  display: inline-flex;
+}
+
+.space-left {
+  width: 100px;
+  height: 30px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: #C8E8F1;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 0.25px #097695 solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.space-right {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  background: #C8E8F1;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 0.25px #097695 solid;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.space-txt {
+  text-align: center;
+  color: #097695;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  line-height: 12px;
+  word-wrap: break-word;
+}
+
+.container-address {
+  width: 210px;
+  height: 35px;
+  position: relative;
+}
+
+.address-txt {
+  width: 180px;
+  height: 35px;
+  max-height: 70px;
+  left: 25px;
+  top: 0px;
+  position: absolute;
+  color: #191919;
+  font-size: 12px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.address-pin {
+  width: 15px;
+  height: 23px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background-image: url(pin_2_address.png);
+  background-size: auto;
+  align-content: center;
+}
+
+.btn-cyan-700-location {
+  width: 210px;
+  height: 30px;
+  background: #097695;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+/* Este estilo es para el card de prueba
+.btn-cyan-700-txt {
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-family: Anek Latin;
+  font-weight: 600;
+  word-wrap: break-word;
+}*/
+
+.btn-cyan-700:hover {
+  background: #045065;
+}
