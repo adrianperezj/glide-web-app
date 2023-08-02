@@ -1,19 +1,155 @@
-<h1>My Reviews</h1>
-<% @reviews.each do |review| %>
-  <p><%= review.title %> - <%= review.comment %></p>
-<% end %>
+<div class="">
 
-<!-- app/views/my_review.html.erb -->
+  <div class="container-title">
+    <div class="title">
+      <div class="title-img-pencil"></div>
+      <div class="title-txt">My Reviews</div>
+    </div>
+  </div>
 
-<div class="content-block">
-  <div class="image-container">
-    <img src="your_image_url_here.jpg" alt="Image">
-  </div>
-  <div class="text-container">
-    <h2>Title</h2>
-    <p>
-      Your text goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Sed at tortor euismod, bibendum nisl nec, interdum elit.
-    </p>
-  </div>
+
+    <div class="container-1">
+      <div class="row">
+        <% @reviews.each do |review| %>
+          <div class="container-center">
+              <div class="row mb-5">
+                <div class="d-flex">
+                  <div class="container-csl">
+                    <div class="card-show-loc">
+                      <div class="location-name-3"><%= truncate(review.title, length: 35, omission: '...' ) %></div>
+                      <div class="img-location-3">
+                        <% if review.photo.attached? %>
+                          <%= image_tag review.photo, class: "img-location-3" %>
+                        <% else %>
+                            <%= image_tag "map.png" , class: "img-location-3" %>
+                        <% end %>
+                      </div>
+                      <div class="container-comment">
+                        <p class="mb-0"><strong>Comment:</strong></p>
+                        <p class="comment-txt">
+                          <%= truncate(review.comment, length: 200, omission: '...' ) %>
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          <%= link_to 'Edit Review', edit_review_path(review), class: "btn btn-cyan-700" %>
+                        </p>
+                        <p>
+                          <%= link_to 'Delete Review', review_path(review), method: :delete, data: {
+                            confirm: 'Are you sure?' }, class: "btn btn-cyan-700" %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container-rtl row">
+                    <div class="d-flex">
+                      <div class="cr-1">
+                        <%# if @location.reviews.any? %>
+                          <div class="cr-2">
+                            <p class="title-ratings"><strong>Location</strong> - Ratings and Reviews</p>
+                              <div class="row">
+                                <div class="d-flex">
+
+                                  <div class="cr-left">
+                                    <div class="row">
+                                      <div class="d-flex">
+
+                                            <div class="rating-icon-1">
+                                              <i class="fas fa-utensils icon"></i>
+                                              <i class="fas fa-coffee icon"></i>
+                                              <i class="fas fa-beer icon"></i>
+                                              <i class="fas fa-home icon"></i>
+                                              <i class="fas fa-subway icon"></i>
+                                              <i class="fas fa-bicycle icon"></i>
+                                              <i class="fas fa-bus icon"></i>
+                                              <i class="fab fa-uber icon"></i>
+                                              <i class="fas fa-cannabis"></i> <!-- Dealer icon -->
+                                            </div>
+
+                                            <div class="rating-txt-exp">
+                                              <p><strong>Meal Cost:</strong></p>
+                                              <p><strong>Coffee Cost:</strong></p>
+                                              <p><strong>Beer Cost:</strong></p>
+                                              <p><strong>Rent Cost:</strong></p>
+                                              <p><strong>Subway near?</strong></p>
+                                              <p><strong>Bike near?</strong></p>
+                                              <p><strong>Bus near?</strong></p>
+                                              <p><strong>Uber or ride app?</strong></p>
+                                              <p><strong>Dealer near?</strong></p>
+                                            </div>
+
+                                            <div class="rating-num">
+                                              <p><%= review.meal_cost %>&nbsp; &nbsp;USD</p>
+                                              <p><%= review.coffee_cost %>&nbsp; &nbsp;USD</p>
+                                              <p><%= review.beer_cost %>&nbsp; &nbsp;USD</p>
+                                              <p><%= review.rent_cost %>&nbsp; &nbsp;USD</p>
+                                              <p><%= review.metro ? 'Yes' : 'No' %></p>
+                                              <p><%= review.bike ? 'Yes' : 'No' %></p>
+                                              <p><%= review.bus ? 'Yes' : 'No' %></p>
+                                              <p><%= review.uber ? 'Yes' : 'No' %></p>
+                                              <p><%= review.dealer ? 'Yes' : 'No' %></p>
+                                            </div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="cr-right">
+                                    <div class="row">
+                                      <div class="d-flex">
+
+                                              <div class="rating-icon-1">
+                                                <i class="fas fa-shield-alt"></i> <!-- Safety Level icon -->
+                                                <i class="fas fa-wifi"></i> <!-- Internet Speed icon -->
+                                                <i class="fas fa-volume-up"></i> <!-- Noise Level icon -->
+                                                <i class="fas fa-people-roof"></i> <!-- Family Zone icon -->
+                                                <i class="fas fa-glass-cheers"></i> <!-- Nightlife icon -->
+                                                <i class="fas fa-utensils"></i> <!-- Restaurants Quantity icon -->
+                                                <i class="fas fa-shopping-bag"></i> <!-- Shopping icon -->
+                                                <i class="fas fa-paw"></i> <!-- Pet Friendly icon -->
+                                              </div>
+
+                                              <div class="rating-txt-rt">
+                                                <p><strong>Safety Level:</strong></p>
+                                                <p><strong>Working Internet Speed:</strong></p>
+                                                <p><strong>Average Noise Level:</strong></p>
+                                                <p><strong>Considered Family Zone:</strong></p>
+                                                <p><strong>Options for Nightlife:</strong></p>
+                                                <p><strong>Restaurants Variety:</strong></p>
+                                                <p><strong>Have Shopping:</strong></p>
+                                                <p><strong>Pet Friendly:</strong></p>
+                                              </div>
+
+                                              <div class="rating-num">
+                                                <p><%= review.safety %></p>
+                                                <p><%= review.internet_speed %></p>
+                                                <p><%= review.noise_level %></p>
+                                                <p><%= review.family_zone %></p>
+                                                <p><%= review.nightlife %></p>
+                                                <p><%= review.restaurants_qty %></p>
+                                                <p><%= review.shopping %></p>
+                                                <p><%= review.pet_friendly %></p>
+                                              </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                              </div>
+                          </div>
+                        <%# else %>
+                          <p>No reviews available.</p>
+                        <%# end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <hr>
+          </div>
+        <% end %>
+      </div>
+    </div>
 </div>

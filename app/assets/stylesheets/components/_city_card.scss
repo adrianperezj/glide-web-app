@@ -3,10 +3,12 @@
   height: 330px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05);
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  gap: 30px;
+  display: flex;
 }
 
 .img-city-card img {
@@ -35,7 +37,7 @@
   height: 140px;
   padding: 15px 20px 20px 20px;
   background: white;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05);
+
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   flex-direction: column;
