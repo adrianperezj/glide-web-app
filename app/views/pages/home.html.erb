@@ -51,7 +51,7 @@
           <p>Welcome to Glide! A community dedicated to helping you find the best place to live in a new city.</p>
           <p>Our platform is based on the knowledge and experience of local residents who share their opinions and recommendations on the best places to live, eat, and enjoy life in the city. With our guide, you’ll be able to find safe areas with access to public transportation and pet-friendly.</p>
           <p>Join us and discover your perfect home!</p>
-          <a href="http://localhost:3000/users/sign_up" class="btn btn-signup">Sign Up</a>
+          <%= link_to "Join", new_user_session_path, class: "btn btn-signup" %>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-      <a href="<%= user_signed_in? ? '/locations/new' : 'http://localhost:3000/users/sign_up' %>" class="btn btn-primary">Create a review</a>
+      <a href="<%= user_signed_in? ? new_location_path : new_user_session_path %>" class="btn btn-primary">Create a location</a>
     </div>
   </section>
 
@@ -105,11 +105,11 @@
             </div>
             <div class="white-city-card">
               <div class="info-city-card">
-                <h3 class="city-name">City 1 Name</h3>
-                <p class="country-name">Country 1</p>
+                <h3 class="city-name">Mexico City</h3>
+                <p class="country-name">Mexico</p>
                 <div class="location-info">
                   <img src="<%= image_path('pin_2.png') %>" alt="Pin Icon" class="pin-icon">
-                  <span class="location-count">1000 locations</span>
+                  <span class="location-count">1000+ locations</span>
                 </div>
               </div>
             </div>
@@ -118,15 +118,15 @@
         <div class="col-md-4-landing">
         <div class="container-city-card-1">
             <div class="img-city-card">
-              <img src="<%= image_path('zocalo-cdmx.jpg') %>" alt="City">
+              <img src="<%= image_path('https://res.cloudinary.com/dy2jex4vs/image/upload/v1690662504/glide/fundidora_kgj24k.jpg') %>" alt="City">
             </div>
             <div class="white-city-card">
               <div class="info-city-card">
-                <h3 class="city-name">City 1 Name</h3>
-                <p class="country-name">Country 1</p>
+                <h3 class="city-name">Monterrey</h3>
+                <p class="country-name">Mexico</p>
                 <div class="location-info">
                   <img src="<%= image_path('pin_2.png') %>" alt="Pin Icon" class="pin-icon">
-                  <span class="location-count">1000 locations</span>
+                  <span class="location-count">600+ locations</span>
                 </div>
               </div>
             </div>
@@ -135,15 +135,15 @@
         <div class="col-md-4-landing">
           <div class="container-city-card-1">
             <div class="img-city-card">
-              <img src="<%= image_path('zocalo-cdmx.jpg') %>" alt="City">
+              <img src="<%= image_path('https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663757/glide/teatro_degollado_ihshqb.jpg') %>" alt="City">
             </div>
             <div class="white-city-card">
               <div class="info-city-card">
-                <h3 class="city-name">City 1 Name</h3>
-                <p class="country-name">Country 1</p>
+                <h3 class="city-name">Guadalajara</h3>
+                <p class="country-name">Mexico</p>
                 <div class="location-info">
                   <img src="<%= image_path('pin_2.png') %>" alt="Pin Icon" class="pin-icon">
-                  <span class="location-count">1000 locations</span>
+                  <span class="location-count">500+ locations</span>
                 </div>
               </div>
             </div>

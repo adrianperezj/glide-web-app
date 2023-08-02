@@ -1,3 +1,28 @@
+<<<<<<< HEAD
+<div class="container-title-myloc">
+  <div class="title">
+    <div class="title-img-pin"></div>
+    <div class="title-txt">My Locations</div>
+  </div>
+</div>
+
+<div class="container-loc">
+  <div class="row">
+      <% @locations.each do |location| %>
+        <!--<div class="col-md-4">-->
+          <div class="container-location-card-3 mx-2">
+            <div class="location-name-3"><%= truncate(location.name, length: 35, omission: '...') %> </div>
+            <div class="img-location-3">
+              <% if location.photo.present? %>
+                <%= image_tag location.photo, class: "img-location-3" %>
+              <% else %>
+                <%= image_tag "map.png", class: "img-location-3" %>
+              <% end %>
+            </div>
+            <div class="spaces-card">
+              <div class="space-left">
+                <span class="space-txt"><%= location.category %></span>
+=======
 <div class="">
 
   <div class="container-title-myloc">
@@ -19,6 +44,7 @@
                 <% else %>
                   <%= image_tag "map.png", class: "img-location-3" %>
                 <% end %>
+>>>>>>> 348f4b2c033f4f1287cd7c0c5b5f1d92b4781ef9
               </div>
               <div class="spaces-card">
                 <div class="space-left">
