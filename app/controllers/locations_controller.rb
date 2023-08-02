@@ -16,8 +16,8 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    @review = @location.reviews.find(params[:review_id]) # Assuming you have nested resources
-
+    # Geocode the address to obtain latitude and longitude
+    # Assign the latitude and longitude values from the model
     latitude = @location.latitude
     longitude = @location.longitude
 
@@ -34,8 +34,6 @@ class LocationsController < ApplicationController
       # Handle the case where latitude or longitude is missing
       @markers = []
     end
-    rescue ActiveRecord::RecordNotFound
-    # Handle the case where the review for the location is not found
   end
 
   def new

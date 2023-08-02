@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="container-new-loc"">
+<div class="container-new-loc">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <%= simple_form_for @location do |f| %>
@@ -27,7 +27,7 @@
 
        <!-- <%= f.input :category, collection: Location::CATEGORIES, include_blank: "Select Category", input_html: { id: 'location_category', class: "placeholder-text" } %> -->
         <div class="mb-4">
-        <label class="custom-label" for="location_category">What type of location is it?</label>
+          <label class="custom-label" for="location_category">What type of location is it?</label>
         </div>
 
         <div class="toggle-buttons">
@@ -74,7 +74,30 @@
 </div>
 
 <script defer>
-window.onload = function () {
+// window.onload = function () {
+    const subtypeIcons = {
+    // Public Space subcategories
+    "Neighborhood": "fas fa-city",
+    "Block/Square": "fas fa-cube",
+    "Street": "fas fa-road",
+    "Park": "fas fa-tree",
+    "Cultural Landmark": "fas fa-landmark",
+    "Natural Landmark": "fas fa-mountain",
+
+    // Private Space subcategories
+    "House": "fas fa-home",
+    "Flat": "fas fa-building",
+    "Restaurant": "fas fa-utensils",
+    "Bar": "fas fa-glass-martini",
+    "Hotel": "fas fa-hotel",
+    "Workshop": "fas fa-tools",
+    "Office": "fas fa-building"
+  };
+
+  function getIconForSubcategory(subtype) {
+    return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     const categoryButtons = document.querySelectorAll('.clickable-category');
     const subcategoryButtons = document.querySelectorAll('.clickable-subcategory');
@@ -138,27 +161,6 @@ window.onload = function () {
     });
   });
 
-  const subtypeIcons = {
-    // Public Space subcategories
-    "Neighborhood": "fas fa-city",
-    "Block/Square": "fas fa-cube",
-    "Street": "fas fa-road",
-    "Park": "fas fa-tree",
-    "Cultural Landmark": "fas fa-landmark",
-    "Natural Landmark": "fas fa-mountain",
 
-    // Private Space subcategories
-    "House": "fas fa-home",
-    "Flat": "fas fa-building",
-    "Restaurant": "fas fa-utensils",
-    "Bar": "fas fa-glass-martini",
-    "Hotel": "fas fa-hotel",
-    "Workshop": "fas fa-tools",
-    "Office": "fas fa-building"
-  };
-
-  function getIconForSubcategory(subtype) {
-    return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
-  }
-};
+// };
 </script>

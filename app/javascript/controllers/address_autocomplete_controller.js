@@ -18,16 +18,16 @@ export default class extends Controller {
     this.geocoder.on("result", event => this.#setInputValue(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
 
-    const addressInput = this.addressAutocompleteTarget;
-    const mapContainer = this.mapContainerTarget;
-    const mapMarkers = JSON.parse(mapContainer.getAttribute("data-map-markers-value"));
+    const addressInput = this.addressTarget;
+    // const mapContainer = this.mapContainerTarget;
+    // const mapMarkers = JSON.parse(mapContainer.getAttribute("data-map-markers-value"));
 
     addressInput.addEventListener("change", () => {
       const address = addressInput.value;
 
       // Update the map markers with the new address
       mapMarkers.splice(0, mapMarkers.length, { address });
-      mapContainer.setAttribute("data-map-markers-value", JSON.stringify(mapMarkers));
+      //mapContainer.setAttribute("data-map-markers-value", JSON.stringify(mapMarkers));
     })
   }
 

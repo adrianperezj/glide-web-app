@@ -7,17 +7,17 @@
           <p class="footer-txt">Contact Information</p>
           <ul class="contact-info">
             <li>
-              <i class="fas fa-envelope"></i> example@example.com
+              <i class="fas fa-envelope"></i> hello@gliide.me
             </li>
             <li>
-              <i class="fas fa-phone"></i> +1 123-456-7890
+              <i class="fas fa-phone"></i> +52 782-102-1294
             </li>
             <li>
-              <i class="fas fa-map-marker-alt"></i> 1234 Street, City, Country
+              <i class="fas fa-map-marker-alt"></i> Ohio 20, Nápoles, 03810 Ciudad de México, CDMX
             </li>
           </ul>
 
-          <a href="http://localhost:3000/users/sign_up" class="btn btn-footer">Sign Up</a>
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-footer" %>
         </div>
         <div class="col-md-6">
           <!-- Social Media Links -->
@@ -27,9 +27,8 @@
             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
           </ul>
-          <a href="http://localhost:3000/locations" class="btn btn-footer">View Locations</a>
-          <a href="http://localhost:3000/cities" class="btn btn-footer">View Cities</a>
-
+          <%= link_to "View Locations", locations_path, class: "btn btn-footer" %>
+          <%= link_to "View Cities", cities_path, class: "btn btn-footer" %>
         </div>
       </div>
     </div>
