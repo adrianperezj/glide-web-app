@@ -5,7 +5,7 @@
   border-color: gray;
   background-color: #f1f1f1;
   margin: 16px;
-  padding: 24px 16px 6px 16px;
+  padding: 24px 16px 12px 16px;
   text-align: center;
 }
 
@@ -20,7 +20,7 @@
   display: block;
   text-align: center;
   font-size: 24px;
-  margin-bottom: 12px;
+  margin-bottom: 2px;
 }
 
 /* Ratings range inputs */
@@ -236,4 +236,10 @@
 .toggle-buttons .clickable-category,
 .toggle-buttons .clickable-subcategory {
   margin-bottom: 5px;
+}
+
+.currency-label {
+  font-size: 12px; /* Adjust the font size as needed */
+  margin-left: 5px; /* Reduce the left margin to shorten the gap */
+  color: #777; /* Set the color of the label */
 }
