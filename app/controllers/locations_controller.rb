@@ -16,6 +16,8 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    # Geocode the address to obtain latitude and longitude
+    # Assign the latitude and longitude values from the model
     latitude = @location.latitude
     longitude = @location.longitude
 

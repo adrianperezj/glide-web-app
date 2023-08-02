@@ -58,33 +58,38 @@
 
         <!-- Segunda seccion del formulario "Expenses" -->
         <div data-review-form-target="section" id="step-2" class="d-none">
-          <h2>Expenses</h2>
-          <h4 class="ratings-subtitle">Share the average price of the following items</h4>
+        <h2>Expenses</h2>
+        <h4 class="ratings-subtitle">Share the average price of the following items</h4>
 
-          <!-- Meal Cost -->
-          <div class="input-container-meals">
-            <i class="fas fa-utensils icon"></i> <!-- Meal icon -->
-            <%= form.input :meal_cost, input_html: { style: 'max-width: 150px;' } %>
-          </div>
-
-          <!-- Coffee Cost -->
-          <div class="input-container-meals">
-            <i class="fas fa-coffee icon"></i> <!-- Coffee icon -->
-            <%= form.input :coffee_cost, input_html: { style: 'max-width: 150px;' } %>
-          </div>
-
-          <!-- Rent Cost -->
-          <div class="input-container-meals">
-            <i class="fas fa-home icon"></i> <!-- House icon -->
-            <%= form.input :rent_cost, input_html: { style: 'max-width: 150px;' } %>
-          </div>
-
-          <!-- Beer Cost -->
-          <div class="input-container-meals">
-            <i class="fas fa-beer icon"></i> <!-- Beer icon -->
-            <%= form.input :beer_cost, input_html: { style: 'max-width: 150px;' } %>
-          </div>
+        <!-- Meal Cost -->
+        <div class="input-container-meals">
+          <i class="fas fa-utensils icon"></i> <!-- Meal icon -->
+          <%= form.input :meal_cost, input_html: { style: 'max-width: 150px;' } %>
+          <span class="currency-label">USD</span>
         </div>
+
+        <!-- Coffee Cost -->
+        <div class="input-container-meals">
+          <i class="fas fa-coffee icon"></i> <!-- Coffee icon -->
+          <%= form.input :coffee_cost, input_html: { style: 'max-width: 150px;' } %>
+          <span class="currency-label">USD</span>
+        </div>
+
+        <!-- Rent Cost -->
+        <div class="input-container-meals">
+          <i class="fas fa-home icon"></i> <!-- House icon -->
+          <%= form.input :rent_cost, input_html: { style: 'max-width: 150px;' } %>
+          <span class="currency-label">USD</span>
+        </div>
+
+        <!-- Beer Cost -->
+        <div class="input-container-meals">
+          <i class="fas fa-beer icon"></i> <!-- Beer icon -->
+          <%= form.input :beer_cost, input_html: { style: 'max-width: 150px;' } %>
+          <span class="currency-label">USD</span>
+        </div>
+      </div>
+
 
         <!-- Tercera seccion del formulario "Ratings" -->
         <div data-review-form-target="section" id="step-3" class="d-none">
