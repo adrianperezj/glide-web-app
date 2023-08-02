@@ -6,8 +6,8 @@
     </div>
   </div>
 
-  <div class="container-map mt-4">
-    <div style="width: 85%; height: 400px;"
+  <div class="container-map">
+    <div style="width: 55%; height: 350px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -48,6 +48,6 @@
   </div>
 
   <div class="d-flex justify-content-center mt-3">
-    <%= link_to "New Location", new_location_path, class: "btn btn-cyan-700-location"  %>
+    <%= link_to "New Location", new_location_path, class: "btn btn-cyan-700" %>
   </div>
 </div>

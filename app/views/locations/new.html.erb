@@ -74,7 +74,30 @@
 </div>
 
 <script defer>
-window.onload = function () {
+// window.onload = function () {
+    const subtypeIcons = {
+    // Public Space subcategories
+    "Neighborhood": "fas fa-city",
+    "Block/Square": "fas fa-cube",
+    "Street": "fas fa-road",
+    "Park": "fas fa-tree",
+    "Cultural Landmark": "fas fa-landmark",
+    "Natural Landmark": "fas fa-mountain",
+
+    // Private Space subcategories
+    "House": "fas fa-home",
+    "Flat": "fas fa-building",
+    "Restaurant": "fas fa-utensils",
+    "Bar": "fas fa-glass-martini",
+    "Hotel": "fas fa-hotel",
+    "Workshop": "fas fa-tools",
+    "Office": "fas fa-building"
+  };
+
+  function getIconForSubcategory(subtype) {
+    return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     const categoryButtons = document.querySelectorAll('.clickable-category');
     const subcategoryButtons = document.querySelectorAll('.clickable-subcategory');
@@ -138,27 +161,6 @@ window.onload = function () {
     });
   });
 
-  const subtypeIcons = {
-    // Public Space subcategories
-    "Neighborhood": "fas fa-city",
-    "Block/Square": "fas fa-cube",
-    "Street": "fas fa-road",
-    "Park": "fas fa-tree",
-    "Cultural Landmark": "fas fa-landmark",
-    "Natural Landmark": "fas fa-mountain",
 
-    // Private Space subcategories
-    "House": "fas fa-home",
-    "Flat": "fas fa-building",
-    "Restaurant": "fas fa-utensils",
-    "Bar": "fas fa-glass-martini",
-    "Hotel": "fas fa-hotel",
-    "Workshop": "fas fa-tools",
-    "Office": "fas fa-building"
-  };
-
-  function getIconForSubcategory(subtype) {
-    return subtypeIcons[subtype] || "fas fa-city"; // Default icon class if not found in the mapping
-  }
-};
+// };
 </script>
