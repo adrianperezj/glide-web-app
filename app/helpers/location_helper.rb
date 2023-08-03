@@ -63,4 +63,23 @@ module LocationHelper
     neighborhoods = Location.where(city: city).pluck(:neighborhood).uniq
     neighborhoods.any? ? neighborhoods : ['No neighborhoods found']
   end
+
+
+def determine_word_for_rating(average)
+  case average
+  when 0..1.5
+    "Very Unsafe"
+  when 1.5..2.5
+    "Unsafe"
+  when 2.5..3.5
+    "Moderate"
+  when 3.5..4.5
+    "Safe"
+  when 4.5..5
+    "Very Safe"
+  else
+    "Unknown"
+  end
+end
+
 end
