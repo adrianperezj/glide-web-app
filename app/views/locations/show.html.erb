@@ -178,8 +178,8 @@
                     <div class="card-show-loc">
                       <div class="location-name-3"><%= truncate(review.title, length: 35, omission: '...' ) %></div>
                       <div class="img-location-3">
-                        <% if @location.photo.present? %>
-                          <%= image_tag @location.photo, class: "img-location-3" %>
+                        <% if review.photo.present? %>
+                          <%= image_tag review.photo, class: "img-location-3" %>
                         <% else %>
                             <%= image_tag "map.png" , class: "img-location-3" %>
                         <% end %>

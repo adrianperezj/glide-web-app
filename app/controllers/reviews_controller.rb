@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_location, only: %i[new create edit update destroy]
+  before_action :set_location, only: %i[new edit update destroy]
 
   # Path: app/views/reviews/_form.html.erb
   def new
@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
 
   def create
     # @review = current_user.reviews.build(review_params.merge(location: @location))
+    @location = Location.find_by(id: params[:location_id])
     @review = Review.new(review_params)
     @review.location = @location
     @review.user = current_user

@@ -63,12 +63,14 @@
 .container-comment {
   width: 210px;
   height: auto;
+  max-height: 100px;
   position: relative;
 }
 
 .comment-txt {
   width: 210px;
   height: auto;
+  max-height: 100px;
   margin-bottom: 0;
   color: #191919;
   font-size: 12px;

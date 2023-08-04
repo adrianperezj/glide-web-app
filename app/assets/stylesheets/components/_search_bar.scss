@@ -3,11 +3,15 @@
   height: 35px;
   padding: 0%;
   border-radius: 0px 10px 10px 0px;
-  background-color: #071041;
+  background-color: $orange-500;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-search:hover {
+  background: $orange-700;
 }
 
 .form-control-sb {
