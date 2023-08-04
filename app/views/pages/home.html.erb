@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +7,10 @@
   <link rel="stylesheet" href="path/to/your/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
 
+<body>
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section bg-primary text-white py-5">
     <div class="container">
       <h1>Discover Your New City,</h1>
       <h1>Live Where You Want</h1>
@@ -19,39 +18,39 @@
 
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
-          <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
+          <form class="d-flex">
+            <%= form_with url: cities_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
                   params[:query],
                   class: "form-control-sb",
-                  placeholder: "Type a city name"
-            %>
+                  placeholder: "Type a city name" %>
             <button type="submit" class="btn btn-search">
               <img class="lupa" src="<%= image_path('search.png') %>" alt="Search">
             </button>
-          <% end %>
+            <% end %>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
-
   <!-- Second Section -->
   <section class="second-section">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10">
-          <h2>Find The Perfect Place To Live And More...</h2>
+      <div class="row align-items-center">
+        <div class="col-md-10 text-center">
+          <h3 style="color: darkgray;">Find The Perfect Place To Live And More...</h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <img src="<%= image_path('Home-pareja.png') %>" alt="stats-glide">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <img src="<%= image_path('Home-pareja.png') %>" alt="stats-glide" class="img-fluid rounded-lg" width="400" height="400"> <!-- Added class: bigger-image -->
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <p>Welcome to Glide! A community dedicated to helping you find the best place to live in a new city.</p>
           <p>Our platform is based on the knowledge and experience of local residents who share their opinions and recommendations on the best places to live, eat, and enjoy life in the city. With our guide, you’ll be able to find safe areas with access to public transportation and pet-friendly.</p>
           <p>Join us and discover your perfect home!</p>
-          <%= link_to "Join", new_user_session_path, class: "btn btn-cyan-700" %>
+          <%= link_to "Become a Glider", new_user_session_path, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -59,29 +58,29 @@
 
   <!-- Third Section -->
   <section class="third-section" style="background-color: lightgray;">
-    <div class="container text-center">
+    <div class="container d-flex flex-column align-items-center text-center"> <!-- Added class: text-center -->
       <h2>Easy to use</h2>
-      <h4>3 steps to the perfect location</h4>
-      <div class="d-flex justify-content-center"> <!-- Add the d-flex class here -->
-        <div class="col-md-4-landing">
+      <h4 class="mb-4">3 steps to the perfect location</h4>
+      <div class="flex-row d-flex mb-4">
+        <div class="col-12 col-md-4">
           <div class="square-container-landing">
             <img src="<%= image_path('pin_2_square.png') %>" alt="Pin Icon" class="icon-landing">
             <h4 class="h4-landing">Place a PIN</h4>
-            <p>Look for the exact address and place the pin on the map.</p>
+            <p class="max-width-p">Look for the exact address and place the pin on the map to set your location.</p>
           </div>
         </div>
-        <div class="col-md-4-landing">
+        <div class="col-12 col-md-4">
           <div class="square-container-landing">
             <img src="<%= image_path('signpost-orange.png') %>" alt="Signpost Icon" class="icon-landing">
             <h4 class="h4-landing">Name your location</h4>
-            <p>Select a name and category and set your location.</p>
+            <p class="max-width-p">Give it a name, add photos and create your location to add reviews.</p>
           </div>
         </div>
-        <div class="col-md-4-landing">
+        <div class="col-12 col-md-4">
           <div class="square-container-landing">
             <img src="<%= image_path('pencil-square.png') %>" alt="Pencil Icon" class="icon-landing">
             <h4 class="h4-landing">Share a review</h4>
-            <p>Add your photos and share your experience with the community.</p>
+            <p class="max-width-p">Add photos, ratings and share your experience with the community.</p>
           </div>
         </div>
       </div>
@@ -90,69 +89,123 @@
   </section>
 
 
-
-
-
- <!-- Fourth Section -->
+  <!-- Fourth Section -->
   <section class="fourth-section" style="background-color: #F5F5F5;">
-    <div class="container text-center">
+    <div class="container d-flex flex-column align-items-center text-center">
       <h2>Top Cities To Visit</h2>
-      <div class="d-flex justify-content-center"> <!-- Add the d-flex class here -->
-        <div class="col-md-4-landing">
-          <div class="container-city-card-1">
-            <div class="img-city-card">
-              <img src="<%= image_path('zocalo-cdmx.jpg') %>" alt="City">
-            </div>
-            <div class="white-city-card">
-              <div class="info-city-card">
-                <h3 class="city-name">Mexico City</h3>
-                <p class="country-name">Mexico</p>
-                <div class="location-info">
+      <div class="flex-row d-flex mb-4">
+        <div class="col-12 col-md-4">
+          <div class="landing-city-card">
+              <img class="img-flex" class="img-flex" src="<%= image_path('zocalo-cdmx.jpg') %>" alt="City">
+              <div>
+                <h3 class="mx-4 mt-3">Mexico City</h3>
+                <p class="mx-4">Mexico</p>
+                <div class="mx-4">
                   <img src="<%= image_path('pin_2.png') %>" alt="Pin Icon" class="pin-icon">
-                  <span class="location-count">1000+ locations</span>
+                  <span class="">1000+ locations</span>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-        <div class="col-md-4-landing">
-        <div class="container-city-card-1">
-            <div class="img-city-card">
-              <img src="<%= image_path('https://res.cloudinary.com/dy2jex4vs/image/upload/v1690662504/glide/fundidora_kgj24k.jpg') %>" alt="City">
-            </div>
-            <div class="white-city-card">
-              <div class="info-city-card">
-                <h3 class="city-name">Monterrey</h3>
-                <p class="country-name">Mexico</p>
-                <div class="location-info">
+        <div class="col-12 col-md-4">
+          <div class="landing-city-card">
+              <img class="img-flex" src="<%= image_path('https://res.cloudinary.com/dy2jex4vs/image/upload/v149042504/glide/fundidora_kgj24k.jpg') %>" alt="City">
+              <div>
+                <h3 class="mx-4 mt-3">Monterrey</h3>
+                <p class="mx-4">Mexico</p>
+                <div class="mx-4">
                   <img src="<%= image_path('pin_2.png') %>" alt="Pin Icon" class="pin-icon">
-                  <span class="location-count">600+ locations</span>
+                  <span class="">400+ locations</span>
                 </div>
               </div>
-            </div>
           </div>
         </div>
-        <div class="col-md-4-landing">
-          <div class="container-city-card-1">
-            <div class="img-city-card">
-              <img src="<%= image_path('https://res.cloudinary.com/dy2jex4vs/image/upload/v1690663757/glide/teatro_degollado_ihshqb.jpg') %>" alt="City">
-            </div>
-            <div class="white-city-card">
-              <div class="info-city-card">
-                <h3 class="city-name">Guadalajara</h3>
-                <p class="country-name">Mexico</p>
-                <div class="location-info">
+        <div class="col-12 col-md-4">
+          <div class="landing-city-card">
+              <img class="img-flex" class="img-flex" src="<%= image_path('https://res.cloudinary.com/dy2jex4vs/image/upload/v149043757/glide/teatro_degollado_ihshqb.jpg') %>" alt="City">
+              <div>
+                <h3 class="mx-4 mt-3">Guadalajara</h3>
+                <p class="mx-4">Mexico</p>
+                <div class="mx-4">
                   <img src="<%= image_path('pin_2.png') %>" alt="Pin Icon" class="pin-icon">
-                  <span class="location-count">500+ locations</span>
+                  <span class="">500+ locations</span>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
+      <div>
+      <a href="<%= user_signed_in? ? new_location_path : new_user_session_path %>" class="btn btn-primary">Add your city to Glide</a>
+      </div>
     </div>
   </section>
-
-
 </body>
-</html>
+
+<style>
+.landing-city-card {
+  width: 250px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 0px 0px 20px 0px;
+  text-align: left;
+}
+
+.img-flex {
+  width: 100%;
+  height: 190px;
+  border-radius: 10px 10px 0px 0px; /* Added border-radius to the image */
+}
+
+.square-container-landing {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 24px 24px 12px 24px;
+}
+
+.icon-landing {
+  width: 60px; /* Adjust the size of the icon as needed */
+  height: 60px;
+  margin-bottom: 14px; /* Add some spacing between the icon and the title */
+}
+
+.btn-primary {
+  background-color: #097695;
+  border-color: #097695;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #045065;
+  border-color: #045065;
+  color: white;
+  border-radius: 10px;
+}
+
+.btn-search {
+  width: 40px;
+  height: 35px;
+  padding: 0%;
+  border-radius: 0px 10px 10px 0px;
+  background-color: #FD7E14;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-search:hover {
+  background: #A24C03;
+}
+
+.bigger-image {
+ /* Set the maximum height for the image */
+  }
+
+.max-width-p {
+  max-width: 210px;
+  word-wrap: break-word; /* This ensures that the text wraps to the next line if it exceeds the maximum width */
+}
+</style>

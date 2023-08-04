@@ -79,68 +79,11 @@
   padding: 60px 0; /* Adjust the padding as needed */
 }
 
-.second-section h2 {
-  font-size: 36px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.second-section img {
-  max-width: 80%; /* Adjust the size of the image as needed */
-  margin-bottom: 20px;
-}
-
-.second-section p {
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: left;
-}
-
-.second-section .col-md-6 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.second-section .btn-signup {
-  margin-top: 30px;
-  background-color: $cyan-700;
-  color: white;
-  max-width: 100px;
-}
 
 .second-section .btn-signup:hover {
   background-color: $cyan-900;
 }
 
-
-.col-md-4-landing {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0px 40px; /* Adjust the vertical margin (spacing) between the containers */
-  padding: 48px;
-}
-
-
-.square-container-landing {
-  width: 270px; /* Adjust the size of the container as needed */
-  height: 270px;
-  background-color: white;
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 20px; /* Adjust the border-radius as needed for the desired roundness */
-  padding: 24px; /* Add some padding to create space between content and container edge */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-landing {
-  width: 80px; /* Adjust the size of the icon as needed */
-  height: 80px;
-  margin-bottom: 20px; /* Add some spacing between the icon and the title */
-}
 
 
 .h4-landing {
@@ -163,12 +106,6 @@
 }
 
 /* Adjust spacing between the containers for different screen sizes */
-.col-md-4-landing {
-  display: flex;
-  justify-content: center;
-  margin: 0 10px; /* Adjust the horizontal margin (spacing) between the containers */
-}
-
 .third-section h2 {
   font-size: 36px;
   margin-bottom: 12px;
